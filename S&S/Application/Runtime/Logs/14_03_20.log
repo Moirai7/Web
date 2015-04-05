@@ -1,0 +1,17 @@
+[ 2014-03-20T18:37:25+08:00 ] 127.0.0.1 /ThinkPHP_3.2.1_140215/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.024787s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015562s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015796s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001303s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.001509s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.030083s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.030277s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.029846s ]
+INFO: [ app_end ] --END-- [ RunTime:0.030050s ]
+
