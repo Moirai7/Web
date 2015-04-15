@@ -210,3 +210,10 @@ INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002259s ]
 INFO: [ app_begin ] --END-- [ RunTime:0.006129s ]
 NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
 
+[ 2015-04-15T21:12:11+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001742s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002868s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006046s ]
+NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
+

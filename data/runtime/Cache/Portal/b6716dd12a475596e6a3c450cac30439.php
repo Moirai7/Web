@@ -59,7 +59,11 @@
 	            <span class="user-nicename"></span><b class="caret"></b></a>
 	            <ul class="dropdown-menu pull-right">
 	               <li><a href="<?php echo u('user/center/index');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
-				   
+				   <?php
+ if(get_admin_type()){ ?>
+				   <li><a href="/TYT/admin"><i class="fa fa-user"></i> &nbsp;后台管理</a></li>
+				   <?php
+ } ?>
 	               <li class="divider"></li>
 	               <li><a href="<?php echo u('user/index/logout');?>"><i class="fa fa-sign-out"></i> &nbsp;退出</a></li>
 	            </ul>
