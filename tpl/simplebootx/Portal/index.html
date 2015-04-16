@@ -92,8 +92,25 @@ $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
 		<h1 class="text-center">最新资讯</h1>
 		<h3 class="text-center">Last News</h3>
 	</div>
-	<php>
-		$lastnews=sp_sql_posts("cid:$portal_index_lastnews;field:post_title,post_excerpt,tid,smeta;order:listorder asc;limit:4;"); 
+	<div class="row">
+		<div class="span4 text-right-notice">
+			 <h2 class="font-large nospace"><i class="fa fa-bars"></i> 公告</h2>
+	        	<div class="ranking">
+	        		<php>
+						$hot_articles=sp_sql_posts("cid:$portal_index_notice;field:post_title,post_excerpt,tid,smeta;order:post_hits desc;limit:9;"); 
+					</php>
+		        	<ul class="unstyled">
+		        		<foreach name="hot_articles" item="vo">
+		        			<php>$top=$key<3?"top3":"";</php>
+							<li class="{$top}"><i>{$key+1}</i><a title="{$vo.post_title}" href="{:leuu('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></li>
+						</foreach>
+					</ul>
+				</div>
+		</div>
+		<div class="span4 text-left-news">
+			 <h2 class="font-large nospace"><i class="fa fa-group"></i> 新闻</h2>
+			 <php>
+		$lastnews=sp_sql_posts("cid:$portal_index_news;field:post_title,post_excerpt,tid,smeta;order:listorder asc;limit:6;"); 
 	</php>
 	<div class="row">
 		<foreach name="lastnews" item="vo">
@@ -120,6 +137,9 @@ $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
 		</div>
 		</foreach>
 	</div>
+		</div>
+	</div>
+	
 <tc_include file="Public:footer"/>
 </div>
 

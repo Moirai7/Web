@@ -1,219 +1,47 @@
-[ 2015-04-15T20:04:43+08:00 ] ::1 /TYT/index.php?g=user&m=register&a=doregister
+[ 2015-04-15T23:39:29+08:00 ] ::1 /TYT/index.php?g=user&m=login&a=doforgot_password
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001202s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002081s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.004206s ]
-SQL: SHOW COLUMNS FROM `sp_options` [ RunTime:0.0142s ]
-SQL: SELECT * FROM `sp_options` WHERE ( option_name='site_options' ) LIMIT 1   [ RunTime:0.0294s ]
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001350s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001944s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004210s ]
+SQL: SHOW COLUMNS FROM `sp_options` [ RunTime:0.0190s ]
+SQL: SELECT * FROM `sp_options` WHERE ( option_name='site_options' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0136s ]
+SQL: SELECT * FROM `sp_users` WHERE `user_email` = '12301055@bjtu.edu.cn' LIMIT 1   [ RunTime:0.0006s ]
+SQL: UPDATE `sp_users` SET `user_activation_key`='3d4efa4619c8b390482af18ec8930ed8' WHERE `id` = '2' [ RunTime:0.0005s ]
 
-[ 2015-04-15T20:04:50+08:00 ] ::1 /TYT/index.php?g=user&m=register&a=doregister
+[ 2015-04-15T23:39:31+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001570s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002201s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.004852s ]
-SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0179s ]
-SQL: SHOW COLUMNS FROM `sp_options` [ RunTime:0.0109s ]
-SQL: SELECT * FROM `sp_options` WHERE ( option_name='cmf_settings' ) LIMIT 1   [ RunTime:0.0005s ]
-NOTIC: [8] Undefined index: banned_usernames E:\Wamp\www\TYT\application\Common\Common\function.php 第 278 行.
-SQL: SELECT COUNT(*) AS tp_count FROM `sp_users` WHERE `user_login` = '123' OR `user_email` = '12301055@bjtu.edu.cn' LIMIT 1   [ RunTime:0.0099s ]
-SQL: INSERT INTO `sp_users` (`user_login`,`user_email`,`user_nicename`,`user_pass`,`last_login_ip`,`create_time`,`last_login_time`,`user_status`,`user_type`) VALUES ('123','12301055@bjtu.edu.cn','123','c535018ee946e10adc3949ba59abbe56e057f20f883e89af','0.0.0.0','2015-04-15 20:04:50','2015-04-15 20:04:50','1','2') [ RunTime:0.0267s ]
-
-[ 2015-04-15T20:04:52+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001836s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.004686s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.008011s ]
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002248s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007231s ]
 NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
 
-[ 2015-04-15T20:05:05+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
+[ 2015-04-15T23:39:51+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002403s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.006170s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.011806s ]
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001888s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003842s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007133s ]
 NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
 
-[ 2015-04-15T20:19:20+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
+[ 2015-04-15T23:40:05+08:00 ] ::1 /TYT/index.php?g=user&m=login&a=dopassword_reset
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003486s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.013066s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.019981s ]
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001372s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003133s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005517s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0148s ]
+SQL: UPDATE `sp_users` SET `user_pass`='c535018ee946e10adc3949ba59abbe56e057f20f883e89af',`user_activation_key`='' WHERE `user_activation_key` = '3d4efa4619c8b390482af18ec8930ed8' [ RunTime:0.0007s ]
+
+[ 2015-04-15T23:40:07+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003007s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.004858s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011513s ]
 NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
 
-[ 2015-04-15T20:19:23+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
+[ 2015-04-15T23:40:09+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
 INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003048s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003033s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.007435s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:19:25+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005950s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.013183s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.020695s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:19:40+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001511s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002216s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.005287s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:20:03+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001435s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001940s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.005296s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:20:19+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000948s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001297s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.003098s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:26:06+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002719s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002255s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.006452s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:26:09+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002655s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002161s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.006660s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:26:25+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001305s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001870s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.004109s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:26:28+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004249s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003419s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.009971s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:27:07+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001889s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.005073s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.008346s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:27:10+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005200s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.032869s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.044835s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:27:25+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002970s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003350s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.007819s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:47:36+08:00 ] ::1 /tyt/index.php?g=user&m=center&a=index
-ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'where clause'
-
-[ 2015-04-15T20:48:38+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001262s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001864s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.004091s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:48:41+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001736s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003655s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.006916s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:59:11+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006464s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002862s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.010720s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:59:21+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001211s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001772s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.003871s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:59:23+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001973s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002316s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.005619s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:59:24+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001198s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001782s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.003844s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:59:52+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002149s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002684s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.006276s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T20:59:54+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001918s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003454s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.006838s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T21:02:51+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001288s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001893s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.004216s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T21:02:56+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002449s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002875s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.006864s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T21:03:00+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001463s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.003262s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.006047s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T21:03:06+08:00 ] ::1 /TYT/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002345s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002259s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.006129s ]
-NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
-
-[ 2015-04-15T21:12:11+08:00 ] ::1 /tyt/index.php?g=user&m=index&a=is_login
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001742s ]
-INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002868s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.006046s ]
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001951s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.004203s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007560s ]
 NOTIC: [8] Undefined index: url E:\Wamp\www\TYT\application\Common\Controller\AppframeController.class.php 第 43 行.
 

@@ -5,7 +5,7 @@
 <meta name="keywords" content="<?php echo ($site_seo_keywords); ?>" />
 <meta name="description" content="<?php echo ($site_seo_description); ?>">
 <meta name="author" content="ThinkCMF">
-	<?php $portal_index_lastnews=2; $portal_hot_articles="1,2"; $portal_last_post="1,2"; $tmpl=sp_get_theme_path(); $default_home_slides=array( array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/1.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/2.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/3.jpg", "slide_url"=>"", ), ); ?>
+	<?php $portal_index_lastnews=4; $portal_hot_articles="3,4"; $portal_last_post="3,4"; $portal_index_notice=3; $portal_index_news=4; $tmpl=sp_get_theme_path(); $default_home_slides=array( array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/1.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/2.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/3.jpg", "slide_url"=>"", ), ); ?>
 	<meta name="author" content="ThinkCMF">
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,10 +62,10 @@
 	            <ul class="dropdown-menu pull-right">
 	               <li><a href="<?php echo u('user/center/index');?>"><i class="fa fa-user"></i> &nbsp;个人中心</a></li>
 				   <?php
- ?>
+ if(get_admin_type()){ ?>
 				   <li><a href="/TYT/admin"><i class="fa fa-user"></i> &nbsp;后台管理</a></li>
 				   <?php
- ?>
+ } ?>
 	               <li class="divider"></li>
 	               <li><a href="<?php echo u('user/index/logout');?>"><i class="fa fa-sign-out"></i> &nbsp;退出</a></li>
 	            </ul>
@@ -120,13 +120,6 @@
 							<?php echo sp_verifycode_img('length=4&font_size=15&width=100&height=35&charset=1234567890');?>
 						</div>
 					</div>
-					<div class="control-group">
-						<label class="control-label" for="input_repassword"></label>
-						<div class="controls">
-							<label class="checkbox persistent"><input type="checkbox" name="terms" value="1">我同意
-								<a href="#">网站内容服务条款</a></label>
-						</div>
-					</div>
 
 					<div class="control-group">
 						<label class="control-label" for="input_repassword"></label>
@@ -154,14 +147,10 @@
       <hr>
 <?php echo hook('footer');?>
       <div id="footer">
-        <div class="links">
-        <?php $links=sp_getlinks(); ?>
-        <?php if(is_array($links)): foreach($links as $key=>$vo): ?><a href="<?php echo ($vo["link_url"]); ?>" target="<?php echo ($vo["link_target"]); ?>"><?php echo ($vo["link_name"]); ?></a><?php endforeach; endif; ?>
-        </div>
+        
         <p>
-        Made by <a href="http://www.thinkcmf.com">ThinkCMF</a>
-        Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow" target="_blank">Apache License v2.0</a>.<br/>
-        Based on <a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a>.  Icons from <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a>
+        Made by ThinkCMF Code licensed under the Apache License v2.0.
+		Based on Bootstrap. Icons from Font Awesome
         </p>
       </div>
       <div id="backtotop"><i class="fa fa-arrow-circle-up"></i></div>

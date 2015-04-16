@@ -4,7 +4,7 @@
 		<title><?php echo ($site_seo_title); ?> <?php echo ($site_name); ?></title>
 		<meta name="keywords" content="<?php echo ($site_seo_keywords); ?>" />
 		<meta name="description" content="<?php echo ($site_seo_description); ?>">
-			<?php $portal_index_lastnews=2; $portal_hot_articles="1,2"; $portal_last_post="1,2"; $tmpl=sp_get_theme_path(); $default_home_slides=array( array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/1.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/2.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/3.jpg", "slide_url"=>"", ), ); ?>
+			<?php $portal_index_lastnews=4; $portal_hot_articles="3,4"; $portal_last_post="3,4"; $portal_index_notice=3; $portal_index_news=4; $tmpl=sp_get_theme_path(); $default_home_slides=array( array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/1.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/2.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/3.jpg", "slide_url"=>"", ), ); ?>
 	<meta name="author" content="ThinkCMF">
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -169,7 +169,20 @@
 		<h1 class="text-center">最新资讯</h1>
 		<h3 class="text-center">Last News</h3>
 	</div>
-	<?php $lastnews=sp_sql_posts("cid:$portal_index_lastnews;field:post_title,post_excerpt,tid,smeta;order:listorder asc;limit:4;"); ?>
+	<div class="row">
+		<div class="span4 text-right-notice">
+			 <h2 class="font-large nospace"><i class="fa fa-bars"></i> 公告</h2>
+	        	<div class="ranking">
+	        		<?php $hot_articles=sp_sql_posts("cid:$portal_index_notice;field:post_title,post_excerpt,tid,smeta;order:post_hits desc;limit:9;"); ?>
+		        	<ul class="unstyled">
+		        		<?php if(is_array($hot_articles)): foreach($hot_articles as $key=>$vo): $top=$key<3?"top3":""; ?>
+							<li class="<?php echo ($top); ?>"><i><?php echo ($key+1); ?></i><a title="<?php echo ($vo["post_title"]); ?>" href="<?php echo leuu('article/index',array('id'=>$vo['tid']));?>"><?php echo ($vo["post_title"]); ?></a></li><?php endforeach; endif; ?>
+					</ul>
+				</div>
+		</div>
+		<div class="span4 text-left-news">
+			 <h2 class="font-large nospace"><i class="fa fa-group"></i> 新闻</h2>
+			 <?php $lastnews=sp_sql_posts("cid:$portal_index_news;field:post_title,post_excerpt,tid,smeta;order:listorder asc;limit:6;"); ?>
 	<div class="row">
 		<?php if(is_array($lastnews)): foreach($lastnews as $key=>$vo): $smeta=json_decode($vo['smeta'],true); ?>
 		<div class="span3">
@@ -191,20 +204,19 @@
 			</div>
 		</div><?php endforeach; endif; ?>
 	</div>
+		</div>
+	</div>
+	
 <br><br><br>
 <!-- Footer
       ================================================== -->
       <hr>
 <?php echo hook('footer');?>
       <div id="footer">
-        <div class="links">
-        <?php $links=sp_getlinks(); ?>
-        <?php if(is_array($links)): foreach($links as $key=>$vo): ?><a href="<?php echo ($vo["link_url"]); ?>" target="<?php echo ($vo["link_target"]); ?>"><?php echo ($vo["link_name"]); ?></a><?php endforeach; endif; ?>
-        </div>
+        
         <p>
-        Made by <a href="http://www.thinkcmf.com">ThinkCMF</a>
-        Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow" target="_blank">Apache License v2.0</a>.<br/>
-        Based on <a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a>.  Icons from <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a>
+        Made by ThinkCMF Code licensed under the Apache License v2.0.
+		Based on Bootstrap. Icons from Font Awesome
         </p>
       </div>
       <div id="backtotop"><i class="fa fa-arrow-circle-up"></i></div>

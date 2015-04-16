@@ -5,7 +5,7 @@
 <meta name="keywords" content="<?php echo ($site_seo_keywords); ?>" />
 <meta name="description" content="<?php echo ($site_seo_description); ?>">
 <meta name="author" content="ThinkCMF">
-	<?php $portal_index_lastnews=2; $portal_hot_articles="1,2"; $portal_last_post="1,2"; $tmpl=sp_get_theme_path(); $default_home_slides=array( array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/1.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/2.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/3.jpg", "slide_url"=>"", ), ); ?>
+	<?php $portal_index_lastnews=4; $portal_hot_articles="3,4"; $portal_last_post="3,4"; $portal_index_notice=3; $portal_index_news=4; $tmpl=sp_get_theme_path(); $default_home_slides=array( array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/1.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/2.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/3.jpg", "slide_url"=>"", ), ); ?>
 	<meta name="author" content="ThinkCMF">
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,15 +37,9 @@
 		#main-menu-user li.user{display: none}
 	</style>
 	
-<style>
-.control-label{
-	font-weight: bold;
-	float: left;
-	width: 70px;
-}
-</style>
 </head>
-<body class="body-white" id="top">
+
+<body class="body-white">
 	<?php echo hook('body_start');?>
 <div class="navbar navbar-fixed-top">
    <div class="navbar-inner">
@@ -100,75 +94,53 @@
    </div>
  </div>
 
-		<div class="container tc-main">
-                <div class="row">
-                    <div class="span3">
-	                    <div class="list-group">
-	<a class="list-group-item" href="<?php echo u('user/profile/edit');?>"><i class="fa fa-list-alt"></i> 修改资料</a>
-	<a class="list-group-item" href="<?php echo u('user/profile/password');?>"><i class="fa fa-lock"></i> 修改密码</a>
-	<a class="list-group-item" href="<?php echo u('user/profile/avatar');?>"><i class="fa fa-user"></i> 编辑头像</a>
-	<a class="list-group-item" href="<?php echo u('user/profile/bang');?>"><i class="fa fa-exchange"></i> 绑定账号</a>
-	<a class="list-group-item" href="<?php echo u('user/favorite/index');?>"><i class="fa fa-star-o"></i> 我的收藏</a>
-	<a class="list-group-item" href="<?php echo u('comment/comment/index');?>"><i class="fa fa-comments-o"></i> 我的评论</a>
-</div>
-                    </div>
-                    <div class="span9">
-                           <div class="tabs">
-                               <ul class="nav nav-tabs">
-                                   <li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-list-alt"></i>个人中心</a></li>
-                               </ul>
-                               <div class="tab-content">
-                                   <div class="tab-pane active" id="one">
-                                   		  <div class="span2">
-                                   		  <a href="<?php echo U('profile/avatar');?>">
-                                   			<?php if(empty($avatar)): ?><img src="/TYT/tpl/simplebootx//Public/images/headicon_128.png" class="headicon"/>
-								            <?php else: ?>
-								            <img src="<?php echo sp_get_user_avatar_url($avatar);?>" class="headicon"/><?php endif; ?>
-								          </a>
-										  </div>      
-										  <div class="span3">
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-user_nicename">昵称</label>
-                                   				<div class="controls">
-                                   					<?php echo ((isset($user_nicename) && ($user_nicename !== ""))?($user_nicename):'未填写'); ?>
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-sex">性别</label>
-                                   				<div class="controls">
-                                   				<?php $sexs=array("0"=>"保密","1"=>"程序猿","2"=>"程序媛"); ?>
-                                   					<?php echo ($sexs[$sex]); ?>
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-birthday">生日</label>
-                                   				<div class="controls">
-                                   					<?php echo ((isset($birthday) && ($birthday !== ""))?($birthday):'未填写'); ?>
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-user_url">个人网址</label>
-                                   				<div class="controls">
-                                   					<?php echo ((isset($user_url) && ($user_url !== ""))?($user_url):'未填写'); ?>
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-signature">个性签名</label>
-                                   				<div class="controls">
-                                   					<?php echo ((isset($signature) && ($signature !== ""))?($signature):'未填写'); ?>
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<div class="controls">
-                                   					<a href="<?php echo U('user/profile/edit');?>" type="submit" class="btn">编辑</a>
-                                   				</div>
-                                   			</div>
-                                   		</div>
-                                   </div>
-                               </div>							
-                           </div>
-                    </div>
-                </div>
+	<div class="container tc-main">
+		<div class="row">
+			<div class="span6 offset3">
+				<h2 class="text-center">密码重置</h2>
+				<form class="form-horizontal J_ajaxForm" action="<?php echo U('user/login/dopassword_reset');?>" method="post">
+					<div class="control-group">
+						<label class="control-label" for="input_password">密码</label>
+						<div class="controls">
+							<input type="password" id="input_password" name="password" class="span3">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_repassword">重复密码</label>
+						<div class="controls">
+							<input type="password" id="input_repassword" name="repassword" class="span3">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_verify">验证码</label>
+						<div class="controls">
+							<input type="text" id="input_verify" name="verify" class="span3">
+							<?php echo sp_verifycode_img('code_len=4&font_size=15&width=100&height=35&charset=1234567890');?>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<input type="hidden" name="hash" value="<?php echo ($_GET['hash']); ?>">
+							<button class="btn btn-primary J_ajax_submit_btn" type="submit">确定</button>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<ul class="inline">
+								<li><a href="<?php echo U('user/register/index');?>">现在注册</a></li>
+								<li><a href="<?php echo U('user/login/index');?>">现在登录</a></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 
 		<br><br><br>
 <!-- Footer
@@ -176,14 +148,10 @@
       <hr>
 <?php echo hook('footer');?>
       <div id="footer">
-        <div class="links">
-        <?php $links=sp_getlinks(); ?>
-        <?php if(is_array($links)): foreach($links as $key=>$vo): ?><a href="<?php echo ($vo["link_url"]); ?>" target="<?php echo ($vo["link_target"]); ?>"><?php echo ($vo["link_name"]); ?></a><?php endforeach; endif; ?>
-        </div>
+        
         <p>
-        Made by <a href="http://www.thinkcmf.com">ThinkCMF</a>
-        Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow" target="_blank">Apache License v2.0</a>.<br/>
-        Based on <a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a>.  Icons from <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a>
+        Made by ThinkCMF Code licensed under the Apache License v2.0.
+		Based on Bootstrap. Icons from Font Awesome
         </p>
       </div>
       <div id="backtotop"><i class="fa fa-arrow-circle-up"></i></div>
