@@ -121,7 +121,14 @@ CREATE TABLE `sp_common_action_log` (
   KEY `user_object_action` (`user`,`object`,`action`),
   KEY `user_object_action_ip` (`user`,`object`,`action`,`ip`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+--
+-- 转存表中的数据 `sp_common_action_log`
+--
 
+INSERT INTO `sp_common_action_log` (`id`, `user`, `object`, `action`, `count`, `last_time`, `ip`) VALUES
+(1, 1, 'posts1', 'Portal-Article-index', 3, 1429263231, '0.0.0.0'),
+(2, 1, 'posts5', 'Portal-Article-index', 1, 1429111011, '0.0.0.0'),
+(3, 0, 'posts1', 'Portal-Article-index', 1, 1429260007, '0.0.0.0');
 
 -- 
 -- 表的结构 `sp_guestbook`
@@ -268,7 +275,10 @@ CREATE TABLE `sp_options` (
 -- 导出表中的数据 `sp_options`
 -- 
 
-INSERT INTO `sp_options` VALUES (1, 'member_email_active', '{"title":"ThinkCMF\\u90ae\\u4ef6\\u6fc0\\u6d3b\\u901a\\u77e5.","template":"<p>\\u672c\\u90ae\\u4ef6\\u6765\\u81ea<a href=\\"http:\\/\\/www.thinkcmf.com\\">ThinkCMF<\\/a><br\\/><br\\/>&nbsp; &nbsp;<strong>---------------<\\/strong><br\\/>&nbsp; &nbsp;<strong>\\u5e10\\u53f7\\u6fc0\\u6d3b\\u8bf4\\u660e<\\/strong><br\\/>&nbsp; &nbsp;<strong>---------------<\\/strong><br\\/><br\\/>&nbsp; &nbsp; \\u5c0a\\u656c\\u7684<span style=\\"FONT-SIZE: 16px; FONT-FAMILY: Arial; COLOR: rgb(51,51,51); LINE-HEIGHT: 18px; BACKGROUND-COLOR: rgb(255,255,255)\\">#username#\\uff0c\\u60a8\\u597d\\u3002<\\/span>\\u5982\\u679c\\u60a8\\u662fThinkCMF\\u7684\\u65b0\\u7528\\u6237\\uff0c\\u6216\\u5728\\u4fee\\u6539\\u60a8\\u7684\\u6ce8\\u518cEmail\\u65f6\\u4f7f\\u7528\\u4e86\\u672c\\u5730\\u5740\\uff0c\\u6211\\u4eec\\u9700\\u8981\\u5bf9\\u60a8\\u7684\\u5730\\u5740\\u6709\\u6548\\u6027\\u8fdb\\u884c\\u9a8c\\u8bc1\\u4ee5\\u907f\\u514d\\u5783\\u573e\\u90ae\\u4ef6\\u6216\\u5730\\u5740\\u88ab\\u6ee5\\u7528\\u3002<br\\/>&nbsp; &nbsp; \\u60a8\\u53ea\\u9700\\u70b9\\u51fb\\u4e0b\\u9762\\u7684\\u94fe\\u63a5\\u5373\\u53ef\\u6fc0\\u6d3b\\u60a8\\u7684\\u5e10\\u53f7\\uff1a<br\\/>&nbsp; &nbsp; <a title=\\"\\" href=\\"http:\\/\\/#link#\\" target=\\"_self\\">http:\\/\\/#link#<\\/a><br\\/>&nbsp; &nbsp; (\\u5982\\u679c\\u4e0a\\u9762\\u4e0d\\u662f\\u94fe\\u63a5\\u5f62\\u5f0f\\uff0c\\u8bf7\\u5c06\\u8be5\\u5730\\u5740\\u624b\\u5de5\\u7c98\\u8d34\\u5230\\u6d4f\\u89c8\\u5668\\u5730\\u5740\\u680f\\u518d\\u8bbf\\u95ee)<br\\/>&nbsp; &nbsp; \\u611f\\u8c22\\u60a8\\u7684\\u8bbf\\u95ee\\uff0c\\u795d\\u60a8\\u4f7f\\u7528\\u6109\\u5feb\\uff01<br\\/><br\\/>&nbsp; &nbsp; \\u6b64\\u81f4<br\\/>&nbsp; &nbsp; ThinkCMF \\u7ba1\\u7406\\u56e2\\u961f.<\\/p>"}', 1);
+INSERT INTO `sp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(1, 'member_email_active', '{"title":"Moirai\\u90ae\\u4ef6\\u6fc0\\u6d3b\\u901a\\u77e5.","template":"<p>\\u672c\\u90ae\\u4ef6\\u6765\\u81ea<a href=\\"http:\\/\\/www.moirai.cn\\">Moirai<\\/a><br\\/><br\\/>&nbsp; &nbsp;<strong>---------------<\\/strong><br\\/>&nbsp; &nbsp;<strong>\\u5e10\\u53f7\\u6fc0\\u6d3b\\u8bf4\\u660e<\\/strong><br\\/>&nbsp; &nbsp;<strong>---------------<\\/strong><br\\/><br\\/>&nbsp; &nbsp; \\u5c0a\\u656c\\u7684<span style=\\"FONT-SIZE: 16px; FONT-FAMILY: Arial; COLOR: rgb(51,51,51); LINE-HEIGHT: 18px; BACKGROUND-COLOR: rgb(255,255,255)\\">#username#\\uff0c\\u60a8\\u597d\\u3002<\\/span>\\u5982\\u679c\\u60a8\\u662fThinkCMF\\u7684\\u65b0\\u7528\\u6237\\uff0c\\u6216\\u5728\\u4fee\\u6539\\u60a8\\u7684\\u6ce8\\u518cEmail\\u65f6\\u4f7f\\u7528\\u4e86\\u672c\\u5730\\u5740\\uff0c\\u6211\\u4eec\\u9700\\u8981\\u5bf9\\u60a8\\u7684\\u5730\\u5740\\u6709\\u6548\\u6027\\u8fdb\\u884c\\u9a8c\\u8bc1\\u4ee5\\u907f\\u514d\\u5783\\u573e\\u90ae\\u4ef6\\u6216\\u5730\\u5740\\u88ab\\u6ee5\\u7528\\u3002<br\\/>&nbsp; &nbsp; \\u60a8\\u53ea\\u9700\\u70b9\\u51fb\\u4e0b\\u9762\\u7684\\u94fe\\u63a5\\u5373\\u53ef\\u6fc0\\u6d3b\\u60a8\\u7684\\u5e10\\u53f7\\uff1a<br\\/>&nbsp; &nbsp; <a title=\\"\\" href=\\"http:\\/\\/#link#\\" target=\\"_self\\">http:\\/\\/#link#<\\/a><br\\/>&nbsp; &nbsp; (\\u5982\\u679c\\u4e0a\\u9762\\u4e0d\\u662f\\u94fe\\u63a5\\u5f62\\u5f0f\\uff0c\\u8bf7\\u5c06\\u8be5\\u5730\\u5740\\u624b\\u5de5\\u7c98\\u8d34\\u5230\\u6d4f\\u89c8\\u5668\\u5730\\u5740\\u680f\\u518d\\u8bbf\\u95ee)<br\\/>&nbsp; &nbsp; \\u611f\\u8c22\\u60a8\\u7684\\u8bbf\\u95ee\\uff0c\\u795d\\u60a8\\u4f7f\\u7528\\u6109\\u5feb\\uff01<br\\/><br\\/>&nbsp; &nbsp; \\u6b64\\u81f4<br\\/>&nbsp; &nbsp; Moirai \\u7ba1\\u7406\\u56e2\\u961f.<\\/p>"}', 1),
+(2, 'site_options', '{"site_name":"TYT","site_host":"http:\\/\\/localhost\\/TYT\\/","site_tpl":"simplebootx","mobile_tpl_enabled":"1","site_adminstyle":"flat","site_icp":"","site_admin_email":"moirai.zhang@gmail.com","site_tongji":"","site_copyright":"","site_seo_title":"\\u5317\\u4eac\\u4ea4\\u901a\\u5927\\u5b66","site_seo_keywords":"","site_seo_description":"\\u5317\\u4eac\\u4ea4\\u901a\\u5927\\u5b66TYT","urlmode":"0","html_suffix":"","ucenter_enabled":"1","comment_time_interval":60}', 1),
+(3, 'cmf_settings', '{"banned_usernames":""}', 1);
 
 -- --------------------------------------------------------
 
@@ -322,6 +332,12 @@ CREATE TABLE `sp_posts` (
   KEY `post_date` (`post_date`) USING BTREE
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+INSERT INTO `sp_posts` (`id`, `post_author`, `post_keywords`, `post_source`, `post_date`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `post_modified`, `post_content_filtered`, `post_parent`, `post_type`, `post_mime_type`, `comment_count`, `smeta`, `post_hits`, `post_like`, `istop`, `recommended`) VALUES
+(1, 1, '', '', '2015-04-15 22:28:06', '<p>ceshi&nbsp;<br/></p>', 'ceshi', 'ceshi', 1, 1, '2015-04-15 22:25:34', NULL, 0, NULL, '', 0, '{"thumb":"552e756720eda.jpg"}', 2, 0, 0, 0),
+(2, 1, '', '', '2015-04-15 22:57:17', '<p>lanlan</p>', 'lanlan', 'lanlan', 1, 1, '2015-04-15 22:54:44', NULL, 0, NULL, '', 0, '{"thumb":"552e7c48ea3cc.png"}', 0, 0, 0, 0),
+(3, 1, '', '', '2015-04-15 22:58:34', '<p>lanlan2</p>', 'lanlan2', 'lanlan2', 1, 1, '2015-04-15 22:58:12', NULL, 0, NULL, '', 0, '{"thumb":"552e7c9603d34.png"}', 0, 0, 0, 0),
+(4, 1, '', '', '2015-04-15 22:59:30', '<p>lanlan2</p>', 'lanlan2', 'lanlan2', 1, 1, '2015-04-15 22:58:58', NULL, 0, NULL, '', 0, '{"thumb":"","photo":[{"url":"552e7cc3c445a.jpg","alt":"1"}]}', 0, 0, 0, 0),
+(5, 1, '', '', '2015-04-15 23:00:05', '<p>lanlan2</p>', 'lanlan2', 'lanlan2', 1, 1, '2015-04-15 22:59:45', NULL, 0, NULL, '', 0, '{"thumb":"552e7cef3718d.jpg"}', 1, 0, 0, 0);
 
 -- 
 -- 表的结构 `sp_role`
@@ -403,6 +419,10 @@ CREATE TABLE `sp_slide` (
 -- 
 
 
+INSERT INTO `sp_slide` (`slide_id`, `slide_cid`, `slide_name`, `slide_pic`, `slide_url`, `slide_des`, `slide_content`, `slide_status`, `listorder`) VALUES
+(1, 1, 'ceshi', '/TYT/data/upload/552e7fb0519ed.png', 'http://moirai.cn', 'ceshi', 'ceshi', 1, 0),
+(2, 1, '测试', '/TYT/data/upload/552e7ff528a1d.jpg', '', '', '', 1, 0);
+
 -- --------------------------------------------------------
 
 -- 
@@ -423,6 +443,8 @@ CREATE TABLE `sp_slide_cat` (
 -- 导出表中的数据 `sp_slide_cat`
 -- 
 
+INSERT INTO `sp_slide_cat` (`cid`, `cat_name`, `cat_idname`, `cat_remark`, `cat_status`) VALUES
+(1, '首页幻灯片', 'portal_index', '', 1);
 
 -- --------------------------------------------------------
 
@@ -453,8 +475,9 @@ CREATE TABLE `sp_terms` (
 -- 导出表中的数据 `sp_terms`
 -- 
 
-INSERT INTO `sp_terms` VALUES (1, '列表演示', '', 'article', '', 0, 0, '0-1', '', '', '', 'list', 'article', 0, 1);
-INSERT INTO `sp_terms` VALUES (2, '瀑布流', '', 'article', '', 0, 0, '0-2', '', '', '', 'list_masonry', 'article', 0, 1);
+INSERT INTO `sp_terms` (`term_id`, `name`, `slug`, `taxonomy`, `description`, `parent`, `count`, `path`, `seo_title`, `seo_keywords`, `seo_description`, `list_tpl`, `one_tpl`, `listorder`, `status`) VALUES
+(3, '公告', '', 'article', '', 0, 0, '0-3', '', '', '', 'list', 'article', 0, 1),
+(4, '新闻', '', 'article', '', 0, 0, '0-4', '', '', '', 'list', 'article', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -472,6 +495,13 @@ CREATE TABLE `sp_term_relationships` (
   KEY `term_taxonomy_id` (`term_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
+INSERT INTO `sp_term_relationships` (`tid`, `object_id`, `term_id`, `listorder`, `status`) VALUES
+(1, 1, 3, 0, 1),
+(2, 1, 4, 0, 1),
+(4, 2, 4, 0, 1),
+(5, 3, 4, 0, 1),
+(6, 4, 4, 0, 1),
+(7, 5, 4, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -502,7 +532,9 @@ CREATE TABLE `sp_users` (
   KEY `user_nicename` (`user_nicename`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-
+INSERT INTO `sp_users` (`id`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `avatar`, `sex`, `birthday`, `signature`, `last_login_ip`, `last_login_time`, `create_time`, `user_activation_key`, `user_status`, `score`, `user_type`) VALUES
+(1, 'admin', 'c535018ee946e10adc3949ba59abbe56e057f20f883e89af', 'admin', 'moirai.zhang@gmail.com', '', NULL, 0, NULL, NULL, '0.0.0.0', '2015-04-17 16:41:03', '2015-04-15 06:35:17', '', 1, 0, 1),
+(2, '123', 'c535018ee946e10adc3949ba59abbe56e057f20f883e89af', '123', '12301055@bjtu.edu.cn', '', NULL, 0, NULL, NULL, '0.0.0.0', '2015-04-15 23:30:46', '2015-04-15 20:04:50', '', 1, 0, 2);
 -- 
 -- 表的结构 `sp_user_favorites`
 -- 
@@ -849,13 +881,14 @@ INSERT INTO `sp_menu` VALUES ('156', '39', 'Admin', 'Storage', 'index', '', '1',
 INSERT INTO `sp_menu` VALUES ('157', '156', 'Admin', 'Storage', 'setting_post', '', '1', '0', '文件存储设置提交', '', '', '0');
 -- --------------------------------------------------------
 
--- 
--- 导出表中的数据 `sp_nav`
--- 
+--
+-- 转存表中的数据 `sp_nav`
+--
 
-INSERT INTO `sp_nav` VALUES (1, 1, 0, '首页', '', 'home', '', 1, 0, '0-1');
-INSERT INTO `sp_nav` VALUES (2, 1, 0, '列表演示', '', 'a:2:{s:6:"action";s:17:"Portal/List/index";s:5:"param";a:1:{s:2:"id";s:1:"1";}}', '', 1, 0, '0-2');
-INSERT INTO `sp_nav` VALUES (3, 1, 0, '瀑布流', '', 'a:2:{s:6:"action";s:17:"Portal/List/index";s:5:"param";a:1:{s:2:"id";s:1:"2";}}', '', 1, 0, '0-3');
+INSERT INTO `sp_nav` (`id`, `cid`, `parentid`, `label`, `target`, `href`, `icon`, `status`, `listorder`, `path`) VALUES
+(1, 1, 0, '首页', '', 'home', '', 1, 0, '0-1'),
+(4, 1, 0, '公告', '', 'a:2:{s:6:"action";s:17:"Portal/List/index";s:5:"param";a:1:{s:2:"id";s:1:"3";}}', '', 1, 0, '0-4'),
+(5, 1, 0, '新闻', '', 'a:2:{s:6:"action";s:17:"Portal/List/index";s:5:"param";a:1:{s:2:"id";s:1:"4";}}', '', 1, 0, '0-5');
 
 
 -- 
