@@ -19,6 +19,8 @@ class LinkController extends AdminbaseController{
 	}
 	
 	function add(){
+		$links=$this->link_obj->order(array("listorder"=>"asc"))->where('link_type=0')->select();
+		$this->assign("links",$links);
 		$this->assign("targets",$this->targets);
 		$this->display();
 	}
