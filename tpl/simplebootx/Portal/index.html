@@ -58,16 +58,19 @@ $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
 		<h1 class="text-center">快速了解ThinkCMF</h1>
 		<h3 class="text-center">Quickly understand the ThinkCMF</h3>
 	</div>
+	<div class="span4 text-right-notice"> 
 	<?php
 		for ($i=0; $i < $falength; $i++) { 
 			print  "<div class='row'>";
-			print  "<h2>".$father[$i]['link_name']."</h2>";
+			print  "<h2 class='font-large nospace'><i class='fa fa-bars'></i>".$father[$i]['link_name']."</h2>";
+			print  "<div class='ranking'> <ul class='unstyled'>";
 			foreach ($sons[$i] as $key => $value) {
-				print  "<a href=".$value['link_url']." target=".$value['link_target'].">".$value['link_name']."</a>";
+				print  "<li class='top3'><i>".$key."</i><a href=".$value['link_url']." target=".$value['link_target'].">".$value['link_name']."</a></li>";
 			}
-			print  "</div>";
+			print  "</ul></div></div>";
 		}
-	?>
+	?> 
+	</div>
 	<div class="row">
 		<div class="span4">
 			 <h2 class="font-large nospace"><i class="fa fa-bars"></i> MVC分层模式</h2>
