@@ -38,17 +38,18 @@
 			#n li{
 			float: left;
 			list-style:none;
-			width: auto;
+			width: 120px;
+			height: 30px;
 			}
 			#n li a{
 				color: #ffffff;
 				text-decoration: none;
 				padding-top: 4px;
 				display: block;
-				width: 105px;
-				height: 20px;
+				width: auto;
+				height: 30px;
 				text-align: center;
-				background-color: #FFA040;
+				background-color: #FFC640;
 				margin-left: 2px;
 				font-size: 1.15em;
 			}
@@ -83,12 +84,12 @@ $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
 		<h3 class="text-center">Quickly understand the ThinkCMF</h3>
 	</div>
 
-	<div class="span8 text-right-notice"> 
+	<div class="span10 text-right-notice"> 
 	<?php
 		for ($ii=0; $ii < $falength; $ii++) { 
 			print  "<div class='row' id='n' style='height: 35px;'>";
 			print  "<ul>";
-			print  "<li><a href=".$father[$ii]['link_url']." target=".$father[$ii]['link_target'].">".$father[$ii]['link_name']."</a></li>";
+			print  "<li style='background-color: #FFA040;'><a style='background-color: #FFA040;' href=".$father[$ii]['link_url']." target=".$father[$ii]['link_target'].">".$father[$ii]['link_name']."</a></li>";
 			//print  "<div class='ranking'> <ul class='unstyled'>";
 			foreach ($sons[$ii] as $key => $value) {
 				print  "<li><a href=".$value['link_url']." target=".$value['link_target'].">".$value['link_name']."</a></li>";
@@ -99,10 +100,10 @@ $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
 	?> 
 	</div>
 	
-	<div>
+	<!-- <div>
 		<h1 class="text-center">最新资讯</h1>
 		<h3 class="text-center">Last News</h3>
-	</div>
+	</div> -->
 	<div class="row">
 		<div class="span4 text-right-notice">
 			 <h2 class="font-large nospace"><i class="fa fa-bars"></i> 公告</h2>
