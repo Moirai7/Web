@@ -31,6 +31,9 @@
 		    	</div>
 		    	<hr>
 		    	<div id="article_content">
+				<?php if(is_array($smeta['photo'])): foreach($smeta['photo'] as $key=>$vo): ?>
+				<p><span class="span-img" style="word-wrap: break-word; float: none; min-height: 1px; margin: 5px auto 15px; text-align: center; display: block; overflow: hidden;"><img src="{:sp_get_asset_upload_path($vo['url'])}" alt="{$post_hits}" style="word-wrap: break-word; max-width: 628px; vertical-align: middle; border: 0px;" data-bd-imgshare-binded="1"></span></p>
+				<?php endforeach; endif; ?>
 		    	{$post_content}
 		    	</div>
                 <if condition="!empty($post_source)">

@@ -78,7 +78,7 @@ $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
 	</div>
 	<div class="row">
 		<div class="span4 text-right-notice">
-			 <h2 class="font-large nospace"><i class="fa fa-bars"></i> 公告</h2>
+			 <h2 class="font-large nospace"><i class="fa fa-bars"></i> 公告 <span><a href="{:leuu('list/index',array('id'=>$portal_index_notice))}">more</a></span></h2>
 	        	<div class="ranking">
 	        		<php>
 						$hot_articles=sp_sql_posts("cid:$portal_index_notice;field:post_title,post_excerpt,tid,smeta;order:post_hits desc;limit:9;"); 
@@ -92,7 +92,7 @@ $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
 				</div>
 		</div>
 		<div class="span4 text-left-news">
-			 <h2 class="font-large nospace"><i class="fa fa-group"></i> 新闻</h2>
+			 <h2 class="font-large nospace"><i class="fa fa-group"></i> 新闻 <span><a href="{:leuu('list/index',array('id'=>$portal_index_news))}">more</a></span></h2>
 			 <php>
 		$lastnews=sp_sql_posts("cid:$portal_index_news;field:post_title,post_excerpt,tid,smeta;order:listorder asc;limit:6;"); 
 	</php>

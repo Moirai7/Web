@@ -1,9 +1,9 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 	<html>
 	<head>
-		<title><?php echo ($site_seo_title); ?> <?php echo ($site_name); ?></title>
-		<meta name="keywords" content="<?php echo ($site_seo_keywords); ?>" />
-		<meta name="description" content="<?php echo ($site_seo_description); ?>">
+		<title><?php echo ($post_title); ?> <?php echo ($site_name); ?> </title>
+		<meta name="keywords" content="<?php echo ($post_keywords); ?>" />
+		<meta name="description" content="<?php echo ($post_excerpt); ?>">
 			<?php $portal_index_lastnews=4; $portal_hot_articles="3,4"; $portal_last_post="3,4"; $portal_index_notice=3; $portal_index_news=4; $tmpl=sp_get_theme_path(); $default_home_slides=array( array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/1.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/2.jpg", "slide_url"=>"", ), array( "slide_name"=>"ThinkCMFX1.6.0发布啦！", "slide_pic"=>$tmpl."Public/images/demo/3.jpg", "slide_url"=>"", ), ); ?>
 	<meta name="author" content="ThinkCMF">
 	<meta charset="utf-8">
@@ -36,61 +36,13 @@
 		#main-menu-user li.user{display: none}
 	</style>
 	
-		<link href="/tyt/tpl/simplebootx/Public/css/slippry/slippry.css" rel="stylesheet">
 		<style>
-			.caption-wraper{position: absolute;left:50%;bottom:2em;}
-			.caption-wraper .caption{
-			position: relative;left:-50%;
-			background-color: rgba(0, 0, 0, 0.54);
-			padding: 0.4em 1em;
-			color:#fff;
-			-webkit-border-radius: 1.2em;
-			-moz-border-radius: 1.2em;
-			-ms-border-radius: 1.2em;
-			-o-border-radius: 1.2em;
-			border-radius: 1.2em;
-			}
-			@media (max-width: 767px){
-				.sy-box{margin: 12px -20px 0 -20px;}
-				.caption-wraper{left:0;bottom: 0.4em;}
-				.caption-wraper .caption{
-				left: 0;
-				padding: 0.2em 0.4em;
-				font-size: 0.92em;
-				-webkit-border-radius: 0;
-				-moz-border-radius: 0;
-				-ms-border-radius: 0;
-				-o-border-radius: 0;
-				border-radius: 0;}
-			}
-		</style>
-
-		<style type="text/css">
-			#n li{
-			float: left;
-			list-style:none;
-			width: 120px;
-			height: 30px;
-			}
-			#n li a{
-				color: #ffffff;
-				text-decoration: none;
-				padding-top: 4px;
-				display: block;
-				width: auto;
-				height: 30px;
-				text-align: center;
-				background-color: #FFC640;
-				margin-left: 2px;
-				font-size: 1.15em;
-			}
-			#n li a:hover{
-				background-color: #2C859F;
-				color: #ffffff;
-			}
+			#article_content img{height:auto !important}
+			#article_content {word-wrap: break-word;}
+    		.btn {margin-top: 33px;}
 		</style>
 	</head>
-<body class="body-white">
+<body class="">
 <?php echo hook('body_start');?>
 <div class="navbar navbar-fixed-top">
    <div class="navbar-inner">
@@ -142,70 +94,90 @@
      </div>
    </div>
  </div>
-
-<?php $home_slides=sp_getslide("portal_index"); $home_slides=empty($home_slides)?$default_home_slides:$home_slides; ?>
-<ul id="homeslider" class="unstyled">
-	<?php if(is_array($home_slides)): foreach($home_slides as $key=>$vo): ?><li>
-		<div class="caption-wraper">
-			<div class="caption"><?php echo ($vo["slide_name"]); ?></div>
-		</div>
-		<a href="<?php echo ($vo["slide_url"]); ?>"><img src="<?php echo sp_get_asset_upload_path($vo['slide_pic']);?>" alt=""></a>
-	</li><?php endforeach; endif; ?>
-</ul>
-<div class="container">
-	
-	<div>
-		<h1 class="text-center">快速了解ThinkCMF</h1>
-		<h3 class="text-center">Quickly understand the ThinkCMF</h3>
-	</div>
-
-	<div class="span10 text-right-notice"> 
-	<?php
- for ($ii=0; $ii < $falength; $ii++) { print "<div class='row' id='n' style='height: 35px;'>"; print "<ul>"; print "<li style='background-color: #FFA040;'><a style='background-color: #FFA040;' href=".$father[$ii]['link_url']." target=".$father[$ii]['link_target'].">".$father[$ii]['link_name']."</a></li>"; foreach ($sons[$ii] as $key => $value) { print "<li><a href=".$value['link_url']." target=".$value['link_target'].">".$value['link_name']."</a></li>"; } print "<li><a href='' target='_blank'>更多>></a></li>"; print "</ul></div>"; } ?> 
-	</div>
-	
-	<!-- <div>
-		<h1 class="text-center">最新资讯</h1>
-		<h3 class="text-center">Last News</h3>
-	</div> -->
+<div class="container tc-main">
 	<div class="row">
-		<div class="span4 text-right-notice">
-			 <h2 class="font-large nospace"><i class="fa fa-bars"></i> 公告 <span><a href="<?php echo leuu('list/index',array('id'=>$portal_index_notice));?>">more</a></span></h2>
+		<div class="span9">
+			
+			<div class="tc-box first-box article-box">
+		    	<h2><?php echo ($post_title); ?></h2>
+		    	<div class="article-infobox">
+		    		<span><?php echo ($post_date); ?> by <?php echo ((isset($user_nicename) && ($user_nicename !== ""))?($user_nicename):$user_login); ?></span>
+		    		<span>
+		    			<a href="javascript:;"><i class="fa fa-eye"></i><span><?php echo ($post_hits); ?></span></a>
+						<a href="<?php echo U('article/do_like',array('id'=>$object_id));?>" class="J_count_btn"><i class="fa fa-thumbs-up"></i><span class="count"><?php echo ($post_like); ?></span></a>
+						<a href="<?php echo U('user/favorite/do_favorite',array('id'=>$object_id));?>" class="J_favorite_btn" data-title="<?php echo ($post_title); ?>" data-url="<?php echo U('article/index',array('id'=>$tid));?>" data-key="<?php echo sp_get_favorite_key('posts',$object_id);?>">
+							<i class="fa fa-star-o"></i>
+						</a>
+					</span>
+		    	</div>
+		    	<hr>
+		    	<div id="article_content">
+				<?php if(is_array($smeta['photo'])): foreach($smeta['photo'] as $key=>$vo): ?>
+				<p><span class="span-img" style="word-wrap: break-word; float: none; min-height: 1px; margin: 5px auto 15px; text-align: center; display: block; overflow: hidden;"><img src="<?php echo sp_get_asset_upload_path($vo['url']);?>" alt="<?php echo ($post_hits); ?>" style="word-wrap: break-word; max-width: 628px; vertical-align: middle; border: 0px;" data-bd-imgshare-binded="1"></span></p>
+				<?php endforeach; endif; ?>
+		    	<?php echo ($post_content); ?>
+		    	</div>
+                <?php if(!empty($post_source)): ?><div>
+                        <b>注：本文转载自<?php echo ($post_source); ?>，转载目的在于传递更多信息，并不代表本网赞同其观点和对其真实性负责。如有侵权行为，请联系我们，我们会及时删除。</b>
+                    </div><?php endif; ?>
+		    	<div>
+					<?php if(!empty($prev)): ?><a href="<?php echo U('article/index',array('id'=>$prev['tid']));?>" class="btn btn-primary pull-left">上一篇</a><?php endif; ?>
+					<?php if(!empty($next)): ?><a href="<?php echo U('article/index',array('id'=>$next['tid']));?>" class="btn btn-warning pull-right">下一篇</a><?php endif; ?>
+    	            <script type="text/javascript" src="/tyt/tpl/simplebootx/Public/js/qrcode.min.js"></script>
+                    <div id="qrcode" style="width: 100px;margin:0 auto"></div>
+    					<script type="text/javascript">
+                        var qrcode = new QRCode(document.getElementById("qrcode"), {
+                        width : 100,
+                        height : 100
+                        });
+                        function makeCode () {		
+                        qrcode.makeCode("http://<?php echo ($_SERVER['HTTP_HOST']); echo ($_SERVER['REQUEST_URI']); ?>");
+                        }
+                        makeCode();
+                        </script>
+					<div class="clearfix"></div>
+				</div>
+		    	
+		    	<?php echo Comments("posts",$object_id);?>
+		    </div>
+		    
+		    <?php $ad=sp_getad("portal_article_bottom"); ?>
+			<?php if(!empty($ad)): ?><div class="tc-box">
+	        	<div class="headtitle">
+	        		<h2>赞助商</h2>
+	        	</div>
+	        	<div>
+		        	<?php echo ($ad); ?>
+		        </div>
+			</div><?php endif; ?>
+		    
+		</div>
+		<div class="span3">
+			<div class="tc-box first-box">
+				<div class="headtitle">
+	          		<h2>分享</h2>
+	          	</div>
+	          	<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"32"},"share":{},"image":{"viewList":["weixin","tsina","qzone","tqq","renren"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","tsina","qzone","tqq","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        	</div>
+        	
+        	<div class="tc-box">
+	        	<div class="headtitle">
+	        		<h2>热门文章</h2>
+	        	</div>
 	        	<div class="ranking">
-	        		<?php $hot_articles=sp_sql_posts("cid:$portal_index_notice;field:post_title,post_excerpt,tid,smeta;order:post_hits desc;limit:9;"); ?>
+	        		<?php $hot_articles=sp_sql_posts("cid:$portal_index_lastnews;field:post_title,post_excerpt,tid,smeta;order:post_hits desc;limit:5;"); ?>
 		        	<ul class="unstyled">
 		        		<?php if(is_array($hot_articles)): foreach($hot_articles as $key=>$vo): $top=$key<3?"top3":""; ?>
 							<li class="<?php echo ($top); ?>"><i><?php echo ($key+1); ?></i><a title="<?php echo ($vo["post_title"]); ?>" href="<?php echo leuu('article/index',array('id'=>$vo['tid']));?>"><?php echo ($vo["post_title"]); ?></a></li><?php endforeach; endif; ?>
 					</ul>
 				</div>
-		</div>
-		<div class="span4 text-left-news">
-			 <h2 class="font-large nospace"><i class="fa fa-group"></i> 新闻 <span><a href="<?php echo leuu('list/index',array('id'=>$portal_index_news));?>">more</a></span></h2>
-			 <?php $lastnews=sp_sql_posts("cid:$portal_index_news;field:post_title,post_excerpt,tid,smeta;order:listorder asc;limit:6;"); ?>
-	<div class="row">
-		<?php if(is_array($lastnews)): foreach($lastnews as $key=>$vo): $smeta=json_decode($vo['smeta'],true); ?>
-		<div class="span3">
-			<div class="tc-gridbox">
-				<div class="header">
-					<div class="item-image">
-						<a href="<?php echo leuu('article/index',array('id'=>$vo['tid']));?>">
-							<?php if(empty($smeta['thumb'])): ?><img src="/tyt/tpl/simplebootx/Public/images/default_tupian1.png" class="img-responsive" alt="<?php echo ($vo["post_title"]); ?>"/>
-							<?php else: ?> 
-								<img src="<?php echo sp_get_asset_upload_path($smeta['thumb']);?>" class="img-responsive img-thumbnail" alt="<?php echo ($vo["post_title"]); ?>" /><?php endif; ?>
-						</a>
-					</div>
-					<h3><a href="<?php echo leuu('article/index',array('id'=>$vo['tid']));?>"><?php echo ($vo["post_title"]); ?></a></h3>
-					<hr>
-				</div>
-				<div class="body">
-					<p><a href="<?php echo leuu('article/index',array('id'=>$vo['tid']));?>"><?php echo msubstr($vo['post_excerpt'],0,32);?></a></p>
-				</div>
 			</div>
-		</div><?php endforeach; endif; ?>
-	</div>
+			
 		</div>
+		
 	</div>
-	
+              
 <br><br><br>
 <!-- Footer
       ================================================== -->
@@ -299,20 +271,5 @@ var GV = {
 	</script>
 
 
-<script src="/tyt/tpl/simplebootx/Public/js/slippry.min.js"></script>
-<script>
-$(function() {
-	var demo1 = $("#homeslider").slippry({
-		transition: 'fade',
-		useCSS: true,
-		captions: false,
-		speed: 1000,
-		pause: 3000,
-		auto: true,
-		preload: 'visible'
-	});
-});
-</script>
-<?php echo hook('footer_end');?>
 </body>
 </html>

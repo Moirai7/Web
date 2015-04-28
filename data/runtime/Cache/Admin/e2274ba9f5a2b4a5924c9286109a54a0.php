@@ -1,4 +1,47 @@
-<admintpl file="header"/>
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- Set render engine for 360 browser -->
+	<meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- HTML5 shim for IE8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+
+	<link href="/tyt/statics/simpleboot/themes/<?php echo C('SP_ADMIN_STYLE');?>/theme.min.css" rel="stylesheet">
+    <link href="/tyt/statics/simpleboot/css/simplebootadmin.css" rel="stylesheet">
+    <link href="/tyt/statics/js/artDialog/skins/default.css" rel="stylesheet" />
+    <link href="/tyt/statics/simpleboot/font-awesome/4.2.0/css/font-awesome.min.css"  rel="stylesheet" type="text/css">
+    <style>
+		.length_3{width: 180px;}
+		form .input-order{margin-bottom: 0px;padding:3px;width:40px;}
+	</style>
+	<!--[if IE 7]>
+	<link rel="stylesheet" href="/tyt/statics/simpleboot/font-awesome/4.2.0/css/font-awesome-ie7.min.css">
+	<![endif]-->
+<script type="text/javascript">
+//全局变量
+var GV = {
+    DIMAUB: "/tyt/",
+    JS_ROOT: "statics/js/",
+    TOKEN: ""
+};
+</script>
+<!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/tyt/statics/js/jquery.js"></script>
+    <script src="/tyt/statics/js/wind.js"></script>
+    <script src="/tyt/statics/simpleboot/bootstrap/js/bootstrap.min.js"></script>
+<?php if(APP_DEBUG): ?><style>
+		#think_page_trace_open{
+			z-index:9999;
+		}
+	</style><?php endif; ?>
 <script type="text/javascript">
     var catid = "12";
 </script>
@@ -32,7 +75,7 @@ body fieldset legend {
 .list-dot li,.list-dot-othors li{padding:5px 0; border-bottom:1px dotted #c6dde0; font-family:"宋体"; color:#bbb; position:relative;_height:22px}
 .list-dot li span,.list-dot-othors li span{color:#004499}
 .list-dot li a.close span,.list-dot-othors li a.close span{display:none}
-.list-dot li a.close,.list-dot-othors li a.close{ background: url("__ROOT__/statics/images/cross.png") no-repeat left 3px; display:block; width:16px; height:16px;position: absolute;outline:none;right:5px; bottom:5px}
+.list-dot li a.close,.list-dot-othors li a.close{ background: url("/tyt/statics/images/cross.png") no-repeat left 3px; display:block; width:16px; height:16px;position: absolute;outline:none;right:5px; bottom:5px}
 .list-dot li a.close:hover,.list-dot-othors li a.close:hover{background-position: left -46px}
 .list-dot-othors li{float:left;width:24%;overflow:hidden;}
 </style>
@@ -40,10 +83,10 @@ body fieldset legend {
 <body class="J_scroll_fixed">
 <div class="wrap J_check_wrap">
   <ul class="nav nav-tabs">
-     <li><a href="{:U('slide/index')}">所有幻灯片</a></li>
-     <li class="active"><a href="{:U('slide/add')}">添加幻灯片</a></li>
+     <li><a href="<?php echo U('slide/index');?>">所有幻灯片</a></li>
+     <li class="active"><a href="<?php echo U('slide/add');?>">添加幻灯片</a></li>
   </ul>
-  <form name="myform" id="myform" action="{:U('slide/add_post')}" method="post" class="form-horizontal J_ajaxForms" enctype="multipart/form-data">
+  <form name="myform" id="myform" action="<?php echo U('slide/add_post');?>" method="post" class="form-horizontal J_ajaxForms" enctype="multipart/form-data">
   <div class="col-right">
     <div class="table_full">
       <table width="100%" cellpadding="2" cellspacing="2">
@@ -54,8 +97,8 @@ body fieldset legend {
           <td>
           	<div  style="text-align: center;"><input type='hidden' name='slide_pic' id='thumb' value=''>
 			<a href='javascript:void(0);' onclick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','content','12','b6ba209759e147124653ac77362ef2bd');return false;">
-			<img src='__ROOT__/statics/images/icon/upload-pic.png' id='thumb_preview' width='135' height='113' style='cursor:hand' /></a>
-            <input type="button"  class="btn" onclick="$('#thumb_preview').attr('src','__ROOT__/statics/images/icon/upload-pic.png');$('#thumb').val('');return false;" value="取消图片">
+			<img src='/tyt/statics/images/icon/upload-pic.png' id='thumb_preview' width='135' height='113' style='cursor:hand' /></a>
+            <input type="button"  class="btn" onclick="$('#thumb_preview').attr('src','/tyt/statics/images/icon/upload-pic.png');$('#thumb').val('');return false;" value="取消图片">
             </div>
 			</td>
         </tr>
@@ -70,9 +113,7 @@ body fieldset legend {
               <th width="80">栏目</th>
               <td>
               	<select name="slide_cid" class="normal_select">
-                  <foreach name="categorys" item="vo">
-                  	<option value="{$vo.cid}">{$vo.cat_name}</option>
-                  </foreach>
+                  <?php if(is_array($categorys)): foreach($categorys as $key=>$vo): ?><option value="<?php echo ($vo["cid"]); ?>"><?php echo ($vo["cat_name"]); ?></option><?php endforeach; endif; ?>
                 </select>
               </td>
             </tr>
@@ -108,12 +149,12 @@ body fieldset legend {
   </div>
   	<div class="form-actions">
            <button class="btn btn-primary btn_submit J_ajax_submit_btn"type="submit">提交</button>
-      		<a class="btn" href="__URL__">返回</a>
+      		<a class="btn" href="/tyt/index.php/admin/slide">返回</a>
       </div>
  </form>
 </div>
-<script type="text/javascript" src="__ROOT__/statics/js/common.js"></script>
-<script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+<script type="text/javascript" src="/tyt/statics/js/common.js"></script>
+<script type="text/javascript" src="/tyt/statics/js/content_addtop.js"></script>
 <script type="text/javascript"> 
 $(function () {
 	//setInterval(function(){public_lock_renewal();}, 10000);
@@ -220,7 +261,7 @@ $(function () {
 											},{
 												name: '返回列表',
 												callback:function(){
-													location.href="__URL__";
+													location.href="/tyt/index.php/admin/slide";
 													return true;
 												}
 											}
