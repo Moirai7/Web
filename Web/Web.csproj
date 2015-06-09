@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56B95463-5816-4E0F-8AF3-C834946E9A28}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\Challenge.aspx.cs">
+      <DependentUpon>Challenge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Challenge.aspx.designer.cs">
+      <DependentUpon>Challenge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_Challenge.aspx.cs">
+      <DependentUpon>User_Challenge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\User_Challenge.aspx.designer.cs">
+      <DependentUpon>User_Challenge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_Corp_Detail.aspx.cs">
+      <DependentUpon>User_Corp_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\User_Corp_Detail.aspx.designer.cs">
+      <DependentUpon>User_Corp_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_History.aspx.cs">
+      <DependentUpon>User_History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\User_History.aspx.designer.cs">
+      <DependentUpon>User_History.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_Index.aspx.cs">
+      <DependentUpon>User_Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\User_Index.aspx.designer.cs">
+      <DependentUpon>User_Index.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin.aspx" />
+    <Content Include="Common\Customers.html" />
+    <Content Include="Common\Enterprise.html" />
+    <Content Include="Common\footer.html" />
+    <Content Include="Common\header.html" />
+    <Content Include="Common\User_menu.html" />
+    <Content Include="Common\Index.html" />
+    <Content Include="Common\Reports.html" />
+    <Content Include="Common\Share1.html" />
+    <Content Include="Common\Share2.html" />
+    <Content Include="Default.aspx" />
+    <Content Include="Public\CSS\carousel.css" />
+    <Content Include="Public\CSS\hover.css" />
+    <Content Include="Public\CSS\jquery-ui-1.10.0.custom.css" />
+    <Content Include="Public\CSS\max.css" />
+    <Content Include="Public\CSS\my_style.css" />
+    <Content Include="Public\CSS\style.css" />
+    <Content Include="Public\CSS\style_new.css" />
+    <Content Include="Public\CSS\theme.min.css" />
+    <Content Include="Public\CSS\tourist.css" />
+    <Content Include="Public\CSS\video-js.css" />
+    <Content Include="Public\Images\01.png" />
+    <Content Include="Public\Images\1.png" />
+    <Content Include="Public\Images\1001.jpg" />
+    <Content Include="Public\Images\1014.jpg" />
+    <Content Include="Public\Images\1020.jpg" />
+    <Content Include="Public\Images\1029.png" />
+    <Content Include="Public\Images\1033.jpg" />
+    <Content Include="Public\Images\1041.jpg" />
+    <Content Include="Public\Images\1043.jpg" />
+    <Content Include="Public\Images\1044.jpg" />
+    <Content Include="Public\Images\1046.jpeg" />
+    <Content Include="Public\Images\1048.jpg" />
+    <Content Include="Public\Images\1052.png" />
+    <Content Include="Public\Images\1056.jpg" />
+    <Content Include="Public\Images\1058.jpg" />
+    <Content Include="Public\Images\1060.jpg" />
+    <Content Include="Public\Images\1062.jpg" />
+    <Content Include="Public\Images\1063.png" />
+    <Content Include="Public\Images\1064.png" />
+    <Content Include="Public\Images\1405975_175937039_2.jpg" />
+    <Content Include="Public\Images\447.jpg" />
+    <Content Include="Public\Images\48.jpg" />
+    <Content Include="Public\Images\663.png" />
+    <Content Include="Public\Images\829.jpg" />
+    <Content Include="Public\Images\930.jpg" />
+    <Content Include="Public\Images\960.png" />
+    <Content Include="Public\Images\974.jpg" />
+    <Content Include="Public\Images\977.jpg" />
+    <Content Include="Public\Images\981.png" />
+    <Content Include="Public\Images\984.jpg" />
+    <Content Include="Public\Images\987.jpg" />
+    <Content Include="Public\Images\988.png" />
+    <Content Include="Public\Images\989.PNG" />
+    <Content Include="Public\Images\991.png" />
+    <Content Include="Public\Images\Bitmap3.png" />
+    <Content Include="Public\Images\code.png" />
+    <Content Include="Public\Images\comic.jpg" />
+    <Content Include="Public\Images\corp.png" />
+    <Content Include="Public\Images\csdn2.png" />
+    <Content Include="Public\Images\default.jpg" />
+    <Content Include="Public\Images\github2.png" />
+    <Content Include="Public\Images\hexun.png" />
+    <Content Include="Public\Images\indexpic.png" />
+    <Content Include="Public\Images\java.png" />
+    <Content Include="Public\Images\lake.jpg" />
+    <Content Include="Public\Images\languages.png" />
+    <Content Include="Public\Images\logowall.png" />
+    <Content Include="Public\Images\office.png" />
+    <Content Include="Public\Images\pic.gif" />
+    <Content Include="Public\Images\platform.png" />
+    <Content Include="Public\Images\quora2.png" />
+    <Content Include="Public\Images\school.png" />
+    <Content Include="Public\Images\sf2.png" />
+    <Content Include="Public\Images\sina2.png" />
+    <Content Include="Public\Images\stackoverflow2.png" />
+    <Content Include="Public\Images\tianji.png" />
+    <Content Include="Public\Images\waiting.gif" />
+    <Content Include="Public\Images\webfigure.png" />
+    <Content Include="Public\Images\website4.png" />
+    <Content Include="Public\Images\website5.png" />
+    <Content Include="Public\Images\website6.png" />
+    <Content Include="Public\Images\website7.png" />
+    <Content Include="Public\Images\wlogo.png" />
+    <Content Include="Public\Images\wlogo_sm.png" />
+    <Content Include="Public\Images\zhihu2.png" />
+    <Content Include="Public\JS\ace.js" />
+    <Content Include="Public\JS\bootstrap-filestyle.js" />
+    <Content Include="Public\JS\bootstrap-select.min.js" />
+    <Content Include="Public\JS\bootstrap-switch.min.js" />
+    <Content Include="Public\JS\bootstrap.js" />
+    <Content Include="Public\JS\bootstrap.min.js" />
+    <Content Include="Public\JS\bootstrapValidator.js" />
+    <Content Include="Public\JS\browser.js" />
+    <Content Include="Public\JS\Chart.js" />
+    <Content Include="Public\JS\ext-language_tools.js" />
+    <Content Include="Public\JS\font-awesome.min.css" />
+    <Content Include="Public\JS\history.js" />
+    <Content Include="Public\JS\index.js" />
+    <Content Include="Public\JS\jquery-1.11.0.min.js" />
+    <Content Include="Public\JS\jquery-1.11.1.min.js" />
+    <Content Include="Public\JS\jquery-ui-1.10.0.custom.min.js" />
+    <Content Include="Public\JS\jquery.sparkline.min.js" />
+    <Content Include="Public\JS\manitoNoteChallengePHP.js" />
+    <Content Include="Public\JS\masnunit-customers.js" />
+    <Content Include="Public\JS\masnunit.js" />
+    <Content Include="Public\JS\mode-php.js" />
+    <Content Include="Public\JS\myEditorChallengePHP.js" />
+    <Content Include="Public\JS\runPHP.js" />
+    <Content Include="Public\JS\script.js" />
+    <Content Include="Public\JS\statistics-challenge.js" />
+    <Content Include="Public\JS\summernote.min.js" />
+    <Content Include="Public\JS\tabswitch.js" />
+    <Content Include="Public\JS\template.min.js" />
+    <Content Include="Public\JS\theme-idle_fingers.js" />
+    <Content Include="Public\JS\video.js" />
+    <Content Include="Public\JS\woo-customers.js" />
+    <Content Include="Public\JS\woo.js" />
+    <Content Include="User\Challenge.aspx" />
+    <Content Include="User\User_Challenge.aspx" />
+    <Content Include="User\User_Corp_Detail.aspx" />
+    <Content Include="User\User_History.aspx" />
+    <Content Include="User\User_Index.aspx" />
+    <Content Include="web.config" />
+    <Content Include="Public\Images\03495419c4679ebcca8ff00e8d05c1ecaadf1259" />
+    <Content Include="Public\Images\d039a653ca17abfd3f2ce16f359be4b9a5d19aa5" />
+    <Content Include="Public\Images\d58ae1bd78d7cc44d53b7c10d2e4efba803d2b23" />
+    <Content Include="Public\JS\cityjson" />
+    <Content Include="Public\JS\core.php" />
+    <Content Include="Public\JS\z_stat.php" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{ff039ef6-3765-49a8-af4d-3f34f56e1e56}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OxcoderBL\OxcoderBL.csproj">
+      <Project>{7a8dde0a-9a58-410a-9851-d20316f27d78}</Project>
+      <Name>OxcoderBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OxcoderIBL\OxcoderIBL.csproj">
+      <Project>{46200a9a-2cab-42a8-9d84-4508d5dda572}</Project>
+      <Name>OxcoderIBL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Public\Fonts\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:27067/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

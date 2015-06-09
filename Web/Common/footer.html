@@ -1,0 +1,161 @@
+﻿	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">意见反馈</h4>
+				</div>
+				<div class="modal-body">
+					<form class="">
+						<textarea class="form-control" placeholder="请输入您的反馈意见" style="min-height: 200px;"></textarea>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-new1">提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- jQuery -->
+	
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="../Public/JS/bootstrap.min.js"></script>
+
+	<!-- Sparkline -->
+	<script src="../Public/JS/jquery.sparkline.min.js"></script>
+
+	<!-- Bootstrap Switch -->
+	<script src="../Public/JS/bootstrap-switch.min.js"></script>
+
+	<!-- Bootstrap Select -->
+	<script src="../Public/JS/bootstrap-select.min.js"></script>
+
+	<!-- Bootstrap File -->
+	<script src="../Public/JS/bootstrap-filestyle.js"></script>
+	<!-- Summernote -->
+	<script src="../Public/JS/summernote.min.js"></script>
+
+	<!-- Theme script -->
+	<script src="../Public/JS/script.js"></script>
+<style type="text/css">
+/* invisible holder for the page */
+#win-holder {
+	overflow: hidden;
+	height: 0px;
+}
+</style>
+	<div id="win-holder">
+		
+		<form id="woo-form-album" action="/User/User_Index.aspx?page=">
+			<input type="hidden" name="flag" value="">
+			<input type="hidden" name="salary" value="">
+			<input type="hidden" name="location" value="">
+			<input type="hidden" name="searchCondition" value="">
+			<input type="hidden" name="retype" value="">
+		</form>
+	</div>
+	<script>
+	    $(function () {
+	        // Append buttons gonext, gopre, gotop to the body as you like.
+	        /* $('<div id="mycontrols"><a id="gonext" href="javascript:;" title="下一页"></a><a href="javascript:;" id="gotop"></a><a id="gopre" href="javascript:;"  title="上一页"></a></div>').appendTo('body'); */
+
+	        var conf = {
+	            // Prefix of form id. Each form represents a subpage data request.
+	            "formprefix": '#woo-form-',
+
+	            // Identification of a single waterfall. There are 4 waterfalls in main.html.
+	            // You can get the form in #win-holder by putting formprefix and one identification together.
+	            // <form id="woo-form-(collect|original|album|favalbum)">
+	            "arrform": ['album'],
+
+	            // arrsplit, the last part of the url which has been split by page number.
+	            // The first part of the url has already been put in the action attribute of the proper form.
+	            // Page number can be seen neighther in the first part nor the last part.
+	            // Why and how we do this? Think a simple url like '/message/list/1/tail/?type=hot'
+	            // First, we put '/message/list/' in form action.
+	            // Then, we can make a hidden input in this form <input type="hidden" name="type" value="hot"/>.
+	            // Finally, we put '/tail/' into arrsplit.
+	            // Or, we could choose no hidden input and '/tail/?type=hot' into arrsplit.
+	            // Nevertheless, we put them together and get the entire url.
+	            //"arrsplit" : ['/?type=hot','','',''],
+	            "arrsplit": [''],
+
+	            // The extend width of each common column including margin between two cols.
+	            "arrmasnw": [290, 300, 300, 290],
+
+	            // The margin between two cols.
+	            // In this example, visible column width is 245-21=224.
+	            "arrmargin": [10, 20, 20, 10],
+
+	            // Diff value of special column width, default 0.
+	            // Why the value is 0, not [0,0,0,0]?
+	            // We simplified params by converting equal-value array [0,0,0,0] to single value 0.
+	            // Params arrsplit, arrmasnw, arrmargin and arrgap can be treated on the same principle.
+	            // But, param arrform is out of the principle.
+	            "arrfmasnw": 0,
+
+	            // The gap between units in one column.
+	            "arrgap": 0,
+
+	            // Install $gopre $gonext $gotop as you like.
+	            "gopre": '#gopre',
+	            "gonext": '#gonext',
+	            "gotop": '#gotop',
+
+	            // Footer selctor, any node below the pager can be treated as footer.
+	            "footer": '#footer,#preserve',
+
+	            // Open resize mode.
+	            // If you open it, every time window resizes, waterfall will be repainted.
+	            // Not recommend in ie.
+	            "resize": true,
+
+	            // * 每页的单元数
+	            "unitsnum": 24,
+
+	            // * 每一大页子页数量
+	            "subpagenum": 10000,
+
+	            // 每次append插入dom的单元个数
+	            "appendnum": 12,
+
+	            // 距离底部多远提前开始加载
+	            "lbias": 400,
+
+	            // Sth you do during scrolling, say, pop out a login confirm.
+	            "onScroll": function (tp) {
+	                // tp current scrolltop
+	                //			if( (typeof ALREADYNOTICED === 'undefined' || !ALREADYNOTICED) && tp >= 1000 ){
+	                //				ALREADYNOTICED = true
+	                //				alert("login")
+	                //			}
+	            }
+	        }
+
+	        // Let's go.
+	        $.Woo(conf);
+	    })
+	</script>
+	<script type="text/javascript" src="../Public/JS/index.js"></script>
+<script type="text/javascript">
+
+    //如果页面内容高度小于屏幕高度，div#footer将绝对定位到屏幕底部，否则div#footer保留它的正常静态定位
+    if (($(document.body).height() + 50) < $(window).height()) {
+        $(".afooter").addClass("navbar-fixed-bottom");
+    };
+</script>
+
+    <div class="afooter navbar-fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    © 2015 oxcoder.com <a href="http://www.oxcoder.com/contact-us.action">联系我们</a> <a href="http://jq.qq.com/?_wv=1027&k=eeKvVb" target="_blank">QQ交流群:77590762</a> <a href="http://www.mikecrm.com/f.php?t=7GdYKp" target="_blank">意见反馈</a> <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1253509620'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1253509620%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1253509620">
+                        <a href="http://www.cnzz.com/stat/website.php?web_id=1253509620" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="../Public/Images/pic.gif"></a></span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
