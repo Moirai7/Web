@@ -16,7 +16,7 @@ using System.Data.SqlClient;
 /// 
 namespace OxcoderDAL
 {
-    public class QuizInfoDAL
+    public class QuizInfoDAL : OxcoderIDAL.QuizInfoIDAL
     {
         public string QuizName(string id)
         {

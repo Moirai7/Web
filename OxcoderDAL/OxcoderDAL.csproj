@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuizeInfoDAL.cs" />
+    <Compile Include="QuizInfoDAL.cs" />
     <Compile Include="SearchChallengeDAL.cs" />
     <Compile Include="UserDAL.cs" />
   </ItemGroup>

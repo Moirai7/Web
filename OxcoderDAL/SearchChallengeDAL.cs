@@ -70,14 +70,52 @@ namespace OxcoderDAL
             return null;
         }
 
-        public DataSet SearchByUserHistory(int userid,  int pageindex, int pagesize)
+        public DataSet SearchByUserHistory(string userid, int state, int pageindex, int pagesize)
         {
-            return null;
+            StringBuilder sql = new StringBuilder();
+            List<SqlParameter> par = new List<SqlParameter>();
+            if (state == -1)
+            {
+                sql.Append("select * from [Challenge] as c,[Enterprice] e where c.Challenge_OwnerID = e.Enterprice_ID and Challenge_State=0 and Challenge_ID in (select Test_ChallengeID from Test where Test_UserID like @userid)");
+                SqlParameter mParam = new SqlParameter("@userid", SqlDbType.Text);
+                mParam.Value = userid;
+                par.Add(mParam);
+            }
+            else
+            {
+                sql.Append("select * from [Challenge] as c,[Enterprice] e where c.Challenge_OwnerID = e.Enterprice_ID and Challenge_State=0 and Challenge_ID in (select Test_ChallengeID from Test where Test_UserID like @userid and Test_State = @state)");
+                SqlParameter mParam = new SqlParameter("@userid", SqlDbType.Text);
+                mParam.Value = userid;
+                par.Add(mParam);
+                mParam = new SqlParameter("@state", SqlDbType.Int);
+                mParam.Value = state;
+                par.Add(mParam);
+            }
+            return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
         }
 
-        public DataSet SearchByUser(int userid, int pageindex, int pagesize)
+        public DataSet SearchByUser(string userid, int state, int pageindex, int pagesize)
         {
-            return null;
+            StringBuilder sql = new StringBuilder();
+            List<SqlParameter> par = new List<SqlParameter>();
+            if (state == -1)
+            {
+                sql.Append("select * from [Challenge] as c,[Enterprice] e where c.Challenge_OwnerID = e.Enterprice_ID and Challenge_State=1 and Challenge_ID in (select Test_ChallengeID from Test where Test_UserID like @userid)");
+                SqlParameter mParam = new SqlParameter("@userid", SqlDbType.Text);
+                mParam.Value = userid;
+                par.Add(mParam);
+            }
+            else
+            {
+                sql.Append("select * from [Challenge] as c,[Enterprice] e where c.Challenge_OwnerID = e.Enterprice_ID and Challenge_State=1 and Challenge_ID in (select Test_ChallengeID from Test where Test_UserID like @userid and Test_State = @state)");
+                SqlParameter mParam = new SqlParameter("@userid", SqlDbType.Text);
+                mParam.Value = userid;
+                par.Add(mParam);
+                mParam = new SqlParameter("@state", SqlDbType.Int);
+                mParam.Value = state;
+                par.Add(mParam);
+            }
+            return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
         }
 
         public DataSet SearchByChallengeID(int id)

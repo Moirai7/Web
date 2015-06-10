@@ -32,11 +32,11 @@ namespace OxcoderIDAL
         
         //  Userid 用户id
 	    //  State 通过状态
-        DataSet SearchByUserHistory(int userid, int pageindex, int pagesize);
+        DataSet SearchByUserHistory(string userid,int state, int pageindex, int pagesize);
 
         //  Userid 用户id
 	    //  State 通过状态
-        DataSet SearchByUser(int userid, int pageindex, int pagesize);
+        DataSet SearchByUser(string userid, int state, int pageindex, int pagesize);
 
         // id 挑战id
         DataSet SearchByChallengeID (int id);
