@@ -86,17 +86,36 @@ namespace OxcoderBL
             ds = AddPositionAndQuiz(ds);
             return ds;
         }
-        public DataSet SearchByOwner(int eid)
+
+        public DataSet SearchByOwner(string id, int pageindex, int pagesize)
         {
-            return null;
+            OxcoderIDAL.SearchChallengeIDAL dalad = new OxcoderDAL.SearchChallengeDAL();
+            DataSet ds = dalad.SearchByOwner(id, pageindex, pagesize);
+            ds = AddPositionAndQuiz(ds);
+            return ds;
         }
-        public DataSet SearchByUser(int userid, int state, int flag, int pageindex, int pagesize)
+        
+        public DataSet SearchByUser(string userid, int state, int flag, int pageindex, int pagesize)
         {
-            return null;
+            OxcoderIDAL.SearchChallengeIDAL dalad = new OxcoderDAL.SearchChallengeDAL();
+            DataSet ds = null;
+            if (flag == 1 )
+            {
+                ds = dalad.SearchByUser(userid,state,pageindex, pagesize);
+                ds = AddPositionAndQuiz(ds);
+            }
+            else if (flag == 0)
+            {
+                ds = dalad.SearchByUserHistory(userid, state, pageindex, pagesize);
+                ds = AddPositionAndQuiz(ds);
+            }
+            return ds;
         }
-        public DataSet SearchByChallengeID(int id)
+
+        public DataSet SearchByChallengeID(string id, int pageindex, int pagesize)
         {
-            return null;
+            OxcoderIDAL.SearchChallengeIDAL dalad = new OxcoderDAL.SearchChallengeDAL();
+            return dalad.SearchByOwner(id,pageindex,pagesize);
         }
     }
 }

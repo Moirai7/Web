@@ -10,8 +10,8 @@ namespace Web.User
     public partial class User_History : System.Web.UI.Page
     {
         int page = 0;
-        string flag = null;
-        string reustate = null;
+        int flag = 0;
+        int reustate = 0;
 
         OxcoderIBL.SearchChallengeIBL search = new OxcoderBL.SearchChallengeBL();
 
@@ -43,13 +43,13 @@ namespace Web.User
         private void SetBind()
         {
             if (Request.QueryString["reustate"] != null && Request.QueryString["reustate"] != "")
-                reustate = Request.QueryString["reustate"].ToString();
+                reustate = Convert.ToInt32(Request.QueryString["reustate"].ToString());
             if (Request.QueryString["flag"] != null && Request.QueryString["flag"] != "")
-                flag = Request.QueryString["flag"].ToString();
+                flag = Convert.ToInt32(Request.QueryString["flag"].ToString());
             if (Request.QueryString["page"] != null && Request.QueryString["page"] != "")
                 page = Convert.ToInt32(Request.QueryString["page"].ToString());
 
-           // rpt_Challenge.DataSource = search.SearchByUser(Session["id"],flag,page, 10);
+            rpt_Challenge.DataSource = search.SearchByUser(Session["id"].ToString(), reustate, flag, page,10);
             Page.DataBind();
         }
     }

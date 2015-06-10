@@ -25,11 +25,13 @@ namespace Web.User
             {
                 if (Session["username"] != null)
                 {
+                    Session["id"] = "be87e55c-cafd-4a19-b167-dbe9e3de30d8";
                     return Session["username"].ToString();
                 }
                 else
                 {
                     Session["username"] = "LanLan";
+                    Session["id"] = "be87e55c-cafd-4a19-b167-dbe9e3de30d8";
                 }
 
                 return "姓名";

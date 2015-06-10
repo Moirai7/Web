@@ -11,5 +11,23 @@ namespace Web.User {
     
     
     public partial class User_Corp_Detail {
+        
+        /// <summary>
+        /// rpt_challenge 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpt_challenge;
+        
+        /// <summary>
+        /// rpt_corp 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpt_corp;
     }
 }

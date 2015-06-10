@@ -22,7 +22,7 @@ namespace OxcoderDAL
         {
             StringBuilder sql = new StringBuilder();
             List<SqlParameter> par = new List<SqlParameter>();
-            sql.Append("select * from [Challenge] as c,[Enterprice] e where c.Challenge_OwnerID = e.Enterprice_ID ");
+            sql.Append("select * from [Challenge] as c,[Enterprice] as e where c.Challenge_OwnerID = e.Enterprice_ID ");
             if (salary != -1 && salary != 0)
             {
                 sql.Append(" and Challenge_Salary = @salary");
@@ -55,7 +55,8 @@ namespace OxcoderDAL
             {
                 sql.Append(" order by Challenge_Publish");
             }
-            else if(flag == 2){
+            else if (flag == 2)
+            {
                 sql.Append(" order by Challenge_Salary");
             }
             else if (flag == 1)
@@ -63,11 +64,6 @@ namespace OxcoderDAL
                 sql.Append(" order by Challenge_Num");
             }
             return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
-        }
-
-        public DataSet SearchByOwner(int eid)
-        {
-            return null;
         }
 
         public DataSet SearchByUserHistory(string userid, int state, int pageindex, int pagesize)
@@ -118,9 +114,22 @@ namespace OxcoderDAL
             return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
         }
 
-        public DataSet SearchByChallengeID(int id)
+        public DataSet SearchByOwner(string id, int pageindex, int pagesize)
         {
-            return null;
+            StringBuilder sql = new StringBuilder();
+            sql.Append("select * from [Challenge] as c,[Enterprice] as e where c.Challenge_OwnerID = e.Enterprice_ID and e.Enterprice_ID like @id ");
+            SqlParameter[] par = { new SqlParameter("@id", SqlDbType.Text) };
+            par[0].Value = id;
+            return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
+        }
+
+        public DataSet SearchByChallengeID(string id, int pageindex, int pagesize)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("select * from Challenge where Challenge_OwnerID like @id");
+            SqlParameter[] par ={new SqlParameter("@id",SqlDbType.Text)};
+            par[0].Value = id;
+            return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
         }
     }
 }

@@ -27,16 +27,16 @@ namespace OxcoderIBL
         DataSet Search(int pageindex, int pagesize, int salary = -1, string provice = null, int retype = -1, int flag = -1, string searchCondition = null);
 
         //	Eid 企业
-        DataSet SearchByOwner(int eid);
+        DataSet SearchByOwner(string id, int pageindex, int pagesize);
 
         //  Userid 用户id
         //	State 通过状态
         //	Flag 进行中还是历史
-        DataSet SearchByUser(int userid, int state, int flag, int pageindex, int pagesize);
+        DataSet SearchByUser(string userid, int state, int flag, int pageindex, int pagesize);
 
         //  Userid 用户id
         //	State 通过状态
         //	Flag 进行中还是历史
-        DataSet SearchByChallengeID(int id);
+        DataSet SearchByChallengeID(string id, int pageindex, int pagesize);
     }
 }

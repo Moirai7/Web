@@ -26,9 +26,6 @@ namespace OxcoderIDAL
         //	Flag 按热度 时间 薪资 排序
         //	SearchCondition 搜索条件
         DataSet SearchUseCondition(int salary, string provice, int retype, int flag, string searchCondition, int pageindex, int pagesize);
-
-        //	Eid 企业
-        DataSet SearchByOwner(int eid);
         
         //  Userid 用户id
 	    //  State 通过状态
@@ -38,7 +35,9 @@ namespace OxcoderIDAL
 	    //  State 通过状态
         DataSet SearchByUser(string userid, int state, int pageindex, int pagesize);
 
+        DataSet SearchByOwner(string id, int pageindex, int pagesize);
+
         // id 挑战id
-        DataSet SearchByChallengeID (int id);
+        DataSet SearchByChallengeID(string id, int pageindex, int pagesize);
     }
 }

@@ -142,7 +142,7 @@
                                             <div class="col-xs-12 panel-header">
                                                 <div class="pull-left">
                                                     <h4 title="<%# Eval("Challenge_Name")%>" class="line-control"><%# Eval("Challenge_Name")%></h4>
-                                                    <h4 title="<%# Eval("Enterprice_FullName")%>" class="line-control"><a href="User_Corp_Detail.aspx?cid=960"><%# Eval("Enterprice_FullName")%></a></h4>
+                                                    <h4 title="<%# Eval("Enterprice_FullName")%>" class="line-control"><a href="User_Corp_Detail.aspx?cid=<%# Eval("Enterprice_ID")%>"><%# Eval("Enterprice_FullName")%></a></h4>
                                                 </div>
                                                 <div class="pull-right client-info hidden-md">
                                                     <span class="percent text-danger">
