@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Challenge
+    public class Challenge
     {
         private String _Challenge_ID;
 

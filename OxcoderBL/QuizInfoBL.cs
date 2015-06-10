@@ -14,11 +14,14 @@ using System.Data.SqlClient;
 /// Author:岚岚姐
 /// Date：2015/06/09
 /// 
-namespace OxcoderIDAL
+namespace OxcoderBL
 {
-    public interface QuizInfoIDAL
+    public class QuizInfoBL:OxcoderIBL.QuizInfoIBL
     {
-        string QuizName(string id);
-        DataSet QuizInfo(string id);
+        public DataSet QuizInfo(string id)
+        {
+            OxcoderIDAL.QuizInfoIDAL en = new OxcoderDAL.QuizInfoDAL();
+            return en.QuizInfo(id);
+        }
     }
 }

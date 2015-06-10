@@ -126,7 +126,7 @@ namespace OxcoderDAL
         public DataSet SearchByChallengeID(string id, int pageindex, int pagesize)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("select * from Challenge where Challenge_OwnerID like @id");
+            sql.Append("select * from [Challenge] as c,[Enterprice] as e where c.Challenge_OwnerID = e.Enterprice_ID and Challenge_ID like @id");
             SqlParameter[] par ={new SqlParameter("@id",SqlDbType.Text)};
             par[0].Value = id;
             return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());

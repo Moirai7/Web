@@ -28,5 +28,15 @@ namespace OxcoderDAL
             DataSet ds = Common.DbHelperSQL.Query(sql.ToString(), par);
             return ds.Tables[0].Rows[0]["Quiz_Name"].ToString(); 
         }
+
+        public DataSet QuizInfo(string id)
+        {
+            String sql = "select * from [Quiz] where Quiz_ID=@id";
+            SqlParameter[] par ={
+                                    new SqlParameter("@id",SqlDbType.VarChar,50),
+                                };
+            par[0].Value = id;
+            return Common.DbHelperSQL.Query(sql.ToString(), par);
+        }
     }
 }

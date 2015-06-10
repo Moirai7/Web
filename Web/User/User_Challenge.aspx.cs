@@ -14,6 +14,7 @@ namespace Web.User
         int reustate = -1;
 
         OxcoderIBL.SearchChallengeIBL search = new OxcoderBL.SearchChallengeBL();
+        OxcoderIBL.TestInfoIBL enter = new OxcoderBL.TestInfoBL();
 
         public string Name
         {
@@ -48,6 +49,12 @@ namespace Web.User
                 flag = Convert.ToInt32(Request.QueryString["flag"].ToString());
             if (Request.QueryString["page"] != null && Request.QueryString["page"] != "")
                 page = Convert.ToInt32(Request.QueryString["page"].ToString());
+            if (Request.QueryString["add"] != null && Request.QueryString["add"] != "")
+            {
+                enter.InsertATest(Request.QueryString["add"].ToString(), Session["id"].ToString());
+            }
+            if (Request.QueryString["delete"] != null && Request.QueryString["delete"] != "")
+                enter.DeleteATest(Request.QueryString["delete"].ToString());
 
             rpt_Challenge.DataSource = search.SearchByUser(Session["id"].ToString(), reustate, flag, page, 10);
             Page.DataBind();

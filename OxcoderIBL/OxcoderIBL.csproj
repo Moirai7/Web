@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="EnterpriseInfoIBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuizInfoIBL.cs" />
     <Compile Include="SearchChallengeIBL.cs" />
+    <Compile Include="TestInfoIBL.cs" />
     <Compile Include="UserIBL.cs" />
   </ItemGroup>
   <ItemGroup>

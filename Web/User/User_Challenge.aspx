@@ -84,9 +84,9 @@
                                     </div>
                                     <!-- /.panel-body -->
                                     <div class="panel-footer align-center">
-                                        <a href="Challenge.aspx?cid=112">
+                                        <a href="Challenge.aspx?cid=<%# Eval("Challenge_ID")%>">
                                             <button class="btn btn-new1">开始挑战</button></a>
-                                        <a href="User_Challenge.aspx?delete=112" class="btn btn-new2">放弃</a>
+                                        <a href="User_Challenge.aspx?delete=<%# Eval("Challenge_ID")%>" class="btn btn-new2">放弃</a>
                                     </div>
                                     <!-- /.panel-footer -->
                                 </div>

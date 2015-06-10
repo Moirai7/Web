@@ -115,7 +115,9 @@ namespace OxcoderBL
         public DataSet SearchByChallengeID(string id, int pageindex, int pagesize)
         {
             OxcoderIDAL.SearchChallengeIDAL dalad = new OxcoderDAL.SearchChallengeDAL();
-            return dalad.SearchByOwner(id,pageindex,pagesize);
+            DataSet ds = dalad.SearchByChallengeID(id, pageindex, pagesize);
+            ds = AddPositionAndQuiz(ds);
+            return ds;
         }
     }
 }
