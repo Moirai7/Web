@@ -20,7 +20,8 @@ namespace OxcoderBL
     {
         public DataSet EnterpriceInfo(string id)
         {
-            OxcoderIDAL.EnterpriseInfoIDAL en = new OxcoderDAL.EnterpriseInfoDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.EnterpriseInfoIDAL en = factory.getEnterpriseInstance();
             return en.EnterpriceInfo(id);
         }
     }

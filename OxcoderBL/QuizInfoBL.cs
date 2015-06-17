@@ -20,7 +20,8 @@ namespace OxcoderBL
     {
         public DataSet QuizInfo(string id)
         {
-            OxcoderIDAL.QuizInfoIDAL en = new OxcoderDAL.QuizInfoDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.QuizInfoIDAL en = factory.getQuizInstance();
             return en.QuizInfo(id);
         }
     }

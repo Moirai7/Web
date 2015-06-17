@@ -21,7 +21,8 @@ namespace OxcoderBL
     {
         private DataSet AddPositionAndQuiz(DataSet ds)
         {
-            OxcoderDAL.QuizInfoDAL quiz = new OxcoderDAL.QuizInfoDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.QuizInfoIDAL quiz = factory.getQuizInstance();
 
             DataColumn dc = new DataColumn();
             dc.DataType = System.Type.GetType("System.String");
@@ -81,7 +82,8 @@ namespace OxcoderBL
 
         public DataSet Search(int pageindex, int pagesize, int salary = -1, string provice = null, int retype = -1, int flag = -1, string searchCondition = null)
         {
-            OxcoderIDAL.SearchChallengeIDAL dalad = new OxcoderDAL.SearchChallengeDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.SearchChallengeIDAL dalad = factory.getSearchInstance();
             DataSet ds = dalad.SearchUseCondition(salary, provice, retype, flag, searchCondition, pageindex, pagesize);
             ds = AddPositionAndQuiz(ds);
             return ds;
@@ -89,7 +91,8 @@ namespace OxcoderBL
 
         public DataSet SearchByOwner(string id, int pageindex, int pagesize)
         {
-            OxcoderIDAL.SearchChallengeIDAL dalad = new OxcoderDAL.SearchChallengeDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.SearchChallengeIDAL dalad = factory.getSearchInstance();
             DataSet ds = dalad.SearchByOwner(id, pageindex, pagesize);
             ds = AddPositionAndQuiz(ds);
             return ds;
@@ -97,7 +100,8 @@ namespace OxcoderBL
         
         public DataSet SearchByUser(string userid, int state, int flag, int pageindex, int pagesize)
         {
-            OxcoderIDAL.SearchChallengeIDAL dalad = new OxcoderDAL.SearchChallengeDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.SearchChallengeIDAL dalad = factory.getSearchInstance();
             DataSet ds = null;
             if (flag == 1 )
             {
@@ -114,7 +118,8 @@ namespace OxcoderBL
 
         public DataSet SearchByChallengeID(string id, int pageindex, int pagesize)
         {
-            OxcoderIDAL.SearchChallengeIDAL dalad = new OxcoderDAL.SearchChallengeDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.SearchChallengeIDAL dalad = factory.getSearchInstance();
             DataSet ds = dalad.SearchByChallengeID(id, pageindex, pagesize);
             ds = AddPositionAndQuiz(ds);
             return ds;

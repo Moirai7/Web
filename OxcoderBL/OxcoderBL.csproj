@@ -55,9 +55,9 @@
       <Project>{ff039ef6-3765-49a8-af4d-3f34f56e1e56}</Project>
       <Name>Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OxcoderDAL\OxcoderDAL.csproj">
-      <Project>{1baa845b-2d37-4af9-b4ad-47ca8851e081}</Project>
-      <Name>OxcoderDAL</Name>
+    <ProjectReference Include="..\OxcoderFactory\OxcoderFactory.csproj">
+      <Project>{1724310d-a5c6-4208-b382-b28691e828b8}</Project>
+      <Name>OxcoderFactory</Name>
     </ProjectReference>
     <ProjectReference Include="..\OxcoderIBL\OxcoderIBL.csproj">
       <Project>{46200a9a-2cab-42a8-9d84-4508d5dda572}</Project>
@@ -66,6 +66,10 @@
     <ProjectReference Include="..\OxcoderIDAL\OxcoderIDAL.csproj">
       <Project>{18111a9a-9ff3-4ced-8170-4e8b564c98d9}</Project>
       <Name>OxcoderIDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OxcoderIFactory\OxcoderIFactory.csproj">
+      <Project>{aa860ae9-0387-43cf-ab16-465ec3f93ea9}</Project>
+      <Name>OxcoderIFactory</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

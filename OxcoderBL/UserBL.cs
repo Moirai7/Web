@@ -22,37 +22,44 @@ namespace OxcoderBL
     {
         public DataSet DSUser(int pageindex, int pagesize, String table)
         {
-            OxcoderIDAL.UserIDAL dalad = new OxcoderDAL.UserDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
             return dalad.DSUser(pageindex,pagesize,table);
         }
         public int Count()
         {
-            OxcoderIDAL.UserIDAL dalad = new OxcoderDAL.UserDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
             return dalad.Count();
         }
         public int DeleteUser(Model.User user)
         {
-            OxcoderIDAL.UserIDAL dalad = new OxcoderDAL.UserDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
             return dalad.DeleteUser(user);
         }
         public SqlDataReader UserInfo(Model.User user)
         {
-            OxcoderIDAL.UserIDAL dalad = new OxcoderDAL.UserDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
             return dalad.UserInfo(user);
         }
         public int Insert(Model.User user)
         {
-            OxcoderIDAL.UserIDAL dalad = new OxcoderDAL.UserDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
             return dalad.Insert(user);
         }
         public DataSet AllUserInfo()
         {
-            OxcoderIDAL.UserIDAL dalad = new OxcoderDAL.UserDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
             return dalad.AllUserInfo();
         }
         public int Update(Model.User user)
         {
-            OxcoderIDAL.UserIDAL dalad = new OxcoderDAL.UserDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
             return dalad.Update(user);
         }
     }

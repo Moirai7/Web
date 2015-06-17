@@ -10,7 +10,8 @@ namespace OxcoderBL
     {
         public int InsertATest(string challengeid, string userid)
         {
-            OxcoderIDAL.TestInfoIDAL dalad = new OxcoderDAL.TestInfoDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.TestInfoIDAL dalad = factory.getTestInstance();
             Model.Test test = new Model.Test();
             test.Test_ID = Guid.NewGuid().ToString();
             test.Test_ChallengeID = challengeid;
@@ -20,7 +21,8 @@ namespace OxcoderBL
 
         public int DeleteATest(string id)
         {
-            OxcoderIDAL.TestInfoIDAL dalad = new OxcoderDAL.TestInfoDAL();
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.TestInfoIDAL dalad = factory.getTestInstance();
             return dalad.DeleteATest(id);
         }
     }

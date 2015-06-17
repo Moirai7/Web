@@ -16,7 +16,7 @@ using System.Data.SqlClient;
 /// 
 namespace OxcoderDAL
 {
-    public class ChallengeInfoDAL
+    public class ChallengeInfoDAL : OxcoderIDAL.ChallengeInfoIDAL
     {
         public int DeleteAChallenge(string id)
         {
