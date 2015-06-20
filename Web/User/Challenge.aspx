@@ -69,7 +69,7 @@
                                                                     <hr>
                                                                     <h4>开发能力</h4>
                                                                     <div class="well">
-                                                                       <%#  Eval("Quiz_Info")%>
+                                                                       <%#  Eval("Quiz_Content")%>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.panel-body -->
@@ -116,7 +116,7 @@
                                                                     <hr>
                                                                     <h4>开发能力</h4>
                                                                     <div class="well">
-                                                                       <%#  Eval("Quiz_Info")%>
+                                                                       <%# Eval("Quiz_Content")%>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.panel-body -->
@@ -163,7 +163,7 @@
                                                                     <hr>
                                                                     <h4>开发能力</h4>
                                                                     <div class="well">
-                                                                       <%#  Eval("Quiz_Info")%>
+                                                                       <%#  Eval("Quiz_Content")%>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.panel-body -->
@@ -193,7 +193,7 @@
 									</section>
 								</div>
 									<div style="text-align: center;" class="col-md-12">
-										 <a id="btn-run-not-sub" href="User_Test.html"><button class="btn btn-new1">开始挑战</button></a>
+										 <a id="btn-run-not-sub" href="User_Test.aspx?order=0&cid=<%#id %>"><button class="btn btn-new1">开始挑战</button></a>
 									</div>
 							</div>
 						</div>

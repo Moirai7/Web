@@ -108,6 +108,27 @@
     <Compile Include="User\User_Index.aspx.designer.cs">
       <DependentUpon>User_Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\User_Test.aspx.cs">
+      <DependentUpon>User_Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\User_Test.aspx.designer.cs">
+      <DependentUpon>User_Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_Test_Compile.aspx.cs">
+      <DependentUpon>User_Test_Compile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\User_Test_Compile.aspx.designer.cs">
+      <DependentUpon>User_Test_Compile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_Test_Quiz.aspx.cs">
+      <DependentUpon>User_Test_Quiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\User_Test_Quiz.aspx.designer.cs">
+      <DependentUpon>User_Test_Quiz.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -118,6 +139,7 @@
     <Content Include="Common\Enterprise.html" />
     <Content Include="Common\footer.html" />
     <Content Include="Common\header.html" />
+    <Content Include="Common\Header_Test.html" />
     <Content Include="Common\User_menu.html" />
     <Content Include="Common\Index.html" />
     <Content Include="Common\Reports.html" />
@@ -208,6 +230,10 @@
     <Content Include="Public\JS\bootstrapValidator.js" />
     <Content Include="Public\JS\browser.js" />
     <Content Include="Public\JS\Chart.js" />
+    <Content Include="Public\JS\codingConstant.js" />
+    <Content Include="Public\JS\codingProjectInfo.js" />
+    <Content Include="Public\JS\codingStatistics.js" />
+    <Content Include="Public\JS\codingUI.js" />
     <Content Include="Public\JS\ext-language_tools.js" />
     <Content Include="Public\JS\font-awesome.min.css" />
     <Content Include="Public\JS\history.js" />
@@ -220,8 +246,6 @@
     <Content Include="Public\JS\masnunit-customers.js" />
     <Content Include="Public\JS\masnunit.js" />
     <Content Include="Public\JS\mode-php.js" />
-    <Content Include="Public\JS\myEditorChallengePHP.js" />
-    <Content Include="Public\JS\runPHP.js" />
     <Content Include="Public\JS\script.js" />
     <Content Include="Public\JS\statistics-challenge.js" />
     <Content Include="Public\JS\summernote.min.js" />
@@ -236,6 +260,9 @@
     <Content Include="User\User_Corp_Detail.aspx" />
     <Content Include="User\User_History.aspx" />
     <Content Include="User\User_Index.aspx" />
+    <Content Include="User\User_Test.aspx" />
+    <Content Include="User\User_Test_Compile.aspx" />
+    <Content Include="User\User_Test_Quiz.aspx" />
     <Content Include="web.config" />
     <Content Include="Public\Images\03495419c4679ebcca8ff00e8d05c1ecaadf1259" />
     <Content Include="Public\Images\d039a653ca17abfd3f2ce16f359be4b9a5d19aa5" />

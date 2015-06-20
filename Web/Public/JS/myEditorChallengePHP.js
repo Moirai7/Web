@@ -39,7 +39,7 @@ $(document).ready(
 					istimeout = true;
 					clearInterval(inter);
 					
-					$.post("runChallenge.action", {
+					$.post("User_Test.aspx", {
 						"content" : editor.getValue(),
 						"pid" : $("#input-pid").val(),
 						"path" : $("#input-code-path").val(),
@@ -120,7 +120,7 @@ $(document).ready(
 			// 点击自己写按钮，清空editor
 			
 			// 进入Java学习页面，默认加载代码
-			$.post("loadChallengeCode.action", {
+			$.post("User_Test.aspx", {
 				"type" : 6,
 				"filename" : $("#input-filename").attr("value")
 			}, function(data) {
@@ -604,7 +604,7 @@ function getRes() {
 function tonext() {
 	// 跳转到下一题目的页面
 	$('#complete-dialog').modal('hide');
-	location.replace("user-challenge.action?retype="+$("#input-retype").val()+"&order=" + order + "&reid="
+	location.replace("user-challenge.action?order=" + order + "&reid="
 			+ $("#input-reid").val());
 
 }
