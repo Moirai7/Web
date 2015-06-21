@@ -1,27 +1,4 @@
-﻿	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">意见反馈</h4>
-				</div>
-				<div class="modal-body">
-					<form class="">
-						<textarea class="form-control" placeholder="请输入您的反馈意见" style="min-height: 200px;"></textarea>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-new1">提交</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- jQuery -->
-	
-
-	<!-- Bootstrap core JavaScript -->
+﻿	<!-- Bootstrap core JavaScript -->
 	<script src="../Public/JS/bootstrap.min.js"></script>
 
 	<!-- Sparkline -->
@@ -49,12 +26,12 @@
 </style>
 	<div id="win-holder">
 		
-		<form id="woo-form-album" action="/User/User_Index.aspx?page=">
-			<input type="hidden" name="flag" value="">
-			<input type="hidden" name="salary" value="">
+		<form id="woo-form-album" action="/User/Battle.aspx?page=">
+			<input type="hidden" name="flag" value="0">
+			<input type="hidden" name="salary" value="0">
 			<input type="hidden" name="location" value="">
 			<input type="hidden" name="searchCondition" value="">
-			<input type="hidden" name="retype" value="">
+			<input type="hidden" name="retype" value="0">
 		</form>
 	</div>
 	<script>
@@ -114,13 +91,13 @@
 	            "resize": true,
 
 	            // * 每页的单元数
-	            "unitsnum": 24,
+	            "unitsnum": 10,
 
 	            // * 每一大页子页数量
 	            "subpagenum": 10000,
 
 	            // 每次append插入dom的单元个数
-	            "appendnum": 12,
+	            "appendnum": 10,
 
 	            // 距离底部多远提前开始加载
 	            "lbias": 400,
@@ -152,8 +129,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    © 2015 oxcoder.com <a href="http://www.oxcoder.com/contact-us.action">联系我们</a> <a href="http://jq.qq.com/?_wv=1027&k=eeKvVb" target="_blank">QQ交流群:77590762</a> <a href="http://www.mikecrm.com/f.php?t=7GdYKp" target="_blank">意见反馈</a> <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1253509620'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1253509620%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1253509620">
-                        <a href="http://www.cnzz.com/stat/website.php?web_id=1253509620" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="../Public/Images/pic.gif"></a></span>
+                    © 2015 oxcoder.com <a>联系我们</a> 
+                    <a  >QQ交流群:77590762</a>
+                     <a >意见反馈</a> 
+                    <span id="cnzz_stat_icon_1253509620">
+                        <a  title="站长统计"><img border="0" hspace="0" vspace="0" src="../Public/Images/pic.gif"></a></span>
                 </div>
             </div>
             

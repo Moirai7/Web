@@ -8,9 +8,9 @@ namespace Model
 {
     public class Challenge
     {
-        private String _Challenge_ID;
+        private Guid _Challenge_ID;
 
-        public String Challenge_ID
+        public Guid Challenge_ID
         {
             get { return _Challenge_ID; }
             set { _Challenge_ID = value; }
@@ -22,16 +22,38 @@ namespace Model
             get { return _Challenge_Name; }
             set { _Challenge_Name = value; }
         }
-        private String _Challenge_Quiz;
+        private DateTime _Challenge_Publish;
 
-        public String Challenge_Quiz
+        public DateTime Challenge_Publish
         {
-            get { return _Challenge_Quiz; }
-            set { _Challenge_Quiz = value; }
+            get { return _Challenge_Publish; }
+            set { _Challenge_Publish = value; }
         }
-        private String _Challenge_OwnerID;
 
-        public String Challenge_OwnerID
+        private String _Challenge_Quiz0;
+
+        public String Challenge_Quiz0
+        {
+            get { return _Challenge_Quiz0; }
+            set { _Challenge_Quiz0 = value; }
+        }
+        private String _Challenge_Quiz1;
+
+        public String Challenge_Quiz1
+        {
+            get { return _Challenge_Quiz1; }
+            set { _Challenge_Quiz1 = value; }
+        }
+        private String _Challenge_Quiz2;
+
+        public String Challenge_Quiz2
+        {
+            get { return _Challenge_Quiz2; }
+            set { _Challenge_Quiz2 = value; }
+        }
+        private Guid _Challenge_OwnerID;
+
+        public Guid Challenge_OwnerID
         {
             get { return _Challenge_OwnerID; }
             set { _Challenge_OwnerID = value; }
@@ -57,9 +79,9 @@ namespace Model
             get { return _Challenge_Type; }
             set { _Challenge_Type = value; }
         }
-        private String _Challenge_Salary;
+        private int _Challenge_Salary;
 
-        public String Challenge_Salary
+        public int Challenge_Salary
         {
             get { return _Challenge_Salary; }
             set { _Challenge_Salary = value; }
@@ -71,12 +93,28 @@ namespace Model
             get { return _Challenge_Area; }
             set { _Challenge_Area = value; }
         }
-        private String _Challenge_Position;
+        private String _Challenge_Position0;
 
-        public String Challenge_Position
+        public String Challenge_Position0
         {
-            get { return _Challenge_Position; }
-            set { _Challenge_Position = value; }
+            get { return _Challenge_Position0; }
+            set { _Challenge_Position0 = value; }
+        }
+
+        private String _Challenge_Position1;
+
+        public String Challenge_Position1
+        {
+            get { return _Challenge_Position1; }
+            set { _Challenge_Position1 = value; }
+        }
+
+        private String _Challenge_Position2;
+
+        public String Challenge_Position2
+        {
+            get { return _Challenge_Position2; }
+            set { _Challenge_Position2 = value; }
         }
         private String _Challenge_EnTime;
 

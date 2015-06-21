@@ -73,6 +73,13 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\Battle.aspx.cs">
+      <DependentUpon>Battle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Battle.aspx.designer.cs">
+      <DependentUpon>Battle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Challenge.aspx.cs">
       <DependentUpon>Challenge.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -255,6 +262,7 @@
     <Content Include="Public\JS\video.js" />
     <Content Include="Public\JS\woo-customers.js" />
     <Content Include="Public\JS\woo.js" />
+    <Content Include="User\Battle.aspx" />
     <Content Include="User\Challenge.aspx" />
     <Content Include="User\User_Challenge.aspx" />
     <Content Include="User\User_Corp_Detail.aspx" />

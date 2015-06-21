@@ -1,6 +1,6 @@
-(function($) {
+(function ($) {
 
-    $(document).ready( function() {
+    $(document).ready(function () {
 
         // Convert all textarea with .editor class to WYSIWYG
         $('.editor').summernote({
@@ -8,10 +8,10 @@
         });
 
 
-        // Init tooltips
-        $('[data-toggle="tooltip"]').tooltip({
-            container: 'body'
-        });
+        //// Init tooltips
+        //$('[data-toggle="tooltip"]').tooltip({
+        //    container: 'body'
+        //});
 
 
         // User productivity graph, used in sidebar
