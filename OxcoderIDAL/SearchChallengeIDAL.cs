@@ -25,7 +25,7 @@ namespace OxcoderIDAL
         //	Retype 技术方向
         //	Flag 按热度 时间 薪资 排序
         //	SearchCondition 搜索条件
-        DataSet SearchUseCondition(int salary, string provice, int retype, int flag, string searchCondition, int pageindex, int pagesize);
+        DataSet SearchUseCondition(String salary, string provice, int retype, int flag, string searchCondition, int pageindex, int pagesize);
         
         //  Userid 用户id
 	    //  State 通过状态

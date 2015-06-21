@@ -23,7 +23,7 @@ namespace Web.User
     {
         private int page = 0;
         private int flag = -1;
-        private int salary = -1;
+        private String salary = null;
         private String location = null;
         private String searchCondition = null;
         private int retype = -1;
@@ -33,11 +33,11 @@ namespace Web.User
             OxcoderIBL.SearchChallengeIBL search = new OxcoderBL.SearchChallengeBL();
 
             if (Request.QueryString["salary"] != null && Request.QueryString["salary"] != "")
-                salary = Convert.ToInt32(Request.QueryString["salary"].ToString());
+                salary = Request.QueryString["salary"].ToString();
             if (Request.QueryString["province"] != null && Request.QueryString["province"] != "")
-                location = Request.QueryString["province"].ToString();
+                location = HttpUtility.UrlDecode(Request.QueryString["province"].ToString());
             if (Request.QueryString["searchCondition"] != null && Request.QueryString["searchCondition"] != "")
-                searchCondition = Request.QueryString["searchCondition"].ToString();
+                searchCondition = HttpUtility.UrlDecode(Request.QueryString["searchCondition"].ToString());
             if (Request.QueryString["flag"] != null && Request.QueryString["flag"] != "")
                 flag = Convert.ToInt32(Request.QueryString["flag"].ToString());
             if (Request.QueryString["page"] != null && Request.QueryString["page"] != "")

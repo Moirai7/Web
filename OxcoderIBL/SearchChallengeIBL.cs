@@ -24,7 +24,7 @@ namespace OxcoderIBL
         //	Retype 技术方向
         //	Flag 按热度 时间 薪资 排序
         //	SearchCondition 搜索条件
-        DataSet Search(int pageindex, int pagesize, int salary = -1, string provice = null, int retype = -1, int flag = -1, string searchCondition = null);
+        DataSet Search(int pageindex, int pagesize, String salary = null, string provice = null, int retype = -1, int flag = -1, string searchCondition = null);
 
         //	Eid 企业
         DataSet SearchByOwner(string id, int pageindex, int pagesize);

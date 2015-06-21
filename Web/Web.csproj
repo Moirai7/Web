@@ -147,6 +147,7 @@
     <Content Include="Common\footer.html" />
     <Content Include="Common\header.html" />
     <Content Include="Common\Header_Test.html" />
+    <Content Include="Common\User_Index_Footer.html" />
     <Content Include="Common\User_menu.html" />
     <Content Include="Common\Index.html" />
     <Content Include="Common\Reports.html" />

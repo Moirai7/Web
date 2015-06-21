@@ -139,7 +139,7 @@ if (!String.prototype.cut) {
                                 </ul>\
                             </div><!-- /.panel-body -->\
                             <div class="panel-footer align-center">\
-	          					<a href="user-choose-challenge.action?reid=<%=u.Challenge_ID%>"><button class="btn btn-new1">接受挑战</button></a>\
+	          					<a href="User_Challenge.aspx?add=<%=u.Challenge_ID%>"><button class="btn btn-new1">接受挑战</button></a>\
                             </div><!-- /.panel-footer -->\
                         </div>\
                     </section>\

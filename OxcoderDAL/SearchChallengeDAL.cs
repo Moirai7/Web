@@ -18,19 +18,19 @@ namespace OxcoderDAL
 {
     public class SearchChallengeDAL : OxcoderIDAL.SearchChallengeIDAL
     {
-        public DataSet SearchUseCondition(int salary, string provice, int retype, int flag, string searchCondition, int pageindex, int pagesize)
+        public DataSet SearchUseCondition(String salary, string provice, int retype, int flag, string searchCondition, int pageindex, int pagesize)
         {
             StringBuilder sql = new StringBuilder();
             List<SqlParameter> par = new List<SqlParameter>();
             sql.Append("select * from [Challenge] as c,[Enterprice] as e where c.Challenge_OwnerID = e.Enterprice_ID ");
-            if (salary != -1 && salary != 0)
+            if (salary != null && salary != "0")
             {
-                sql.Append(" and Challenge_Salary = @salary");
-                SqlParameter mParam = new SqlParameter("@salary", SqlDbType.Int);
+                sql.Append(" and Challenge_Salary like @salary");
+                SqlParameter mParam = new SqlParameter("@salary", SqlDbType.Text);
                 mParam.Value = salary;
                 par.Add(mParam);
             }
-            if (provice != null)
+            if (provice != "0")
             {
                 sql.Append(" and Challenge_Area like @provice");
                 SqlParameter mParam = new SqlParameter("@provice", SqlDbType.Text);

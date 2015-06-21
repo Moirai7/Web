@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
+//let s:languages = {
+//\ "cpp": "1",
+//\ "python": "4",
+//\ "c": "34",
+//\ "java": "10",
+//\ "php": "29",
+//\}
 
 /// <summary>
 /// 搜索 的摘要说明
@@ -56,6 +63,30 @@ namespace OxcoderBL
 
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
+                if (dr["Challenge_Salary"].ToString() == "1")
+                {
+                    dr["Challenge_Salary"] = "2k~5k";
+                }
+                else if (dr["Challenge_Salary"].ToString() == "2")
+                {
+                    dr["Challenge_Salary"] = "5k~8k";
+                }
+                else if (dr["Challenge_Salary"].ToString() == "3")
+                {
+                    dr["Challenge_Salary"] = "8k~10k";
+                }
+                else if (dr["Challenge_Salary"].ToString() == "4")
+                {
+                    dr["Challenge_Salary"] = "10k~12k";
+                }
+                else if (dr["Challenge_Salary"].ToString() == "5")
+                {
+                    dr["Challenge_Salary"] = "12k~15k";
+                }
+                else if (dr["Challenge_Salary"].ToString() == "6")
+                {
+                    dr["Challenge_Salary"] = "15k以上";
+                }
                 string strTemp = dr["Challenge_Position"].ToString();
                 if (strTemp.IndexOf(",") == -1)
                 {
@@ -80,7 +111,7 @@ namespace OxcoderBL
             return ds;
         }
 
-        public DataSet Search(int pageindex, int pagesize, int salary = -1, string provice = null, int retype = -1, int flag = -1, string searchCondition = null)
+        public DataSet Search(int pageindex, int pagesize, String salary = null, string provice = null, int retype = -1, int flag = -1, string searchCondition = null)
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
             OxcoderIDAL.SearchChallengeIDAL dalad = factory.getSearchInstance();

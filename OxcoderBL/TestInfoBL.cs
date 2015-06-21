@@ -16,6 +16,9 @@ namespace OxcoderBL
             test.Test_ID = Guid.NewGuid().ToString();
             test.Test_ChallengeID = challengeid;
             test.Test_UserID = userid;
+
+            OxcoderIDAL.ChallengeInfoIDAL ci = factory.getChallengeInstance();
+            ci.UpdateNum(test.Test_ID);
             return dalad.InsertATest(test);
         }
 

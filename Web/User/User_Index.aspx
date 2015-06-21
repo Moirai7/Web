@@ -35,13 +35,11 @@
                     <div class="col-md-2 col-no-left-padding" style="margin-bottom: 10px;">
                         <select id="select-retype" class="form-control">
                             <option selected="" value="">技术方向</option>
-                            <option value="1">Java</option>
-                            <option value="2">Android</option>
-                            <option value="3">iOS</option>
-                            <option value="4">C语言</option>
-                            <option value="5">C++</option>
-                            <option value="6">php</option>
-                            <option value="7">python</option>
+                            <option value="10">Java</option>
+                            <option value="34">C语言</option>
+                            <option value="1">C++</option>
+                            <option value="29">php</option>
+                            <option value="4">python</option>
                         </select>
                     </div>
                     <div class="col-md-2 col-no-left-padding" style="margin-bottom: 10px;">
@@ -134,57 +132,6 @@
                             <div class="woo-tmpmasn woo-pcont woo-masned" style="position: relative; height: 0; overflow: hidden; margin: 0; padding: 0;"></div>
                             <div class="woo-pcont woo-masned" data-totalunits="600" style="position: relative; width: 1150px; height: 1368px; visibility: visible;">
 
-								<asp:Repeater ID="rpt_Challenge" runat="server">
-								<ItemTemplate>
-                                <div class="col-xs-12 col-lg-3 col-md-4 woo co0" data-ht="456" data-idx="0" style="top: 0px; left: 0px;">
-                                    <section id="Section1">
-                                        <div class="panel panel-default shadow-effect">
-                                            <div class="col-xs-12 panel-header">
-                                                <div class="pull-left">
-                                                    <h4 title="<%# Eval("Challenge_Name")%>" class="line-control"><%# Eval("Challenge_Name")%></h4>
-                                                    <h4 title="<%# Eval("Enterprice_FullName")%>" class="line-control"><a href="User_Corp_Detail.aspx?cid=<%# Eval("Enterprice_ID")%>"><%# Eval("Enterprice_FullName")%></a></h4>
-                                                </div>
-                                                <div class="pull-right client-info hidden-md">
-                                                    <span class="percent text-danger">
-                                                        <img class="img-circle" style="width: 60px; height: 60px" src="<%# Eval("Enterprice_Logo")%>"></span>
-                                                </div>
-                                                <span class="hot-tag">推荐</span>
-                                            </div>
-                                            <div class="panel-body ">
-                                                <ul class="list-unstyled">
-                                                    <li>月薪： <%# Eval("Challenge_Salary")%></li>
-                                                    <li>职位诱惑：</li>
-                                                    <li>
-                                                        <ul class="companyTags">
-                                                            <li><%# Eval("Challenge_Position0")%></li>
-                                                            <li><%# Eval("Challenge_Position1")%></li>
-                                                            <li><%# Eval("Challenge_Position2")%></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>挑战项目：</li>
-                                                    <li>
-                                                        <ul>
-                                                            <li><%# Eval("Challenge_Quiz0")%></li>
-                                                            <li><%# Eval("Challenge_Quiz1")%></li>
-                                                            <li><%# Eval("Challenge_Quiz2")%></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>难度：<%# Eval("Challenge_Level")%></li>
-                                                    <li><i class="fa fa-calendar"></i><%# Eval("Challenge_EnTime")%></li>
-                                                    <li><i class="fa fa-user"></i><%# Eval("Challenge_Num")%>人已接受挑战</li>
-                                                </ul>
-                                            </div>
-                                            <!-- /.panel-body -->
-                                            <div class="panel-footer align-center">
-                                                <a href="User_Challenge.aspx?add=<%# Eval("Challenge_ID")%>">
-                                                    <button class="btn btn-new1">接受挑战</button></a>
-                                            </div>
-                                            <!-- /.panel-footer -->
-                                        </div>
-                                    </section>
-                                </div>
-								</ItemTemplate>
-							</asp:Repeater>
                             </div>
                         </div>
                         <!-- Woo holder over -->
@@ -195,6 +142,6 @@
         <!-- /.row -->
     </div>
     <!-- /.container -->
-    <!-- #Include virtual="/Common/footer.html" -->
+    <!-- #Include virtual="/Common/User_Index_Footer.html" -->
 </body>
 </html>
