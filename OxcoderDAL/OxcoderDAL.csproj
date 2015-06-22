@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChallengeInfoDAL.cs" />
+    <Compile Include="EnterpriseChallengeDAL.cs" />
     <Compile Include="EnterpriseInfoDAL.cs" />
+    <Compile Include="InviteDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizInfoDAL.cs" />
     <Compile Include="SearchChallengeDAL.cs" />

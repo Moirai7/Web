@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnterpriseChallengeBL.cs" />
     <Compile Include="EnterpriseInfoBL.cs" />
     <Compile Include="Ideone_Service.cs" />
+    <Compile Include="InviteBL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizInfoBL.cs" />

@@ -72,6 +72,41 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Enterprise\Invite.aspx.cs">
+      <DependentUpon>Invite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprise\Invite.aspx.designer.cs">
+      <DependentUpon>Invite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise\PublishChallenge_BaseInfo.aspx.cs">
+      <DependentUpon>PublishChallenge_BaseInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprise\PublishChallenge_BaseInfo.aspx.designer.cs">
+      <DependentUpon>PublishChallenge_BaseInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise\PublishChallenge_ChooseQuiz.aspx.cs">
+      <DependentUpon>PublishChallenge_ChooseQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprise\PublishChallenge_ChooseQuiz.aspx.designer.cs">
+      <DependentUpon>PublishChallenge_ChooseQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise\Recruit_list.aspx.cs">
+      <DependentUpon>Recruit_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprise\Recruit_list.aspx.designer.cs">
+      <DependentUpon>Recruit_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise\Resume.aspx.cs">
+      <DependentUpon>Resume.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprise\Resume.aspx.designer.cs">
+      <DependentUpon>Resume.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\Battle.aspx.cs">
       <DependentUpon>Battle.aspx</DependentUpon>
@@ -161,6 +196,11 @@
     <Content Include="Common\Share1.html" />
     <Content Include="Common\Share2.html" />
     <Content Include="Default.aspx" />
+    <Content Include="Enterprise\Invite.aspx" />
+    <Content Include="Enterprise\PublishChallenge_BaseInfo.aspx" />
+    <Content Include="Enterprise\PublishChallenge_ChooseQuiz.aspx" />
+    <Content Include="Enterprise\Recruit_list.aspx" />
+    <Content Include="Enterprise\Resume.aspx" />
     <Content Include="Public\CSS\carousel.css" />
     <Content Include="Public\CSS\hover.css" />
     <Content Include="Public\CSS\jquery-ui-1.10.0.custom.css" />
