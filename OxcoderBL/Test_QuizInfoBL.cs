@@ -28,7 +28,7 @@ namespace OxcoderBL
             OxcoderIBL.SearchChallengeIBL search = new OxcoderBL.SearchChallengeBL();
             OxcoderIBL.QuizInfoIBL enter = new OxcoderBL.QuizInfoBL();
 
-            DataSet ds = search.SearchByChallengeID(reid, 0, 1);
+            DataSet ds = search.SearchByChallengeID(reid);
             switch (order)
             {
                 case 0:

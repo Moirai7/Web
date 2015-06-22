@@ -6,13 +6,13 @@
 <head>
     <!-- #Include virtual="/Common/Header_Test.html" -->
 </head>
-<body style="position: relative">
-    <div class="navbar navbar-coding navbar-fixed-top" style="text-align: center; border-radius: 0; -webkit-border-radius: 0;">
+<body style="position: relative" avalonctrl="codingModel">
+	<div class="navbar navbar-coding navbar-fixed-top" style="text-align: center; border-radius: 0; -webkit-border-radius: 0;">
 		<div class="navbar-header">
             <a class="navbar-brand hidden-sm" href="javascript:history.go(-2)" style="font-size: 13px;"><i class="fa fa-chevron-left" style="padding-right: 5px;"></i>返回</a>
         </div>
         <div class="top-bar-new" style="width: 260px; cursor: default;">
-			<label for="fontsize">字号</label> <select id="fontsize" style="color:black" size="1">
+			<label for="fontsize">字号</label> <select id="Select1" style="color:black" size="1">
 				<option value="10px">10px</option>
 				<option value="11px">11px</option>
 				<option value="12px">12px</option>
@@ -25,6 +25,7 @@
 			</select>&nbsp;&nbsp;&nbsp;
 			<button id="btn-run" class="btn btn-success btn-sm">运行</button>&nbsp;
 			<button id="btn-submit" class="btn btn-primary btn-sm">提交</button>
+			
 		</div>
 	</div>
 
@@ -34,6 +35,7 @@
                 <input id="input-pid" type="hidden" value="<%# Eval("Quiz_ID")%>">
                 <input id="input-uid" type="hidden" value="<%#uid %>">
                 <input id="input-reid" type="hidden" value="<%#id %>">
+                <input id="input-projectpath" type="hidden" value="<%# Eval("Quiz_Info")%>">
             </ItemTemplate>
         </asp:Repeater>
     </form>
@@ -82,20 +84,15 @@
         <i class="fa fa-toggle-right" style="position: absolute; left: 0; top: 0; font-size: 17px; display: none; color: #fff; z-index: 10;" id="showleft" onclick="showleft()"></i>
         <pre id="editor" class=" ace_editor ace_dark ace-idle-fingers ace_focus" style="font-size: 14px; bottom: 0px;">
             <textarea class="ace_text-input" wrap="off" spellcheck="false" style="opacity: 0; height: 17px; width: 7.703125px; right: 950.59375px; bottom: 176px;"></textarea>
-            <!--<div class="ace_gutter">
-                <div class="ace_layer ace_gutter-layer ace_folding-enabled" style="margin-top: 0px; height: 635px; width: 49px;"></div>
-                <div class="ace_gutter-active-line" style="top: 408px; height: 17px;"></div>
-            </div>
-            <div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 22px; bottom: 0px;">
-                <div class="ace_scrollbar-inner" style="width: 22px; height: 425px;"></div>
-            </div>
-            <div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 22px; left: 49px; right: 0px;"></div>
-            <div class="ace_scrollbar-inner" style="height: 22px; width: 1002px;"></div>
-            <div style="height: auto; width: auto; top: -100px; left: -100px; visibility: hidden; position: fixed; white-space: pre; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; overflow: hidden;">
-                <div style="height: auto; width: auto; top: -100px; left: -100px; visibility: hidden; position: fixed; white-space: pre; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; overflow: visible;"></div>
-                <div style="height: auto; width: auto; top: -100px; left: -100px; visibility: hidden; position: fixed; white-space: pre; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: inherit; overflow: visible;">x</div>
-            </div> -->
         </pre>
+        <div class="maxsize-log" style="display: none;">
+			<div id="div-minisize"></div>
+		</div>
+		<textarea class="text-log" readonly="" style="position: absolute; right: 0px; bottom: 0px; width: 49px; height: 34px; max-height: 221px;">				
+			</textarea>
+		<div class="minisize-log">
+			<div id="div-maxsize"></div>
+		</div>
     </div>
 
     <script>
@@ -135,64 +132,50 @@
 	</script>
     <!-- Large modal -->
     <!-- Modal -->
-    <div class="modal fade bs-example-modal-lg" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                    </button>
-                    <!-- <h4 class="modal-title" id="myModalLabel">Modal title</h4> -->
-                </div>
-                <div class="modal-body">
-                    <center>
-						<!-- <embed src="" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed> -->
-						
+    <!-- Large modal -->
+	<!-- Modal -->
+	<div class="modal fade bs-example-modal-lg" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+					</button>
+					<!-- <h4 class="modal-title" id="myModalLabel">Modal title</h4> -->
+				</div>
+				<div class="modal-body">
+					<center>
 						<iframe height="498" width="510" src="" frameborder="0" allowfullscreen=""></iframe>
 					</center>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 等待编译 -->
-    <div class="modal fade bs-example-modal-sm" id="waiting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
+				</div>
+			</div>
+		</div>
+	</div>
 
-                    <h4 class="modal-title" id="myModalLabel">编译中，请稍候... ...</h4>
-                </div>
-                <div class="modal-body">
-                    <center>
-						<img style="width: 100px; height: 100px" src="../Public/Images/waiting.gif">
+	<!-- 等待编译 -->
+	<!-- 编程时间到等待编译 -->
+	<div class="modal fade bs-example-modal-sm" id="waiting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					
+					<h4 class="modal-title" id="myModalLabel"></h4>
+				</div>
+				<div class="modal-body">
+					<center>
+						<img style="width:200px;height:150px" src="../Public/Images/waiting.gif">
 					</center>
-                </div>
-                <div class="modal-footer">
-                    <button id="btn-stop-compile" type="button" class="btn btn-danger">停止编译</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 超过时间自动编译的等待框 -->
-    <div class="modal fade bs-example-modal-sm" id="Div1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h4 class="modal-title" id="H1">时间已到，自动编译中，请稍候...
-						...</h4>
-                </div>
-                <div class="modal-body">
-                    <center>
-						<img style="width: 100px; height: 100px" src="../Public/Images/waiting.gif">
-					</center>
-                </div>
-                <div class="modal-footer">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 编译超时的弹出框 -->
+					<!-- <center>
+						<div ms-widget="loading" data-loading-type="spinning-bubbles"
+					style="width: 200px; height: 120px; position: relative; zoom: 1;"></div>
+					</center> -->
+				</div>
+				<div class="modal-footer"><button disabled="" id="btn-stop-compile" type="button" class="btn btn-danger"><span>取消编译</span></button></div>
+			</div>
+		</div>
+	</div>
+	<!-- </div> -->
+	<!-- 编译超时的弹出框 -->
 	<div class="modal fade bs-example-modal" id="modal-notice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -200,16 +183,16 @@
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 					</button>
-					<h4 class="modal-title" id="H7"></h4>
+					<h4 class="modal-title" id="H1"></h4>
 				</div>
 				<div class="modal-body"></div>
 				<div class="modal-footer">
-					<a href="javascript:;" id="A1" type="button" class="btn btn-primary" data-dismiss="modal">关闭</a>
+					<a href="javascript:;" id="btn-close-timeout" type="button" class="btn btn-primary" data-dismiss="modal">关闭</a>
 				</div>
 			</div>
 		</div>
 	</div>
-    <!-- 选择在线展示还是下载安装 -->
+	<!-- 选择在线展示还是下载安装 -->
 	<div id="modal-confirm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
@@ -231,7 +214,7 @@
 			</div>
 		</div>
 	</div>
-    <!-- 挑战完成提示框 -->
+	<!-- 挑战完成提示框 -->
 	<div class="modal fade bs-example-modal-sm" id="modal-complete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
@@ -246,7 +229,7 @@
 			</div>
 		</div>
 	</div>
-    <!-- 编程时间到等待编译 -->
+	<!-- 编程时间到等待编译 -->
 	<div class="modal fade bs-example-modal-sm" id="waiting-auto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
@@ -263,25 +246,6 @@
 			</div>
 		</div>
 	</div>
-    <!-- 在线展示Android项目 -->
-    <div id="show-android" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top: 0;">
-        <div class="modal-dialog" style="width: 410px">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title" id="H5">Java项目项目展示</h4>
-                </div>
-
-                <div class="modal-body">
-                    <center><!--ms-if--></center>
-                    <!-- 暂无预览 -->
-
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- 控制左侧标签的js -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../Public/JS/bootstrap.min.js" type="text/javascript"></script>

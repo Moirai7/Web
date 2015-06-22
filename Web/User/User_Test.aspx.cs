@@ -59,7 +59,7 @@ namespace Web.User
             if (Request.QueryString["page"] != null && Request.QueryString["page"] != "")
                 order = Convert.ToInt32(Request.QueryString["page"].ToString());
 
-            DataSet ds = search.SearchByChallengeID(id, 0, 1);
+            DataSet ds = search.SearchByChallengeID(id);
             switch (order)
             {
                 case 0:

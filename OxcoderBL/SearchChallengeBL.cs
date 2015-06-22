@@ -147,11 +147,11 @@ namespace OxcoderBL
             return ds;
         }
 
-        public DataSet SearchByChallengeID(string id, int pageindex, int pagesize)
+        public DataSet SearchByChallengeID(string id)
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
             OxcoderIDAL.SearchChallengeIDAL dalad = factory.getSearchInstance();
-            DataSet ds = dalad.SearchByChallengeID(id, pageindex, pagesize);
+            DataSet ds = dalad.SearchByChallengeID(id);
             ds = AddPositionAndQuiz(ds);
             return ds;
         }

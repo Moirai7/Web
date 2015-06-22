@@ -26,18 +26,18 @@ namespace OxcoderDAL
             par[0].Value = id;
             return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
         }
-        public int UpdateNum(string id)
+        public int UpdateNum(string id,int type)
         {
             int number;
             OxcoderIDAL.SearchChallengeIDAL sci = new OxcoderDAL.SearchChallengeDAL();
-
-            StringBuilder sql = new StringBuilder();
-            sql.Append("update [Challenge] set Challenge_Num = @number where ID=@id");
-            SqlParameter[] par = { new SqlParameter("@number",SqlDbType.Int),
+            number = Convert.ToInt32(sci.SearchByChallengeID(id).Tables[0].Rows[0]["Challenge_Num"].ToString());
+            StringBuilder sql2 = new StringBuilder();
+            sql2.Append("update [Challenge] set Challenge_Num = @number where Challenge_ID like @id");
+            SqlParameter[] par2 = { new SqlParameter("@number",SqlDbType.Int),
                                      new SqlParameter("@id", SqlDbType.VarChar) };
-            par[0].Value = number;
-            par[1].Value = id;
-            return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
+            par2[0].Value = number + type;
+            par2[1].Value = id;
+            return Common.DbHelperSQL.ExecuteSql(sql2.ToString(), par2);
         }
         public int InsertAChallenge(Model.Challenge id)
         {

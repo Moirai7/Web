@@ -10,6 +10,6 @@ namespace OxcoderIDAL
     {
         int DeleteAChallenge(string id);
         int InsertAChallenge(Model.Challenge id);
-        int UpdateNum(string id);
+        int UpdateNum(string id,int type);
     }
 }

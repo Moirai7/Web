@@ -11,7 +11,7 @@ namespace Web.User
     {
         int page = 0;
         int flag = 0;
-        int reustate = 0;
+        int reustate = -1;
 
         OxcoderIBL.SearchChallengeIBL search = new OxcoderBL.SearchChallengeBL();
 

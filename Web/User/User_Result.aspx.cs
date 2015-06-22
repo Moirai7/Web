@@ -18,14 +18,10 @@ using System.Data.SqlClient;
 /// 
 namespace Web.User
 {
-    public partial class Challenge : System.Web.UI.Page
+    public partial class User_Result : System.Web.UI.Page
     {
-        int page = 0;
         public string id = null;
-
-        OxcoderIBL.SearchChallengeIBL search = new OxcoderBL.SearchChallengeBL();
-        OxcoderIBL.QuizInfoIBL enter = new OxcoderBL.QuizInfoBL();
-
+        private OxcoderIBL.TestInfoIBL tii = new OxcoderBL.TestInfoBL();
         public string Name
         {
             get
@@ -57,12 +53,7 @@ namespace Web.User
             if (Request.QueryString["cid"] != null && Request.QueryString["cid"] != "")
                 id = Request.QueryString["cid"].ToString();
 
-            DataSet ds = search.SearchByChallengeID(id);
-            rpt_challenge.DataSource = ds;
-
-            quiz1.DataSource = enter.QuizInfo(ds.Tables[0].Rows[0]["Challenge_Quiz_First"].ToString());
-            quiz2.DataSource = enter.QuizInfo(ds.Tables[0].Rows[0]["Challenge_Quiz_Sec"].ToString());
-            quiz3.DataSource = enter.QuizInfo(ds.Tables[0].Rows[0]["Challenge_Quiz_Third"].ToString());
+            rpt_Challenge.DataSource = tii.GetTestDetail(id);
 
             Page.DataBind();
         }

@@ -24,9 +24,9 @@ namespace OxcoderBL
 {
     public class Program:OxcoderIBL.IProgram
     {
-        private string link;
+        private string link = "HLah4g";
         private string user="moirai";
-        private string pass = "304832851";
+        private string pass = "123456";
         private int tryTimes = 0;
 
         public bool createSub(string code,int lang,string input)
@@ -143,9 +143,6 @@ namespace OxcoderBL
                 com.RunInfo = "ERROR";
                 return com;
             }
-            com.StatusCode = -1;
-            com.RunInfo = "ERROR";
-            return com;
         }
 
     }

@@ -22,7 +22,7 @@ namespace OxcoderDAL
         {
             StringBuilder sql = new StringBuilder();
             List<SqlParameter> par = new List<SqlParameter>();
-            sql.Append("select * from [Challenge] as c,[Enterprice] as e where c.Challenge_OwnerID = e.Enterprice_ID ");
+            sql.Append("select * from [Challenge] as c,[Enterprice] as e where c.Challenge_OwnerID = e.Enterprice_ID and Challenge_State=1 ");
             if (salary != null && salary != "0")
             {
                 sql.Append(" and Challenge_Salary like @salary");
@@ -123,13 +123,13 @@ namespace OxcoderDAL
             return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
         }
 
-        public DataSet SearchByChallengeID(string id, int pageindex, int pagesize)
+        public DataSet SearchByChallengeID(string id)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("select * from [Challenge] as c,[Enterprice] as e where c.Challenge_OwnerID = e.Enterprice_ID and Challenge_ID like @id");
             SqlParameter[] par ={new SqlParameter("@id",SqlDbType.Text)};
             par[0].Value = id;
-            return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
+            return Common.DbHelperSQL.Query(sql.ToString(), par.ToArray());
         }
     }
 }

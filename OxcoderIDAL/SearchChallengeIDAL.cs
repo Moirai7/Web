@@ -38,6 +38,6 @@ namespace OxcoderIDAL
         DataSet SearchByOwner(string id, int pageindex, int pagesize);
 
         // id 挑战id
-        DataSet SearchByChallengeID(string id, int pageindex, int pagesize);
+        DataSet SearchByChallengeID(string id);
     }
 }

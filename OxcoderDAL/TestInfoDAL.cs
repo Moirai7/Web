@@ -41,5 +41,27 @@ namespace OxcoderDAL
             par[2].Value = test.Test_UserID;
             return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
         }
+
+        public int UpdateATest(Model.Test test)
+        {
+            //int number;
+            //StringBuilder sql2 = new StringBuilder();
+            //sql2.Append("update [Challenge] set Challenge_Num = @number where Challenge_ID like @id");
+            //SqlParameter[] par2 = { new SqlParameter("@number",SqlDbType.Int),
+            //                         new SqlParameter("@id", SqlDbType.VarChar) };
+            //par2[0].Value = number + type;
+            //par2[1].Value = id;
+            //return Common.DbHelperSQL.ExecuteSql(sql2.ToString(), par2);
+            return -1;
+        }
+
+        public DataSet GetTestDetail(String id)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("select * from [Test] as t,[Challenge] as c,[User] as u where t.Test_UserID = u.User_ID and t.Test_ChallengeID = c.Challenge_ID and t.Test_ID like @id ");
+            SqlParameter[] par = { new SqlParameter("@id", SqlDbType.Text) };
+            par[0].Value = id;
+            return Common.DbHelperSQL.Query(sql.ToString(),par.ToArray());
+        }
     }
 }

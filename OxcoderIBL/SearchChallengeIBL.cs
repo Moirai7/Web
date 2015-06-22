@@ -37,6 +37,6 @@ namespace OxcoderIBL
         //  Userid 用户id
         //	State 通过状态
         //	Flag 进行中还是历史
-        DataSet SearchByChallengeID(string id, int pageindex, int pagesize);
+        DataSet SearchByChallengeID(string id);
     }
 }

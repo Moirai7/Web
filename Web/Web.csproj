@@ -115,6 +115,13 @@
     <Compile Include="User\User_Index.aspx.designer.cs">
       <DependentUpon>User_Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\User_Result.aspx.cs">
+      <DependentUpon>User_Result.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\User_Result.aspx.designer.cs">
+      <DependentUpon>User_Result.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\User_Test.aspx.cs">
       <DependentUpon>User_Test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,6 +276,7 @@
     <Content Include="User\User_Corp_Detail.aspx" />
     <Content Include="User\User_History.aspx" />
     <Content Include="User\User_Index.aspx" />
+    <Content Include="User\User_Result.aspx" />
     <Content Include="User\User_Test.aspx" />
     <Content Include="User\User_Test_Compile.aspx" />
     <Content Include="User\User_Test_Quiz.aspx" />

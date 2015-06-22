@@ -86,7 +86,7 @@ $("document").ready(
 		        },
 		        success: function (data) {
 		            vm.projectInfo = data;
-		            console.log("调试信息：倒计时（请求刚完成时）" + vm.projectInfo.countDown)
+		            //console.log("调试信息：倒计时（请求刚完成时）" + vm.projectInfo.countDown)
 		            editor.setValue(data.code);
 		            // 重置统计数据
 		            recoveryAll();
@@ -366,7 +366,7 @@ function compile(isSub) {
 			            clearInterval(intervalCompile);
 			        }
 			    });
-			},2000);
+			},6000);
 
 }
 // 根据情况调整log的尺寸
