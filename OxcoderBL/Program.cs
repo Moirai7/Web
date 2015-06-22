@@ -1,25 +1,16 @@
-﻿/*
- * ideone.com
- * API sample
- * 
- * This program shows how to use ideone api.
- * 
- * How to run it?
- *  1. Create C# Windows Console Application project in the Visual Studio;
- *  2. Include Program.cs and Ideone_Service.cs files to the project
- *      (you can generate the stub - Ideone_ServiceService.cs - by yourself 
- *      using wsdl.exe tool from Microsoft SDK);
- *  3. Add System.Web.Services reference to the project (right click on the
- *      project name in the Solution Explorer -> click Add Reference ...);
- *  4. Run the project.
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
-
+/// <summary>
+/// 搜索 的摘要说明
+/// 此类是 BL 的实现类
+/// </summary>
+/// 
+/// Author:岚岚姐
+/// Date：2015/06/09
+/// 
 namespace OxcoderBL
 {
     public class Program:OxcoderIBL.IProgram
