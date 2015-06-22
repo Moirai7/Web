@@ -18,7 +18,7 @@ namespace OxcoderDAL
 {
     public class TestInfoDAL:OxcoderIDAL.TestInfoIDAL
     {
-        public int DeleteATest(string id)
+        public int DeleteATest(String id)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("delete from [Test] where Test_ChallengeID=@id");
@@ -42,19 +42,46 @@ namespace OxcoderDAL
             return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
         }
 
-        public int UpdateATest(Model.Test test)
+        public string GetTestID(string id)
         {
-            //int number;
-            //StringBuilder sql2 = new StringBuilder();
-            //sql2.Append("update [Challenge] set Challenge_Num = @number where Challenge_ID like @id");
-            //SqlParameter[] par2 = { new SqlParameter("@number",SqlDbType.Int),
-            //                         new SqlParameter("@id", SqlDbType.VarChar) };
-            //par2[0].Value = number + type;
-            //par2[1].Value = id;
-            //return Common.DbHelperSQL.ExecuteSql(sql2.ToString(), par2);
-            return -1;
+            String sql = "select Test_ID from [Test] where Test_ChallengeID=@id";
+            SqlParameter[] par ={
+                                    new SqlParameter("@id",SqlDbType.VarChar,50),
+                                };
+            par[0].Value = id;
+            DataSet ds = Common.DbHelperSQL.Query(sql.ToString(), par);
+            return ds.Tables[0].Rows[0]["Test_ID"].ToString();
         }
 
+        public int UpdateATest(String id,int order,int time)
+        {
+            StringBuilder sql2 = new StringBuilder();
+            switch (order)
+            {
+                case 0:
+                    sql2.Append("update [Test] set Test_Quiz0_State = @time where Test_ID like @id");
+                    break;
+                case 1:
+                    sql2.Append("update [Test] set Test_Quiz1_State = @time where Test_ID like @id");
+                    break;
+                case 2:
+                    sql2.Append("update [Test] set Test_Quiz2_State = @time where Test_ID like @id");
+                    break;
+
+            }
+            SqlParameter[] par2 = { new SqlParameter("@time",SqlDbType.Int),
+                                     new SqlParameter("@id", SqlDbType.VarChar) };
+            par2[0].Value = time ;
+            par2[1].Value = id;
+            return Common.DbHelperSQL.ExecuteSql(sql2.ToString(), par2);
+        }
+        public int SetTestState(String id){
+            StringBuilder sql2 = new StringBuilder();
+            sql2.Append("update [Test] set Test_State = 1 where Test_ID like @id");
+            SqlParameter[] par2 = { new SqlParameter("@id", SqlDbType.VarChar) };
+            par2[0].Value = id;
+            return Common.DbHelperSQL.ExecuteSql(sql2.ToString(), par2);
+        }
         public DataSet GetTestDetail(String id)
         {
             StringBuilder sql = new StringBuilder();

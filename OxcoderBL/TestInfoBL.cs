@@ -32,6 +32,14 @@ namespace OxcoderBL
             return dalad.InsertATest(test);
         }
 
+        public string GetTestID(string id)
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.TestInfoIDAL dalad = factory.getTestInstance();
+
+            return dalad.GetTestID(id);
+        }
+
         public int DeleteATest(string id)
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
@@ -40,16 +48,30 @@ namespace OxcoderBL
             return dalad.DeleteATest(id);
         }
 
-        public DataSet GetTestDetail(String id)
+        public DataSet GetTestDetail(string id)
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
             OxcoderIDAL.TestInfoIDAL dalad = factory.getTestInstance();
+            
             DataSet ds = dalad.GetTestDetail(id);
-            String cid = ds.Tables[0].Rows[0]["Test_ChallengeID"].ToString();
+            string cid = ds.Tables[0].Rows[0]["Test_ChallengeID"].ToString();
             OxcoderIDAL.SearchChallengeIDAL scidal = factory.getSearchInstance();
             DataSet ds2 = scidal.SearchByChallengeID(cid);
 
             return AddOtherInfo(ds,ds2);
+        }
+        public DataSet GetTestDetailByChallengeID(String id)
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.TestInfoIDAL dalad = factory.getTestInstance();
+            string tid = GetTestID(id);
+
+            DataSet ds = dalad.GetTestDetail(tid);
+            string cid = ds.Tables[0].Rows[0]["Test_ChallengeID"].ToString();
+            OxcoderIDAL.SearchChallengeIDAL scidal = factory.getSearchInstance();
+            DataSet ds2 = scidal.SearchByChallengeID(cid);
+
+            return AddOtherInfo(ds, ds2);
         }
 
         private DataSet AddOtherInfo(DataSet ds,DataSet ds2)

@@ -19,7 +19,7 @@ namespace OxcoderIDAL
 {
     public interface UserIDAL
     {
-        DataSet DSUser(int pageindex, int pagesize, String table);
+        DataSet DSUser(int pageindex, int pagesize, string table);
         int Count();
         int DeleteUser(Model.User user);
         SqlDataReader UserInfo(Model.User user);

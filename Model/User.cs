@@ -15,14 +15,14 @@ namespace Model
 {
     public class User
     {
-        private String _user_name;
-        public String user_name
+        private string _user_name;
+        public string user_name
         {
             get { return _user_name; }
             set { _user_name = value; }
         }
-        private String _user_id;
-        public String user_id
+        private string _user_id;
+        public string user_id
         {
             get { return _user_id; }
             set { _user_id = value; }
@@ -33,8 +33,8 @@ namespace Model
             get { return _user_postTime; }
             set { _user_postTime = value; }
         }
-        private String _user_message;
-        public String user_message
+        private string _user_message;
+        public string user_message
         {
             get { return _user_message; }
             set { _user_message = value; }
@@ -45,8 +45,8 @@ namespace Model
             get { return _user_isReplied; }
             set { _user_isReplied = value; }
         }
-        private String _user_reply;
-        public String user_reply
+        private string _user_reply;
+        public string user_reply
         {
             get { return _user_reply; }
             set { _user_reply = value; }

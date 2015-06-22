@@ -95,7 +95,7 @@ namespace Web
 
                 Session["name"] = info.Text;
 
-                String url = "Admin.aspx?username=" + password.Text + "&info=" + info.Text;
+                string url = "Admin.aspx?username=" + password.Text + "&info=" + info.Text;
                 Response.Redirect(url);
             }
         }

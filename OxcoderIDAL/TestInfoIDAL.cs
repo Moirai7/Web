@@ -21,6 +21,9 @@ namespace OxcoderIDAL
     {
         int InsertATest(Model.Test test);
         int DeleteATest(string id);
-        DataSet GetTestDetail(String id);
+        DataSet GetTestDetail(string id);
+        int UpdateATest(string id, int order, int time);
+        int SetTestState(string id);
+        string GetTestID(string id);
     }
 }

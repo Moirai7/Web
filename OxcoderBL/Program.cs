@@ -26,7 +26,7 @@ namespace OxcoderBL
     {
         private string link = "HLah4g";
         private string user="moirai";
-        private string pass = "123456";
+        private string pass = "742612";
         private int tryTimes = 0;
 
         public bool createSub(string code,int lang,string input)
@@ -62,7 +62,7 @@ namespace OxcoderBL
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
             Ideone_Service client = new Ideone_Service(); // instantiating the stub
-            Object[] ret = client.getSubmissionStatus(user, pass, link); // calling the method
+            Object[] ret = client.getSubmissionDetails(user, pass, link,false,true,true,true,true); // calling the method
 
             // filling result with data returned by testFunction
             foreach (object o in ret)
@@ -82,16 +82,8 @@ namespace OxcoderBL
                 if (status != 0)
                 {
                     com.StatusCode = -1;
+                    com.RunInfo = "timeout"; 
                     return com;
-                    //if (tryTimes < 2)
-                    //{
-                    //    ++tryTimes;
-                    //    getStatus();
-                    //}
-                    //else{
-                    //    com.StatusCode=-1;
-                    //    return com;
-                    //}
                 }
                 else
                 {
@@ -100,35 +92,59 @@ namespace OxcoderBL
                     {
                         case 0:
                             com.StatusCode = 0;
-                            com.RunInfo = "not running – the submission has been created with run parameter set to false"; 
+                            com.Result = result["output"];
+                            com.RunInfo = "Execution time in seconds: "+result["time"]+"\nMemory used by the program: "+result["memory"]+"\n"
+                                + "input data: " + result["input"] + "\noutput:" + result["output"] + "\ncompilation information: " + result["cmpinfo"]
+                                +"\nnot running – the submission has been created with run parameter set to false"; 
                             return com;
                         case 11:
                              com.StatusCode = 0;
-                             com.RunInfo = "compilation   error   –   the   program   could   not   be executed due to compilation error"; 
+                             com.Result = result["output"];
+                             com.RunInfo = "Execution time in seconds: " + result["time"] + "\nMemory used by the program: " + result["memory"] + "\n"
+                                + "input data: " + result["input"] + "\noutput:" + result["output"] + "\ncompilation information: " + result["cmpinfo"]
+                                + "\ncompilation   error   –   the   program   could   not   be executed due to compilation error"; 
                             return com;
                         case 12:
                             com.StatusCode = 0;
-                             com.RunInfo = "runtime error – the program finished because of  the runtime error, for example: division by zero,   array index out of bounds, uncaught exception Ideone API is powered ";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                            com.Result = result["output"];
+                            com.RunInfo = "Execution time in seconds: " + result["time"] + "\nMemory used by the program: " + result["memory"] + "\n"
+                               + "input data: " + result["input"] + "\noutput:" + result["output"] + "\ncompilation information: " + result["cmpinfo"]
+                               + "\nruntime error – the program finished because of  the runtime error, for example: division by zero,   array index out of bounds, uncaught exception Ideone API is powered ";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
                             return com;                                                                                                                                                                                                                                                                                       
                         case 13:
                             com.StatusCode = 0;
-                            com.RunInfo = "time limit exceeded – the program didn't stop before the time limit";
+                            com.Result = result["output"];
+                            com.RunInfo = "Execution time in seconds: " + result["time"] + "\nMemory used by the program: " + result["memory"] + "\n"
+                                + "input data: " + result["input"] + "\noutput:" + result["output"] + "\ncompilation information: " + result["cmpinfo"]
+                                + "\ntime limit exceeded – the program didn't stop before the time limit";
                             return com;
                         case 15:
                             com.StatusCode = 1;
-                             com.RunInfo = "success";
+                            com.Result = result["output"];
+                            com.RunInfo = "Execution time in seconds: " + result["time"] + "\nMemory used by the program: " + result["memory"] + "\n"
+                               + "input data: " + result["input"] + "\noutput:" + result["output"] + "\ncompilation information: " + result["cmpinfo"]
+                               + "\nsuccess";
                             return com;
                         case 17:
                             com.StatusCode = 0;
-                            com.RunInfo = "memory limit exceeded – the program tried to use more memory than it is allowed to";
+                            com.Result = result["output"];
+                            com.RunInfo = "Execution time in seconds: " + result["time"] + "\nMemory used by the program: " + result["memory"] + "\n"
+                                + "input data: " + result["input"] + "\noutput:" + result["output"] + "\ncompilation information: " + result["cmpinfo"]
+                                + "\nmemory limit exceeded – the program tried to use more memory than it is allowed to";
                             return com;
                         case 19:
                             com.StatusCode = 0;
-                            com.RunInfo = "illegal system call – the program tried to call illegal system function";
+                            com.Result = result["output"];
+                            com.RunInfo = "Execution time in seconds: " + result["time"] + "\nMemory used by the program: " + result["memory"] + "\n"
+                                + "input data: " + result["input"] + "\noutput:" + result["output"] + "\ncompilation information: " + result["cmpinfo"]
+                                + "\nillegal system call – the program tried to call illegal system function";
                             return com;
                         case 20:
                             com.StatusCode = 0;
-                            com.RunInfo = "internal   error   –   some   problem   occurred   on ideone.com; try to submit the program again and if that   fails   too,   then   please   contact   us   at contact@ideone.com";
+                            com.Result = result["output"];
+                            com.RunInfo = "Execution time in seconds: " + result["time"] + "\nMemory used by the program: " + result["memory"] + "\n"
+                                + "input data: " + result["input"] + "\noutput:" + result["output"] + "\ncompilation information: " + result["cmpinfo"]
+                                + "\ninternal   error   –   some   problem   occurred   on ideone.com; try to submit the program again and if that   fails   too,   then   please   contact   us   at contact@ideone.com";
                             return com;
                         default:
                             com.StatusCode = 0;

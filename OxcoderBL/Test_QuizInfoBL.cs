@@ -18,8 +18,6 @@ using System.Runtime.Serialization;
 /// 
 namespace OxcoderBL
 {
-    [Serializable]
-
     public class Test_QuizInfoBL: OxcoderIBL.Test_QuizInfoIBL
     {
         public Model.Quiz searchQuizInfo(string reid, int order)
@@ -57,11 +55,28 @@ namespace OxcoderBL
             p1.ptypeName = ds.Tables[0].Rows[0]["Quiz_Type"].ToString();
             p1.target = ds.Tables[0].Rows[0]["Quiz_Content"].ToString();
             p1.totalTime = ds.Tables[0].Rows[0]["Quiz_Time"].ToString();
-            p1.totalTime = ds.Tables[0].Rows[0]["Quiz_Input"].ToString();
-            
+            p1.input = ds.Tables[0].Rows[0]["Quiz_Input"].ToString();
+            p1.output = ds.Tables[0].Rows[0]["Quiz_Output"].ToString();
             return p1;
         }
 
-        
+        public int UpdateATest(string id, int order, int time, string result)
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.TestInfoIDAL test = factory.getTestInstance();
+            string tid = test.GetTestID(id);
+            Model.Quiz p1 = searchQuizInfo(id, order);
+            if (result.Equals(p1.output))
+            {
+                test.UpdateATest(tid, order, time);
+            }
+            if(order==2)
+            {
+                DataRow dr = test.GetTestDetail(tid).Tables[0].Rows[0];
+                if (dr["Test_Quiz0_State"].ToString().Equals("-1") && dr["Test_Quiz1_State"].ToString().Equals("-1") && dr["Test_Quiz2_State"].ToString().Equals("-1"))
+                    test.SetTestState(tid);
+            }
+            return 1;
+        }
     }
 }

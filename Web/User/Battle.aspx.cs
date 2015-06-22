@@ -23,9 +23,9 @@ namespace Web.User
     {
         private int page = 0;
         private int flag = -1;
-        private String salary = null;
-        private String location = null;
-        private String searchCondition = null;
+        private string salary = null;
+        private string location = null;
+        private string searchCondition = null;
         private int retype = -1;
 
         protected void Page_Load(object sender, EventArgs e)

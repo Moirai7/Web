@@ -58,5 +58,14 @@ namespace Model
             get { return _runInfo; }
             set { _runInfo = value; }
         }
+
+        private string _result;
+
+        public string Result
+        {
+            get { return _result; }
+            set { _result = value; }
+        }
+
     }
 }

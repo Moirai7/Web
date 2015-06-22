@@ -99,8 +99,42 @@ $("document").ready(
 		            console.log(data);
 		        }
 		    });
+		    // 监听项目的顺序
+		    vm.$watch("projectOrder", function (newValue, oldValue) {
+		        if (vm.projectOrder >= 0 && vm.projectOrder <= 2) {
+		            $.ajax({
+		                async: true,
+		                type: "post",
+		                dataType: "json",
+		                url: "User_Test_Quiz.aspx",
+		                data: {
+		                    "pid": $("#input-pid").val(),
+		                    "reid": $("#input-reid").val(),
+		                    "order": newValue
+		                },
+		                success: function (data) {
+		                    vm.projectInfo = data;
+		                    editor.setValue(data.code);
+		                    avalon.log("调试信息：项目的总编译时间为"
+									+ vm.projectInfo.totalTime + "秒")
+		                    // $('#modal-complete').modal("hide");
+		                    recoveryAll();
+		                    initStatistics();
+		                    // countDown();
+		                },
+		                error: function (XMLHttpRequest, textStatus,
+								errorThrown) {
+		                    console.log(XMLHttpRequest.status);
+		                    console.log(XMLHttpRequest.readyState);
+		                    console.log(textStatus);
+		                    alert("与服务器连接出现错误：" + textStatus
+									+ "！请确保网络状况良好并刷新页面。");
+		                }
+		            });
+		        }
 
-
+		    })
+            
 		    // 编译超时
 		    vm.projectRuntime.$watch("timeoutCompile", function (newValue,
 					oldValue) {
@@ -119,7 +153,7 @@ $("document").ready(
 		                vm.projectRuntime.timeoutCompile = false;
 		            } else {
 		                hideModal("#waiting-auto");
-		                if (vm.projectOrder < 3) {
+		                if (vm.projectOrder < 2) {
 		                    vm.modalInfo = {
 		                        modalTitle: "",
 		                        modalContent: "正在载入下一题。请稍候......",
@@ -164,7 +198,6 @@ $("document").ready(
 		    });
 		    // 点击提交按钮
 		    $("#btn-submit").click(function () {
-		        console.log(1);
 		        $('#modal-confirm').modal({
 		            keyboard: false
 		        });
@@ -265,12 +298,11 @@ function compile(isSub) {
 			            "input": vm.projectInfo.input,
 			        },
 			        success: function (data) {
-
+                        
 			            avalon.log(data);
 			            // 编译出错
 			            if (data.StatusCode == 0
                                 || data.StatusCode == 1) {
-			                console.log("调试信息：编译完成")
 			                if (vm.projectRuntime.isSub == 0) {
 			                    if (data.StatusCode == 0) {
 			                        $(".text-log").css("color",
@@ -293,7 +325,7 @@ function compile(isSub) {
 			                clearInterval(intervalCompile);
 
 			                if (1 == vm.projectRuntime.isSub) {
-			                    if (vm.projectOrder < 3) {
+			                    if (vm.projectOrder < 2) {
 			                        vm.modalInfo = {
 			                            modalTitle: "",
 			                            modalContent: "正在载入下一题。请稍候......",
@@ -314,30 +346,31 @@ function compile(isSub) {
 			                        hideModal("#modal-complete");
 
 			                    }, 2000);
-			                    // $('#modal-complete')
-			                    // .on(
-			                    // 'shown.bs.modal',
-			                    // function() {
-			                    // 这里是跳转到下一题或者跳转到结果页面
-			                    if (vm.projectOrder < 3) {
-			                        console
-                                            .log("调试信息projectOrder增加了")
+			                    if (vm.projectOrder < 2) {
 			                        vm.projectOrder++;
-			                        console
-                                            .log("调试信息：编译完成后，项目order为"
-                                                    + vm.projectOrder)
+			                        $.post("User_NextQuiz.aspx",
+                                        {
+                                            time: vm.projectInfo.countDown,
+                                            result: data.Result,
+                                            order: vm.projectOrder,
+                                            cid: $("#input-reid").val()
+                                        });
+			                        //window.location.href = "User_Test.aspx?order=" + vm.projectOrder + "&cid="
+                                    //                + $("#input-reid").val();
+			                        console.log("调试信息：正在跳转到下页面。");
 			                    } else {
-			                        location
-                                            .replace("User_Test.aspx?reid="
-                                                    + $(
-                                                            "#input-reid")
-                                                            .val());
+			                        vm.projectOrder++;
+			                        $.post("User_NextQuiz.aspx",
+                                        {
+                                            time: vm.projectInfo.countDown,
+                                            result: data.Result,
+                                            order: vm.projectOrder,
+                                            cid: $("#input-reid").val()
+                                        });
+			                        window.location.href = "User_Result.aspx?cid="
+                                                    + $("#input-reid").val();
 			                        console.log("调试信息：正在跳转到结果页面。");
 			                    }
-
-			                    // })
-
-			                    // compile(1);
 			                }
 			            } else if (data.StatusCode == -1) {
 			                console.log("编译超时");
@@ -359,14 +392,13 @@ function compile(isSub) {
 			            requestOrder++;
 			        },
 			        error: function (data) {
-			            console.log(data);
 			            alert("与服务器连接出现错误！请确保网络状况良好并刷新页面。");
 			            hideModal("#waiting");
 			            hideModal("#waiting-auto");
 			            clearInterval(intervalCompile);
 			        }
 			    });
-			},6000);
+			},10000);
 
 }
 // 根据情况调整log的尺寸

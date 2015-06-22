@@ -21,11 +21,12 @@ namespace Web.User
     public partial class User_Test : System.Web.UI.Page
     {
         public int order=0;
+        public int time = -1;
+        public string result = null;
         public string id = null;
         public string uid = null;
         OxcoderIBL.SearchChallengeIBL search = new OxcoderBL.SearchChallengeBL();
         OxcoderIBL.QuizInfoIBL enter = new OxcoderBL.QuizInfoBL();
-
         public string Name
         {
             get
@@ -56,8 +57,8 @@ namespace Web.User
         {
             if (Request.QueryString["cid"] != null && Request.QueryString["cid"] != "")
                 id = Request.QueryString["cid"].ToString();
-            if (Request.QueryString["page"] != null && Request.QueryString["page"] != "")
-                order = Convert.ToInt32(Request.QueryString["page"].ToString());
+            if (Request.QueryString["order"] != null && Request.QueryString["order"] != "")
+                order = Convert.ToInt32(Request.QueryString["order"].ToString());
 
             DataSet ds = search.SearchByChallengeID(id);
             switch (order)

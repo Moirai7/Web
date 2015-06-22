@@ -24,16 +24,31 @@ namespace Web.User
             int lang = Convert.ToInt32(Request.Form["lang"]);
             string input = Request.Form["input"];
 
-            ip.createSub(code,lang,input);
-            System.Threading.Thread.Sleep(5 * 1000);
-            Model.Compile p1 = ip.getStatus();
+            if (ip.createSub(code, lang, input))
+            {
+                System.Threading.Thread.Sleep(5 * 1000);
+                Model.Compile p1 = ip.getStatus();
 
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            //json序列化  
-            string response = js.Serialize(p1);
-            Response.Clear();
-            Response.Write(response);
-            Response.End();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                //json序列化  
+                string response = js.Serialize(p1);
+                Response.Clear();
+                Response.Write(response);
+                Response.End();
+            }
+            else
+            {
+                Model.Compile com = new Model.Compile();
+                com.StatusCode = -2;
+                com.RunInfo = "ERROR";
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                //json序列化  
+                string response = js.Serialize(com);
+                Response.Clear();
+                Response.Write(response);
+                Response.End();
+            }
         }
     }
 }

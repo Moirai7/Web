@@ -93,7 +93,12 @@ namespace Model
             get { return _input; }
             set { _input = value; }
         }
-
+        private string _output;
+        public string output
+        {
+            get { return _output; }
+            set { _output = value; }
+        }
 
     }
 }

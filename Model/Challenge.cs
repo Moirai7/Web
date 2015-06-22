@@ -15,9 +15,9 @@ namespace Model
             get { return _Challenge_ID; }
             set { _Challenge_ID = value; }
         }
-        private String _Challenge_Name;
+        private string _Challenge_Name;
 
-        public String Challenge_Name
+        public string Challenge_Name
         {
             get { return _Challenge_Name; }
             set { _Challenge_Name = value; }
@@ -30,23 +30,23 @@ namespace Model
             set { _Challenge_Publish = value; }
         }
 
-        private String _Challenge_Quiz0;
+        private string _Challenge_Quiz0;
 
-        public String Challenge_Quiz0
+        public string Challenge_Quiz0
         {
             get { return _Challenge_Quiz0; }
             set { _Challenge_Quiz0 = value; }
         }
-        private String _Challenge_Quiz1;
+        private string _Challenge_Quiz1;
 
-        public String Challenge_Quiz1
+        public string Challenge_Quiz1
         {
             get { return _Challenge_Quiz1; }
             set { _Challenge_Quiz1 = value; }
         }
-        private String _Challenge_Quiz2;
+        private string _Challenge_Quiz2;
 
-        public String Challenge_Quiz2
+        public string Challenge_Quiz2
         {
             get { return _Challenge_Quiz2; }
             set { _Challenge_Quiz2 = value; }
@@ -86,39 +86,39 @@ namespace Model
             get { return _Challenge_Salary; }
             set { _Challenge_Salary = value; }
         }
-        private String _Challenge_Area;
+        private string _Challenge_Area;
 
-        public String Challenge_Area
+        public string Challenge_Area
         {
             get { return _Challenge_Area; }
             set { _Challenge_Area = value; }
         }
-        private String _Challenge_Position0;
+        private string _Challenge_Position0;
 
-        public String Challenge_Position0
+        public string Challenge_Position0
         {
             get { return _Challenge_Position0; }
             set { _Challenge_Position0 = value; }
         }
 
-        private String _Challenge_Position1;
+        private string _Challenge_Position1;
 
-        public String Challenge_Position1
+        public string Challenge_Position1
         {
             get { return _Challenge_Position1; }
             set { _Challenge_Position1 = value; }
         }
 
-        private String _Challenge_Position2;
+        private string _Challenge_Position2;
 
-        public String Challenge_Position2
+        public string Challenge_Position2
         {
             get { return _Challenge_Position2; }
             set { _Challenge_Position2 = value; }
         }
-        private String _Challenge_EnTime;
+        private string _Challenge_EnTime;
 
-        public String Challenge_EnTime
+        public string Challenge_EnTime
         {
             get { return _Challenge_EnTime; }
             set { _Challenge_EnTime = value; }

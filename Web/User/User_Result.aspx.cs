@@ -21,7 +21,11 @@ namespace Web.User
     public partial class User_Result : System.Web.UI.Page
     {
         public string id = null;
+        public int order = 0;
+        public int time = -1;
+        public string result = null;
         private OxcoderIBL.TestInfoIBL tii = new OxcoderBL.TestInfoBL();
+        OxcoderIBL.Test_QuizInfoIBL tq = new OxcoderBL.Test_QuizInfoBL();
         public string Name
         {
             get
@@ -52,8 +56,8 @@ namespace Web.User
         {
             if (Request.QueryString["cid"] != null && Request.QueryString["cid"] != "")
                 id = Request.QueryString["cid"].ToString();
-
-            rpt_Challenge.DataSource = tii.GetTestDetail(id);
+            
+            rpt_Challenge.DataSource = tii.GetTestDetailByChallengeID(id);
 
             Page.DataBind();
         }

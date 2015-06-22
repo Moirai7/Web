@@ -53,7 +53,7 @@ namespace Web.User
             else
             {
                 StreamReader sr = new StreamReader(System.Web.HttpContext.Current.Server.MapPath(fname), System.Text.Encoding.Default);
-                String input = sr.ReadToEnd();
+                string input = sr.ReadToEnd();
                 sr.Close();
                 str = input;
             }
