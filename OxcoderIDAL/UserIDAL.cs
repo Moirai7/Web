@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Model;
 
 /// <summary>
 /// Users 的摘要说明
@@ -19,12 +20,19 @@ namespace OxcoderIDAL
 {
     public interface UserIDAL
     {
-        DataSet DSUser(int pageindex, int pagesize, String table);
+       // DataSet DSUser(int pageindex, int pagesize, String table);
         int Count();
-        int DeleteUser(Model.User user);
+     //   int DeleteUser(Model.User user);
         SqlDataReader UserInfo(Model.User user);
-        int Insert(Model.User user);
-        DataSet AllUserInfo();
-        int Update(Model.User user);
+        int CheckUserEmail(string email);
+        int RegisterUser(Model.User user);
+        SqlDataReader ActiveUserAccount(string email);
+        int ChangeUserState(string email);
+        SqlDataReader GetUserID(string email);
+        int SendUserEmail(string email, string activeCode);
+        User UserLogin(string email);
+       // int Insert(Model.User user);
+       // DataSet AllUserInfo();
+        //int Update(Model.User user);
     }
 }

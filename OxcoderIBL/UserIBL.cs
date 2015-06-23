@@ -19,12 +19,17 @@ namespace OxcoderIBL
 {
     public interface UserIBL
     {
-        DataSet DSUser(int pageindex, int pagesize, String table);
+     //   DataSet DSUser(int pageindex, int pagesize, String table);
         int Count();
-        int DeleteUser(Model.User user);
+       // int DeleteUser(Model.User user);
         SqlDataReader UserInfo(Model.User user);
-        int Insert(Model.User user);
-        DataSet AllUserInfo();
-        int Update(Model.User user);
+       // int Insert(Model.User user);
+        //DataSet AllUserInfo();
+      //  int Update(Model.User user);
+        int RegisterUser(string email, string password);
+        string GetUserID(string email);
+        int SendUserEmail(string emailTo);
+        Boolean ActiveUserAccount(string email, string activeCode);
+        Boolean UserLogin(string email, string password);
     }
 }
