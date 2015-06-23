@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Recruit_list.aspx.cs" Inherits="Web.Enterprise.Recruit_list" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="History.aspx.cs" Inherits="Web.Enterprise.History" %>
 
 <!DOCTYPE html>
 <!-- saved from url=(0042)http://www.oxcoder.com/hr-recruit-list.htm -->
@@ -62,7 +62,6 @@
 
 	<!-- 引入header -->
 	 <!--#include virtual="/Common/Enterprise_menu.html"-->
-
 <script type="text/javascript">
     function validateSession() {
         var k = 2
@@ -85,15 +84,15 @@
 									<section>
 										<section id="middle">
 											<h2 class="h2-tab">
-												<a href="Recruit_list.aspx">进行中的挑战</a>
+												<a href="Recruit_list.aspx" class="off">进行中的挑战</a>
 											</h2>
 											<h2 class="h2-tab">
-												<a href="History.aspx" class="off">挑战历史</a>
+												<a href="History.aspx">挑战历史</a>
 											</h2>
 											<a href="PublishChallenge_BaseInfo.aspx"><button class="btn btn-new1 pull-right" style="margin-top: 20px;">新增挑战邀请</button></a>
 										</section>
 										<!-- /.page-header -->
-										<div id="OngoingList" runat="server">
+										<div id="HistoryList" runat="server">
 											<div class="row">
 												
 												

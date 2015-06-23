@@ -89,41 +89,7 @@
     <input id="quiz_se" name="quiz_se" type="hidden" value="0" runat="server"/>
     <input id="quiz_th" name="quiz_th" type="hidden" value="0" runat="server"/>
 
-<div class="navbar navbar-default navbar-fixed-top" onload=validateSession()>
-
-	<div class="container">
-		<div class="navbar-header">
-			<button class="navbar-toggle collapsed" type="button"
-				data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand hidden-sm" href="index.htm"
-				style="padding: 0;"><img src="../Public/Images/wlogo_sm.png" style="max-height: 35px;margin:7px;"></a>
-		</div>
-		<div class="navbar-collapse collapse" role="navigation">
-			<ul class="nav navbar-nav">
-				<li class="active"><a
-					href="hr-recruit-list.htm">挑战管理</a></li>
-				<li ><a
-					href="recommend-user.htm">人才推荐</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				
-				<li class="dropdown"><a href="javascript:;"
-					class="dropdown-toggle" data-toggle="dropdown"><span
-						class="text">&#21271;&#20140;&#25463;&#20262;&#31185;&#25216;&#26377;&#38480;&#20844;&#21496;</span> <b
-						class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="hr-payment-info.htm">去打赏</a></li>
-						<li><a href="enterprise-info.htm">企业信息</a></li>
-						<li><a href="hr-to-change-pwd.htm">修改密码</a></li>
-						<li><a href="logout.htm">注销</a></li>
-					</ul></li>
-			</ul>
-		</div>
-	</div>
-</div>
+	 <!--#include virtual="/Common/Enterprise_menu.html"-->
 <script type="text/javascript">
     function validateSession() {
         var k = 2

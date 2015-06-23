@@ -9,9 +9,32 @@ namespace Web.Enterprise
 {
     public partial class PublishChallenge_BaseInfo : System.Web.UI.Page
     {
+        public string Name
+        {
+            get
+            {
+                if (Session["name"] != null)
+                {
+                    return Session["name"].ToString();
+                }
+                else
+                {
+                    Session["name"] = "dyt有限公司";
+                }
+                return "公司";
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["id"] = "54bf6567-1007-11d1-b0aa-444553540022";
+            if (!IsPostBack)
+            {
+                SetBind();
+            }
+        }
+
+        private void SetBind()
+        {
+            Page.DataBind();
         }
     }
 }

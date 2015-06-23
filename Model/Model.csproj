@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Challenge.cs" />
     <Compile Include="Compile.cs" />
+    <Compile Include="Invoice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quiz.cs" />
     <Compile Include="Test.cs" />

@@ -61,33 +61,7 @@
 	<!-- 引入header -->
 	
 
-<div class="navbar navbar-default navbar-fixed-top" onload="validateSession()">
-
-	<div class="container">
-		<div class="navbar-header">
-			<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand hidden-sm" href="../Common/Index.html" style="padding: 0;"><img src="../Public/Images/wlogo_sm.png" style="max-height: 35px;margin:7px;"></a>
-		</div>
-		<div class="navbar-collapse collapse" role="navigation">
-			<ul class="nav navbar-nav">
-				<li><a href="Recruit_list.html">挑战管理</a></li>
-				<li><a href="Recommend.html">人才推荐</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				
-				<li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><span class="text">北京捷伦科技有限公司</span> <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="Account.html">账户余额</a></li>
-						<li><a href="Enterprise_info.html">企业信息</a></li>
-						<li><a href="Change_Password.html">修改密码</a></li>
-						<li><a href="../Common/Index.html">注销</a></li>
-					</ul></li>
-			</ul>
-		</div>
-	</div>
-</div>
+	 <!--#include virtual="/Common/Enterprise_menu.html"-->
 <script type="text/javascript">
     function validateSession() {
         var k = 2

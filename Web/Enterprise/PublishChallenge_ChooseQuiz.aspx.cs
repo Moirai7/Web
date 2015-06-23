@@ -11,8 +11,30 @@ namespace Web.Enterprise
 {
     public partial class PublishChallenge_ChooseQuiz : System.Web.UI.Page
     {
+        public string Name
+        {
+            get
+            {
+                if (Session["name"] != null)
+                {
+                    return Session["name"].ToString();
+                }
+                else
+                {
+                    Session["name"] = "dyt有限公司";
+                }
+                return "公司";
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                SetBind();
+            }
+        }
+
+        private void SetBind(){
             string tags = "";
             string[] tagGroup = null;
             string chosenStr = "";
@@ -67,10 +89,15 @@ namespace Web.Enterprise
                 string subExc = Request.Form["exercise"];
                 string lev = Request.Form["level"];
                 string typ = Request.Form["type"];
-                //判断type转化成存在数据库里的type
-
-                ec.PublishChallenge(subExc, Session["id"].ToString(), lev, typ);
-                Response.Redirect("Recruit_list.aspx");
+                bool flag = ec.PublishChallenge(subExc, Session["id"].ToString(), lev, typ);
+                if (flag == true)
+                {
+                    Response.Redirect("Recruit_list.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert(\"挑战余额不足，请先充值您的账户！\");</script>");
+                }
             }
 
             exercise = excStr.Split(',');
@@ -182,6 +209,8 @@ namespace Web.Enterprise
             }
 
             quizBoard.InnerHtml = s;
+
+            Page.DataBind();
         }
     }
 }

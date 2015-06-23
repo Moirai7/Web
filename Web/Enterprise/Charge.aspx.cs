@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Web.Enterprise
 {
-    public partial class Resume : System.Web.UI.Page
+    public partial class Charge : System.Web.UI.Page
     {
         public string Name
         {
@@ -26,7 +26,10 @@ namespace Web.Enterprise
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetBind();
+            if (!IsPostBack)
+            {
+                SetBind();
+            }
         }
 
         private void SetBind()

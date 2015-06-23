@@ -12,7 +12,7 @@ namespace OxcoderDAL
     {
         public DataSet GetChallengeBriefByOwner(string ownerId, string state)
         {
-            String sql = "select Challenge_Name,Challenge_Level,Challenge_Time,Challenge_Quiz_First,Challenge_Quiz_Sec,Challenge_Quiz_Third,(select count(*) from [Test] as t where c.Challenge_ID=t.Test_ChallengeID and Test_State=1),(select count(*) from [Test] as t where c.Challenge_ID=t.Test_ChallengeID and Test_State=2),Convert(decimal(18,1),(select count(*) from [Test] as t where c.Challenge_ID=t.Test_ChallengeID and Test_State=2 and Test_MaxGrade>=60)/((select count(*) from [Test] as t where c.Challenge_ID=t.Test_ChallengeID and Test_State=2)+0.000001)*100),Challenge_ID from [Challenge] as c where Challenge_OwnerID=@ownerId and Challenge_State=@state";
+            String sql = "select Challenge_Name,Challenge_Level,Challenge_Time,(select Quiz_Name from Quiz as q1 where c.Challenge_Quiz_First=q1.Quiz_ID),(select Quiz_Name from Quiz as q2 where c.Challenge_Quiz_Sec=q2.Quiz_ID),(select Quiz_Name from Quiz as q3 where c.Challenge_Quiz_Third=q3.Quiz_ID),(select count(*) from [Test] as t where c.Challenge_ID=t.Test_ChallengeID and Test_State=1),(select count(*) from [Test] as t where c.Challenge_ID=t.Test_ChallengeID and Test_State=2),Convert(decimal(18,1),(select count(*) from [Test] as t where c.Challenge_ID=t.Test_ChallengeID and Test_State=2 and Test_MaxGrade>=60)/((select count(*) from [Test] as t where c.Challenge_ID=t.Test_ChallengeID and Test_State=2)+0.000001)*100),Challenge_ID from [Challenge] as c where Challenge_OwnerID=@ownerId and Challenge_State=@state";
             SqlParameter[] par ={
                                     new SqlParameter("@ownerId",SqlDbType.UniqueIdentifier,50),
                                     new SqlParameter("@state",SqlDbType.Int,50),
@@ -66,16 +66,16 @@ namespace OxcoderDAL
             par[3].Value = chlg.Challenge_Time;
             par[4].Value = chlg.Challenge_Level;
             par[5].Value = chlg.Challenge_Area;
-            par[6].Value = chlg.Challenge_Position1;
+            par[6].Value = chlg.Challenge_Position0+","+chlg.Challenge_Position1+","+chlg.Challenge_Position2+",";
             par[7].Value = chlg.Challenge_EnTime;
             par[8].Value = chlg.Challenge_Num;
             //publish time
             par[9].Value = chlg.Challenge_Time;
             par[10].Value = chlg.Challenge_State;
             par[11].Value = chlg.Challenge_Type;
-            par[12].Value = new Guid(chlg.Challenge_Quiz0.ToString().Split(',')[2]);
-            par[13].Value = new Guid(chlg.Challenge_Quiz1.ToString().Split(',')[3]);
-            par[14].Value = new Guid(chlg.Challenge_Quiz2.ToString().Split(',')[1]);
+            par[12].Value = new Guid(chlg.Challenge_Quiz1);
+            par[13].Value = new Guid(chlg.Challenge_Quiz2);
+            par[14].Value = new Guid(chlg.Challenge_Quiz0);
             par[15].Value = chlg.Challenge_Salary;
             Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
 
@@ -83,7 +83,31 @@ namespace OxcoderDAL
         }
         public bool MinEnterpriceChallengeNumber(string entpId, int number)
         {
-            return true;
+            String sql0 = "select Enterprice_Challenge_Num from Enterprice where Enterprice_ID=@entpId";
+            SqlParameter[] par0 ={
+                                    new SqlParameter("@entpId",SqlDbType.UniqueIdentifier,50),
+                                };
+            par0[0].Value = new Guid(entpId);
+            DataSet ds0 = Common.DbHelperSQL.Query(sql0.ToString(), par0);
+            if (Convert.ToInt32(ds0.Tables[0].Rows[0][0].ToString()) <= 0)
+            {
+                return false;
+            }
+            String sql = "update Enterprice set Enterprice_Challenge_Num = Enterprice_Challenge_Num - @minNum where Enterprice_ID=@entpId";
+            SqlParameter[] par ={
+                                    new SqlParameter("@minNum",SqlDbType.Int,50),
+                                    new SqlParameter("@entpId",SqlDbType.UniqueIdentifier,50),
+                                };
+            par[0].Value = number;
+            par[1].Value = new Guid(entpId);
+            if (Common.DbHelperSQL.ExecuteSql(sql.ToString(), par) != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

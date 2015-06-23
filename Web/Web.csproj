@@ -72,6 +72,34 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Enterprise\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprise\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise\Buy.aspx.cs">
+      <DependentUpon>Buy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprise\Buy.aspx.designer.cs">
+      <DependentUpon>Buy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise\Charge.aspx.cs">
+      <DependentUpon>Charge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprise\Charge.aspx.designer.cs">
+      <DependentUpon>Charge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise\History.aspx.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprise\History.aspx.designer.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Enterprise\Invite.aspx.cs">
       <DependentUpon>Invite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -186,6 +214,7 @@
     <Content Include="Admin.aspx" />
     <Content Include="Common\Customers.html" />
     <Content Include="Common\Enterprise.html" />
+    <Content Include="Common\Enterprise_menu.html" />
     <Content Include="Common\footer.html" />
     <Content Include="Common\header.html" />
     <Content Include="Common\Header_Test.html" />
@@ -196,6 +225,10 @@
     <Content Include="Common\Share1.html" />
     <Content Include="Common\Share2.html" />
     <Content Include="Default.aspx" />
+    <Content Include="Enterprise\Account.aspx" />
+    <Content Include="Enterprise\Buy.aspx" />
+    <Content Include="Enterprise\Charge.aspx" />
+    <Content Include="Enterprise\History.aspx" />
     <Content Include="Enterprise\Invite.aspx" />
     <Content Include="Enterprise\PublishChallenge_BaseInfo.aspx" />
     <Content Include="Enterprise\PublishChallenge_ChooseQuiz.aspx" />
@@ -230,6 +263,7 @@
     <Content Include="Public\Images\1062.jpg" />
     <Content Include="Public\Images\1063.png" />
     <Content Include="Public\Images\1064.png" />
+    <Content Include="Public\Images\1209.bmp" />
     <Content Include="Public\Images\1405975_175937039_2.jpg" />
     <Content Include="Public\Images\447.jpg" />
     <Content Include="Public\Images\48.jpg" />
@@ -245,10 +279,14 @@
     <Content Include="Public\Images\988.png" />
     <Content Include="Public\Images\989.PNG" />
     <Content Include="Public\Images\991.png" />
+    <Content Include="Public\Images\android.png" />
+    <Content Include="Public\Images\apple.png" />
     <Content Include="Public\Images\Bitmap3.png" />
+    <Content Include="Public\Images\c.png" />
     <Content Include="Public\Images\code.png" />
     <Content Include="Public\Images\comic.jpg" />
     <Content Include="Public\Images\corp.png" />
+    <Content Include="Public\Images\cpp.png" />
     <Content Include="Public\Images\csdn2.png" />
     <Content Include="Public\Images\default.jpg" />
     <Content Include="Public\Images\github2.png" />
@@ -258,9 +296,13 @@
     <Content Include="Public\Images\lake.jpg" />
     <Content Include="Public\Images\languages.png" />
     <Content Include="Public\Images\logowall.png" />
+    <Content Include="Public\Images\new_c1.png" />
+    <Content Include="Public\Images\new_c2.png" />
     <Content Include="Public\Images\office.png" />
+    <Content Include="Public\Images\php.png" />
     <Content Include="Public\Images\pic.gif" />
     <Content Include="Public\Images\platform.png" />
+    <Content Include="Public\Images\python.png" />
     <Content Include="Public\Images\quora2.png" />
     <Content Include="Public\Images\school.png" />
     <Content Include="Public\Images\sf2.png" />

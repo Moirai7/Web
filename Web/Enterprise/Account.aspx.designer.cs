@@ -10,15 +10,24 @@
 namespace Web.Enterprise {
     
     
-    public partial class Recruit_list {
+    public partial class Account {
         
         /// <summary>
-        /// OngoingList 控件。
+        /// AccountLeft 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl OngoingList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AccountLeft;
+        
+        /// <summary>
+        /// inviteNum 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl inviteNum;
     }
 }

@@ -28,7 +28,13 @@ namespace OxcoderBL
         }
         public bool PublishChallenge(string exercise, string entpId, string level, string type)
         {
+            bool flag = false;
             OxcoderIDAL.EnterpriseChallengeIDAL ec = new OxcoderDAL.EnterpriseChallengeDAL();
+            flag = ec.MinEnterpriceChallengeNumber(entpId, 1);
+            if (flag == false)
+            {
+                return false;
+            }
             Model.Challenge chlg = new Model.Challenge();
             string area = "";
             string name = "";
@@ -44,16 +50,16 @@ namespace OxcoderBL
             switch (level)
             {
                 case "1":
-                    salary = "1k~2k";
+                    salary = "2k~5k";
                     break;
                 case "2":
-                    salary = "2k~4k";
-                    break;
-                case "3":
                     salary = "5k~8k";
                     break;
+                case "3":
+                    salary = "8k~10k";
+                    break;
                 case "4":
-                    salary = "8k~12k";
+                    salary = "10k~12k";
                     break;
                 case "5":
                     salary = "12k~15k";
@@ -70,7 +76,7 @@ namespace OxcoderBL
             switch (type)
             {
                 case "1":
-                    name = "JAVA工程师";
+                    name = "C++工程师";
                     break;
                 case "2":
                     name = "Android工程师";
@@ -79,40 +85,42 @@ namespace OxcoderBL
                     name = "IOS工程师";
                     break;
                 case "4":
-                    name = "C语言工程师";
+                    name = "Python语言工程师";
                     break;
-                case "5":
-                    name = "C++工程师";
+                case "10":
+                    name = "JAVA工程师";
                     break;
-                case "6":
+                case "29":
                     name = "PHP工程师";
                     break;
-                case "7":
-                    name = "Python工程师";
+                case "34":
+                    name = "C语言工程师";
                     break;
                 default:
-                    name = "JAVA工程师";
+                    name = "软件工程师";
                     break;
             }
             chlg.Challenge_Area = area;
             chlg.Challenge_EnTime = DateTime.Now.AddDays(30).ToString();
-            chlg.Challenge_ID = System.Guid.NewGuid().ToString();
+            chlg.Challenge_ID = System.Guid.NewGuid();
             chlg.Challenge_Level = Convert.ToInt32(level);
             chlg.Challenge_Name = name;
             chlg.Challenge_Num = 0;
-            chlg.Challenge_OwnerID = entpId;
-            chlg.Challenge_Position = position;
-            chlg.Challenge_Quiz = exercise;
-            chlg.Challenge_Salary = salary;
+            chlg.Challenge_OwnerID = new Guid(entpId);
+            //通过ownerid得到position
+            chlg.Challenge_Position0 = position;
+            chlg.Challenge_Position1 = position;
+            chlg.Challenge_Position2 = position;
+            chlg.Challenge_Quiz0 = exercise.ToString().Split(',')[1];
+            chlg.Challenge_Quiz1 = exercise.ToString().Split(',')[2];
+            chlg.Challenge_Quiz2 = exercise.ToString().Split(',')[3];
+            chlg.Challenge_Salary = Convert.ToInt32(level);
             chlg.Challenge_State = 1;
             chlg.Challenge_Time = DateTime.Now;
-            chlg.Challenge_Type = Convert.ToInt32(type);
+            chlg.Challenge_Type = Convert.ToInt32(level);
 
-            ec.AddChallenge(chlg);
+            return ec.AddChallenge(chlg);
 
-            ec.MinEnterpriceChallengeNumber(entpId, 1);
-
-            return true;
         }
     }
 }
