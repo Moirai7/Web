@@ -111,7 +111,7 @@
 											<div class="col-xs-12">
 												<input type="checkbox" checked="checked" name="rememberFlag" value="1" onchange="this.value=(rememberFlag.checked)?1:0" style="margin-left: 20px;">记住我
 												<span style="float: right;"> <a href="Forgot_Password.aspx" style="color: #c0c0c0;"><small>忘记密码？</small></a>
-												</span> <span class="help-block has-error" id="hint1" style="margin-left: 20px;"><small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="VALID" style="display: none;">请输入邮箱地址</small><small class="help-block" data-bv-validator="emailAddress" data-bv-for="email" data-bv-result="VALID" style="display: none;">请输入正确的邮箱格式</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="pwd" data-bv-result="VALID" style="display: none;">请输入密码</small></span> <span class="help-block has-error" id="hint2" style="margin-left: 20px;"> <small class="help-block"></small>
+												</span> <span class="help-block has-error" id="hint1" style="margin-left: 20px;"><small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="VALID" style="display: none;">请输入邮箱地址</small><small class="help-block" data-bv-validator="emailAddress" data-bv-for="email" data-bv-result="VALID" style="display: none;">请输入正确的邮箱格式</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="pwd" data-bv-result="VALID" style="display: none;">请输入密码</small></span> <span class="help-block has-error" id="hint2" style="margin-left: 20px;"><%=remind %> <small class="help-block"></small>
 												</span>
 											</div>
 											<div class="col-xs-12">

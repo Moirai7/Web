@@ -13,17 +13,14 @@ namespace Web.Common
         {
             get
             {
-                //if (Session["User_Email"] != null)
-                //{
-                //    return Session["User_Email"].ToString();
-                //}
-                //else
-                //{
-                //    Session["username"] = "LanLan";
-                //}
-                ////Session["id"] = "be87e55c-cafd-4a19-b167-dbe9e3de30d8";
-                //return "姓名";
-                return Session["User_Email"].ToString();
+                if (Session["type"].ToString().Equals("User"))
+                {
+                    return Session["User_Email"].ToString();
+                }
+                else {
+                    return Session["Enterprice_Email"].ToString();
+                }
+                
             }
         }
         protected void Page_Load(object sender, EventArgs e)

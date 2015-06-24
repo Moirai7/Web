@@ -125,7 +125,7 @@
 
 											<div class="col-xs-12" style="margin-left: 20px;">
 												<label> <input type="checkbox" id="agreement" name="check" data-bv-field="check"> <small>我已阅读并同意<a href="http://www.oxcoder.com/oxcoder_license.action" target="_blank">《oxcoder用户协议》</a></small>
-												</label> <span class="help-block has-error" id="hint1" style="margin-left: 20px;"><small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="VALID" style="display: none;">请输入邮箱地址</small><small class="help-block" data-bv-validator="emailAddress" data-bv-for="email" data-bv-result="VALID" style="display: none;">请输入正确的邮箱格式</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="pwd" data-bv-result="VALID" style="display: none;">请输入密码</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="pwd" data-bv-result="VALID" style="display: none;">密码应大于6位，小于30位</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="check" data-bv-result="VALID" style="display: none;">请同意用户协议</small></span> <span class="help-block has-error" style="margin-left: 20px;" id="hint2"> <small class="help-block"><%# remind %></small></span>
+												</label> <span class="help-block has-error" id="hint1" style="margin-left: 20px;"><small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="VALID" style="display: none;">请输入邮箱地址</small><small class="help-block" data-bv-validator="emailAddress" data-bv-for="email" data-bv-result="VALID" style="display: none;">请输入正确的邮箱格式</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="pwd" data-bv-result="VALID" style="display: none;">请输入密码</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="pwd" data-bv-result="VALID" style="display: none;">密码应大于6位，小于30位</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="check" data-bv-result="VALID" style="display: none;">请同意用户协议</small></span> <span class="help-block has-error" style="margin-left: 20px;" id="hint2"> <small class="help-block"><%=remind %></small></span>
 											</div>
 											<div class="col-xs-12">
 												<p><asp:Button class="btn btn-primary btn-lg" style="margin-left: 20px; border-radius: 3px; " runat="server" Text="注册" OnClick="btnRegister"></asp:Button></p>
@@ -137,7 +137,7 @@
 									<div class="panel-body col-md-6">
 										<div style="margin: 20px;">
 											<p class="align-left" style="font-size: 16px; color: #666;">
-												已有帐号?<a href="Login.html">直接登录</a>
+												已有帐号?<a href="Login.aspx">直接登录</a>
 											</p>
 											<img src="../Public/Images/01.png" width="250px;" class="hidden-xs">
 										</div>

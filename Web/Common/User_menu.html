@@ -1,5 +1,5 @@
 ﻿
-<form id="form1" runat="server">
+<form id="form1">
 <div class="navbar navbar-default navbar-fixed-top" >
 		<div class="container">
 			<div class="navbar-header">
@@ -19,10 +19,10 @@
 				
 					<ul class="nav navbar-nav navbar-right">
 						
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="text " id="username"><asp:Label ID="Username" runat="server" Text=<%#Name %>></asp:Label></span> <b class="caret"></b></a>
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="text " id="username"><asp:Label ID="Username" runat="server"><%=Name %></asp:Label></span> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="Change_Password.html">修改密码</a></li>
-								<li><a href="../Common/Index.html">注销</a></li>
+								<li><a href="Change_Password.aspx">修改密码</a></li>
+								<li><a href="Index.html">注销</a></li>
 							</ul></li>
 					</ul>
 				

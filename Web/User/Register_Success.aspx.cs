@@ -15,35 +15,13 @@ namespace Web.User
         {
             get
             {
-                if (Session["username"] != null)
-                {
-                    return Session["username"].ToString();
-                }
-                else
-                {
-                    Session["username"] = "LanLan";
-                }
-                Session["id"] = "be87e55c-cafd-4a19-b167-dbe9e3de30d8";
-                return "姓名";
+                return Session["username"].ToString();
             }
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
-        public void ActiveAccount()
-        {
-            string email = Request.QueryString["email"].ToString();
-            string activeCode = Request["activeCode"].ToString();
-            string type = Session["type"].ToString();
-            if (type.Equals("User") && User.ActiveUserAccount(email, activeCode))
-            {
-                Response.Redirect("Register_Success.aspx");
-            }
-            else
-            {
-                Response.Write("用户已存在，但是激活码有误！");
-            }
-        }
+       
     }
 }

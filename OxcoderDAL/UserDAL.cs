@@ -54,14 +54,14 @@ namespace OxcoderDAL
             int result = Convert.ToInt32(Common.DB.ExecuteScalar(sql));
             return result;
         }
-        public SqlDataReader UserInfo(Model.User user)
+        public SqlDataReader UserInfo(string userID)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("select * from [User] where User_ID=@id");
             SqlParameter[] par ={
-                                    new SqlParameter("@id",SqlDbType.Text)
+                                    new SqlParameter("@id",SqlDbType.VarChar,50)
                                 };
-            par[0].Value = user.User_ID;
+            par[0].Value = userID;
             return Common.DbHelperSQL.ExecuteReader(sql.ToString(), par);
         }
         public int CheckUserEmail(string email)
@@ -93,32 +93,39 @@ namespace OxcoderDAL
             par[3].Value = user.User_Email;
             return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
         }
-        public SqlDataReader ActiveUserAccount(string email)
+        public string ActiveUserAccount(string email)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("select User_Md5 from [User] where User_Email=@email");
+            sql.Append("select User_Md5 from [User] where User_Email like @email");
             SqlParameter[] par ={
                                     new SqlParameter("@email",SqlDbType.Text)
                                 };
             par[0].Value = email;
-            return Common.DbHelperSQL.ExecuteReader(sql.ToString(), par);
+            SqlDataReader rd = Common.DbHelperSQL.ExecuteReader(sql.ToString(), par);
+            string activeCode=null;
+            if (rd.Read())
+            {
+              activeCode = rd["User_Md5"].ToString();
+            }
+           
+            return activeCode;
         }
         public int ChangeUserState(string email)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("update User set User_State = @state where User_Email=@email");
+            sql.Append("update [User] set User_State = @state where User_Email like @email");
             SqlParameter[] par ={
                                     new SqlParameter("@state",SqlDbType.Text),
                                     new SqlParameter("@email",SqlDbType.Text)
                                 };
-            par[0].Value = 1;
+            par[0].Value = "1";
             par[1].Value = email;
             return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
         }
         public SqlDataReader GetUserID(string email)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("select User_ID from [User] where User_Email like @email");
+            sql.Append("select User_ID,User_Name from [User] where User_Email like @email");
             SqlParameter[] par ={
                                     new SqlParameter("@email",SqlDbType.Text)
                                 };
@@ -154,6 +161,34 @@ namespace OxcoderDAL
             user.User_State = rd["User_State"].ToString();
         }
             return user;
+        }
+        public int SetPassword(string email,string password) {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("update [User] set User_Password=@password where User_Email like @email");
+            SqlParameter[] par ={
+                                    new SqlParameter("@password",SqlDbType.Text),
+                                    new SqlParameter("@email",SqlDbType.Text)
+                                };
+            par[0].Value = password;
+            par[1].Value = email;
+            return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
+        }
+        public int UpdateUserInfo(User user) {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("update [User] set User_Name=@name,User_Age=@age,User_Sex=@sex,User_Phone=@phone where User_ID like @id");
+            SqlParameter[] par ={
+                                    new SqlParameter("@name",SqlDbType.Text),
+                                    new SqlParameter("@age",SqlDbType.Int),
+                                    new SqlParameter("@sex",SqlDbType.SmallInt),
+                                    new SqlParameter("@phone",SqlDbType.Text),
+                                    new SqlParameter("@id",SqlDbType.VarChar)
+                                };
+            par[0].Value = user.User_Name;
+            par[1].Value = Int16.Parse(user.User_Age);
+            par[2].Value = user.User_Sex;
+            par[3].Value = user.User_Phone;
+            par[4].Value = user.User_ID;
+            return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
         }
     }
 }

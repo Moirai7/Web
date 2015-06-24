@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register_Success.aspx.cs" Inherits="Web.User.Register_Success" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register_Success_Before.aspx.cs" Inherits="Web.User.Register_Success_Before" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +83,32 @@ function validateSession(){
 	</div>
 	<!-- /.container -->
 
+	<!-- jQuery -->
+	<script src="../../Public/JS/jquery-1.11.0.min.js"></script>
 
+	<!-- Bootstrap core JavaScript -->
+	<script src="../../Public/JS/bootstrap.min.js"></script>
+
+	<!-- Bootstrap Switch -->
+	<script src="../../Public/JS/bootstrap-switch.min.js"></script>
+
+	<!-- Bootstrap Select -->
+	<script src="../../Public/JS/bootstrap-select.min.js"></script>
+
+	<!-- Bootstrap File -->
+	<script src="../../Public/JS/bootstrap-filestyle.js"></script>
+
+	<!-- Sparkline -->
+	<script src="../../Public/JS/jquery.sparkline.min.js"></script>
+
+	<!-- Summernote -->
+	<script src="../../Public/JS/summernote.min.js"></script>
+
+
+	<!-- Theme script -->
+	<script src="../../Public/JS/script.js"></script>
+
+	<script src="../../Public/JS/bootstrapValidator.js"></script>
 	<!-- 引入footer -->
 <!-- #Include virtual="/Common/footer.html" -->
 </body>

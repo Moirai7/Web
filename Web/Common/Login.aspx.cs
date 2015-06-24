@@ -11,6 +11,14 @@ namespace Web.Common
     {
         OxcoderIBL.UserIBL userBL = new OxcoderBL.UserBL();
         OxcoderIBL.EnterpriseInfoIBL enterpriceBL = new OxcoderBL.EnterpriseInfoBL();
+        public string remind
+        {
+            get
+            {
+                return remind1;
+            }
+        }
+        public string remind1 = null;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -23,20 +31,25 @@ namespace Web.Common
             if (userBL.UserLogin(email, password))
             {
                 Model.User user = new Model.User();
-                user.User_ID = userBL.GetUserID(email);
-                user.User_Email = email;
-                user.User_Password = password;
-                Session["user"] = user;
+                user = userBL.GetUserID(email);
+                Session["username"] = user.User_Name;
+                Session["email"] = email;
+                Session["userID"] = user.User_ID;
                 Response.Redirect("../User/User_Index.aspx");
 
             }
-            //else if (enterpriceBL.Login(email, password))
-            //{
-            //    Model.Enterprice enterprice = new Model.Enterprice();
-            //    enterprice.Enterprice_ID = enterpriceBL.GetEnterpriceID(email);
-            //    enterprice.Enterprice_Email = email;
-            //    enterprice.Enterprice_Password = password;
-            //}
+            else if (enterpriceBL.EnterpriceLogin(email, password))
+            {
+                Model.Enterprice enterprice = enterpriceBL.GetEnterpriceID(email);
+                //Session["enterprice"] = enterprice;
+                Session["enterpriceName"] = enterprice.Enterprice_FullName;
+                Session["email"] = email;
+                Session["enterpriceID"] = enterprice.Enterprice_ID;
+                Response.Redirect("../Enterprice/Enterprice_Index.aspx");
+            }
+            else {
+                remind1 = "用户名或密码错误！";
+            }
         }
     }
 }

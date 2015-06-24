@@ -23,16 +23,17 @@ namespace OxcoderIDAL
        // DataSet DSUser(int pageindex, int pagesize, String table);
         int Count();
      //   int DeleteUser(Model.User user);
-        SqlDataReader UserInfo(Model.User user);
+        SqlDataReader UserInfo(string userID);
         int CheckUserEmail(string email);
         int RegisterUser(Model.User user);
-        SqlDataReader ActiveUserAccount(string email);
+        string ActiveUserAccount(string email);
         int ChangeUserState(string email);
         SqlDataReader GetUserID(string email);
         int SendUserEmail(string email, string activeCode);
         User UserLogin(string email);
+        int SetPassword(string email, string password);
        // int Insert(Model.User user);
        // DataSet AllUserInfo();
-        //int Update(Model.User user);
+        int UpdateUserInfo(User user);
     }
 }
