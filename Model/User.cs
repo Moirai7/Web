@@ -15,60 +15,14 @@ namespace Model
 {
     public class User
     {
-<<<<<<< HEAD
-        private string _user_name;
-        public string user_name
-=======
-        //private String _user_name;
-        //public String user_name
-        //{
-        //    get { return _user_name; }
-        //    set { _user_name = value; }
-        //}
-        //private String _user_id;
-        //public String user_id
-        //{
-        //    get { return _user_id; }
-        //    set { _user_id = value; }
-        //}
-        //private DateTime _user_postTime;
-        //public DateTime user_postTime
-        //{
-        //    get { return _user_postTime; }
-        //    set { _user_postTime = value; }
-        //}
-        //private String _user_message;
-        //public String user_message
-        //{
-        //    get { return _user_message; }
-        //    set { _user_message = value; }
-        //}
-        //private bool _user_isReplied;
-        //public bool user_isReplied
-        //{
-        //    get { return _user_isReplied; }
-        //    set { _user_isReplied = value; }
-        //}
-        //private String _user_reply;
-        //public String user_reply
-        //{
-        //    get { return _user_reply; }
-        //    set { _user_reply = value; }
-        //}
         private String _User_ID;
         public String User_ID
->>>>>>> hmh_Web
         {
             get { return _User_ID; }
             set { _User_ID = value; }
         }
-<<<<<<< HEAD
-        private string _user_id;
-        public string user_id
-=======
         private String _User_Email;
         public String User_Email
->>>>>>> hmh_Web
         {
             get { return _User_Email; }
             set { _User_Email = value; }
@@ -94,14 +48,9 @@ namespace Model
             get { return _User_Sex; }
             set { _User_Sex = value; }
         }
-<<<<<<< HEAD
-        private string _user_message;
-        public string user_message
-=======
         private String _User_Name;
 
         public String User_Name
->>>>>>> hmh_Web
         {
             get { return _User_Name; }
             set { _User_Name = value; }
@@ -113,10 +62,6 @@ namespace Model
             get { return _User_Level; }
             set { _User_Level = value; }
         }
-<<<<<<< HEAD
-        private string _user_reply;
-        public string user_reply
-=======
         private String _User_Price;
 
         public String User_Price
@@ -141,7 +86,6 @@ namespace Model
         private String _User_Md5;
 
         public String User_Md5
->>>>>>> hmh_Web
         {
             get { return _User_Md5; }
             set { _User_Md5 = value; }

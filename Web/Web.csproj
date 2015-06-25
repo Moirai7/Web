@@ -58,19 +58,47 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Common\Forgot_Password.aspx.cs">
+      <DependentUpon>Forgot_Password.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
+    <Compile Include="Common\Forgot_Password.aspx.designer.cs">
+      <DependentUpon>Forgot_Password.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Common\Forgot_Password_Sub.aspx.cs">
+      <DependentUpon>Forgot_Password_Sub.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Common\Forgot_Password_Sub.aspx.designer.cs">
+      <DependentUpon>Forgot_Password_Sub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Register_Sub.aspx.cs">
+      <DependentUpon>Register_Sub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Register_Sub.aspx.designer.cs">
+      <DependentUpon>Register_Sub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Reset_Password.aspx.cs">
+      <DependentUpon>Reset_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Reset_Password.aspx.designer.cs">
+      <DependentUpon>Reset_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Reset_Password_Before.aspx.cs">
+      <DependentUpon>Reset_Password_Before.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Reset_Password_Before.aspx.designer.cs">
+      <DependentUpon>Reset_Password_Before.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\Battle.aspx.cs">
@@ -86,6 +114,30 @@
     </Compile>
     <Compile Include="User\Challenge.aspx.designer.cs">
       <DependentUpon>Challenge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Change_Password.aspx.cs">
+      <DependentUpon>Change_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Change_Password.aspx.designer.cs">
+      <DependentUpon>Change_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Register_Success.aspx.cs">
+      <DependentUpon>Register_Success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Register_Success.aspx.designer.cs">
+      <DependentUpon>Register_Success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Register_Success_Before.aspx.cs">
+      <DependentUpon>Register_Success_Before.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Register_Success_Before.aspx.designer.cs">
+      <DependentUpon>Register_Success_Before.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_Center.aspx.cs">
+      <DependentUpon>User_Center.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_Center.aspx.designer.cs">
+      <DependentUpon>User_Center.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\User_Challenge.aspx.cs">
       <DependentUpon>User_Challenge.aspx</DependentUpon>
@@ -114,6 +166,12 @@
     </Compile>
     <Compile Include="User\User_Index.aspx.designer.cs">
       <DependentUpon>User_Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_Info.aspx.cs">
+      <DependentUpon>User_Info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\User_Info.aspx.designer.cs">
+      <DependentUpon>User_Info.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\User_NextQuiz.aspx.cs">
       <DependentUpon>User_NextQuiz.aspx</DependentUpon>
@@ -155,19 +213,25 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin.aspx" />
     <Content Include="Common\Customers.html" />
+    <Content Include="Common\Enterprice_menu.html" />
     <Content Include="Common\Enterprise.html" />
     <Content Include="Common\footer.html" />
+    <Content Include="Common\Forgot_Password.aspx" />
+    <Content Include="Common\Forgot_Password_Sub.aspx" />
     <Content Include="Common\header.html" />
     <Content Include="Common\Header_Test.html" />
+    <Content Include="Common\Login.aspx" />
+    <Content Include="Common\Register.aspx" />
+    <Content Include="Common\Register_Sub.aspx" />
+    <Content Include="Common\Reset_Password.aspx" />
+    <Content Include="Common\Reset_Password_Before.aspx" />
     <Content Include="Common\User_Index_Footer.html" />
     <Content Include="Common\User_menu.html" />
     <Content Include="Common\Index.html" />
     <Content Include="Common\Reports.html" />
     <Content Include="Common\Share1.html" />
     <Content Include="Common\Share2.html" />
-    <Content Include="Default.aspx" />
     <Content Include="Public\CSS\carousel.css" />
     <Content Include="Public\CSS\hover.css" />
     <Content Include="Public\CSS\jquery-ui-1.10.0.custom.css" />
@@ -244,6 +308,7 @@
     <Content Include="Public\Images\wlogo_sm.png" />
     <Content Include="Public\Images\zhihu2.png" />
     <Content Include="Public\JS\ace.js" />
+    <Content Include="Public\JS\avalon.js" />
     <Content Include="Public\JS\bootstrap-filestyle.js" />
     <Content Include="Public\JS\bootstrap-select.min.js" />
     <Content Include="Public\JS\bootstrap-switch.min.js" />
@@ -267,7 +332,9 @@
     <Content Include="Public\JS\manitoNoteChallengePHP.js" />
     <Content Include="Public\JS\masnunit-customers.js" />
     <Content Include="Public\JS\masnunit.js" />
+    <Content Include="Public\JS\mode-java.js" />
     <Content Include="Public\JS\mode-php.js" />
+    <Content Include="Public\JS\myEditorChallengePHP.js" />
     <Content Include="Public\JS\script.js" />
     <Content Include="Public\JS\statistics-challenge.js" />
     <Content Include="Public\JS\summernote.min.js" />
@@ -275,14 +342,20 @@
     <Content Include="Public\JS\template.min.js" />
     <Content Include="Public\JS\theme-idle_fingers.js" />
     <Content Include="Public\JS\video.js" />
+    <Content Include="Public\JS\waiting.gif" />
     <Content Include="Public\JS\woo-customers.js" />
     <Content Include="Public\JS\woo.js" />
     <Content Include="User\Battle.aspx" />
     <Content Include="User\Challenge.aspx" />
+    <Content Include="User\Change_Password.aspx" />
+    <Content Include="User\Register_Success.aspx" />
+    <Content Include="User\Register_Success_Before.aspx" />
+    <Content Include="User\User_Center.aspx" />
     <Content Include="User\User_Challenge.aspx" />
     <Content Include="User\User_Corp_Detail.aspx" />
     <Content Include="User\User_History.aspx" />
     <Content Include="User\User_Index.aspx" />
+    <Content Include="User\User_Info.aspx" />
     <Content Include="User\User_NextQuiz.aspx" />
     <Content Include="User\User_Result.aspx" />
     <Content Include="User\User_Test.aspx" />

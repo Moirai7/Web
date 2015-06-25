@@ -19,11 +19,6 @@ namespace OxcoderIBL
 {
     public interface UserIBL
     {
-<<<<<<< HEAD
-        DataSet DSUser(int pageindex, int pagesize, string table);
-=======
-     //   DataSet DSUser(int pageindex, int pagesize, String table);
->>>>>>> hmh_Web
         int Count();
        // int DeleteUser(Model.User user);
         User UserInfo(string userID);
