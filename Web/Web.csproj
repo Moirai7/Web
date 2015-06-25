@@ -383,6 +383,7 @@
     <Content Include="Public\JS\jquery-1.11.0.min.js" />
     <Content Include="Public\JS\jquery-1.11.1.min.js" />
     <Content Include="Public\JS\jquery-ui-1.10.0.custom.min.js" />
+    <Content Include="Public\JS\jquery.city.select.js" />
     <Content Include="Public\JS\jquery.sparkline.min.js" />
     <Content Include="Public\JS\manitoNoteChallengePHP.js" />
     <Content Include="Public\JS\masnunit-customers.js" />

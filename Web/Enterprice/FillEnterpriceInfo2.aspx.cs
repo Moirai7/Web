@@ -9,30 +9,25 @@ namespace Web.Enterprice
 {
     public partial class FillEnterpriceInfo2 : System.Web.UI.Page
     {
+        OxcoderIBL.EnterpriseInfoIBL Enterprice = new OxcoderBL.EnterpriseInfoBL();
         public string enterprice_name
         {
             get
             {
-                //return Session["enterpriceName"].ToString();
-                return "Test";
+                return Session["enterpriceName"].ToString();
             }
         }
-        public string tag {
-            get {
-                return temp;
-            }
-        
-        }
-        public string temp;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string tag = Request.QueryString["strchoose"].ToString();
-            string newTag = Request.QueryString["chooseTagStr"].ToString();
-            string[] tagArray = tag.Split('-');
-            if (tagArray.Length == 2) { 
             
-            }
+        }
 
+        protected void FillEnterpriceInfo1(object sender, EventArgs e)
+        {
+            string position = tagstr.Value;
+            string email = Session["email"].ToString();
+            Enterprice.UpdateEnterpriceInfo1(position, email);
+            Response.Redirect("Enterprice_Index.aspx");
         }
     }
 }

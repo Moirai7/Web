@@ -22,5 +22,6 @@ namespace OxcoderIDAL
         int InsertATest(Model.Test test);
         int DeleteATest(string id);
         DataSet GetTestDetail(String id);
+        string[] GetUserAbility(string userID);
     }
 }

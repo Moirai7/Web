@@ -148,22 +148,41 @@ namespace OxcoderDAL
             par[2].Value = email;
             return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
         }
-        public int UpdateEnterpriceInfo2(Enterprice enterprice)
+        public int UpdateEnterpriceInfo0(Enterprice enterprice)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("update Enterprice set Enterprice_FullName=@fullName,Enterprice_ShortName=@shortName,Enterprice_Url=@url,Enterprice_Introduction=@introduction where Enterprice_Email like @email");
+            sql.Append("update Enterprice set Enterprice_FullName=@fullName,Enterprice_ShortName=@shortName,Enterprice_Url=@url,Enterprice_Introduction=@introduction,Enterprice_Location=@location,Enterprice_LocationCity=@locationCity,Enterprice_Scale=@scale where Enterprice_Email like @email");
             SqlParameter[] par ={
                                     new SqlParameter("@fullName",SqlDbType.Text),
                                     new SqlParameter("@shortName",SqlDbType.Text),
                                     new SqlParameter("@url",SqlDbType.Text),
                                     new SqlParameter("@introduction",SqlDbType.Text),
+                                    new SqlParameter("@location",SqlDbType.Text),
+                                    new SqlParameter("@locationCity",SqlDbType.Text),
+                                    new SqlParameter("@scale",SqlDbType.Text),
                                     new SqlParameter("@email",SqlDbType.Text)
+
                                 };
             par[0].Value = enterprice.Enterprice_FullName;
             par[1].Value = enterprice.Enterprice_ShortName;
             par[2].Value = enterprice.Enterprice_Url;
             par[3].Value = enterprice.Enterprice_Introduction;
-            par[4].Value = enterprice.Enterprice_Email;
+            par[4].Value = enterprice.Enterprice_Location;
+            par[5].Value = enterprice.Enterprice_LocationCity;
+            par[6].Value = enterprice.Enterprice_Scale;
+            par[7].Value = enterprice.Enterprice_Email;
+            return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
+        }
+        public int UpdateEnterpriceInfo1(string position,string email)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("update Enterprice set Enterprice_Position=@position where Enterprice_Email like @email");
+            SqlParameter[] par ={
+                                    new SqlParameter("@position",SqlDbType.Text),
+                                    new SqlParameter("@email",SqlDbType.Text)
+                                };
+            par[0].Value = position;
+            par[1].Value = email;
             return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
         }
     }

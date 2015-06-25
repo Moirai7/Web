@@ -190,5 +190,18 @@ namespace OxcoderDAL
             par[4].Value = user.User_ID;
             return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
         }
+        public int UpdateUserLevel(string level, string price, string userID) {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("update [User] set User_Level=@level,User_price=@price where User_ID like @id");
+            SqlParameter[] par ={
+                                    new SqlParameter("@level",SqlDbType.Text),
+                                    new SqlParameter("@price",SqlDbType.Int),
+                                    new SqlParameter("@id",SqlDbType.VarChar)
+                                };
+            par[0].Value = level;
+            par[1].Value = price;
+            par[2].Value = userID;
+            return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
+        }
     }
 }

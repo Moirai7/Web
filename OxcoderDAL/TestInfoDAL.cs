@@ -63,5 +63,25 @@ namespace OxcoderDAL
             par[0].Value = id;
             return Common.DbHelperSQL.Query(sql.ToString(),par.ToArray());
         }
+
+        public string[] GetUserAbility(string userID)
+        {
+            string[] ability = new string[3];
+            StringBuilder sql = new StringBuilder();
+            sql.Append("select Test_Quiz0_State,Test_Quiz1_State,Test_Quiz2_State from [Test] where Test_UserID like @userID");
+            SqlParameter[] par ={
+                                    new SqlParameter("@userID",SqlDbType.VarChar)
+                                };
+            par[0].Value = userID;
+            SqlDataReader rd = Common.DbHelperSQL.ExecuteReader(sql.ToString(), par);
+            Model.User user = new Model.User();
+            if (rd.Read())
+            {
+                ability[0] = rd["Test_Quiz0_State"].ToString();
+                ability[1] = rd["Test_Quiz1_State"].ToString();
+                ability[2] = rd["Test_Quiz2_State"].ToString();
+            }
+            return ability;
+        }
     }
 }

@@ -22,5 +22,6 @@ namespace OxcoderIBL
         int InsertATest(string challengeid,string userid);
         int DeleteATest(string id);
         DataSet GetTestDetail(String id);
+       // string[] GetUserAbility(string userID);
     }
 }
