@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-
+using Model;
 /// <summary>
 /// Users 的摘要说明
 /// 此类是BL User的接口类
@@ -19,12 +19,25 @@ namespace OxcoderIBL
 {
     public interface UserIBL
     {
+<<<<<<< HEAD
         DataSet DSUser(int pageindex, int pagesize, string table);
+=======
+     //   DataSet DSUser(int pageindex, int pagesize, String table);
+>>>>>>> hmh_Web
         int Count();
-        int DeleteUser(Model.User user);
-        SqlDataReader UserInfo(Model.User user);
-        int Insert(Model.User user);
-        DataSet AllUserInfo();
-        int Update(Model.User user);
+       // int DeleteUser(Model.User user);
+        User UserInfo(string userID);
+       // int Insert(Model.User user);
+        //DataSet AllUserInfo();
+      //  int Update(Model.User user);
+        int RegisterUser(string email, string password);
+        User GetUserID(string email);
+        int SendUserEmail(string emailTo);
+        Boolean ActiveUserAccount(string email, string activeCode);
+        Boolean UserLogin(string email, string password);
+        int SendResetEmail(string email);
+        int SetPassword(string email, string newPwd);
+        int UpdateUserInfo(User user);
+
     }
 }
