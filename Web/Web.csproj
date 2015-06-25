@@ -60,45 +60,88 @@
   <ItemGroup>
     <Compile Include="Common\Forgot_Password.aspx.cs">
       <DependentUpon>Forgot_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Common\Forgot_Password.aspx.designer.cs">
       <DependentUpon>Forgot_Password.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Forgot_Password_Sub.aspx.cs">
       <DependentUpon>Forgot_Password_Sub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Common\Forgot_Password_Sub.aspx.designer.cs">
       <DependentUpon>Forgot_Password_Sub.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Common\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Common\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Register_Sub.aspx.cs">
       <DependentUpon>Register_Sub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Common\Register_Sub.aspx.designer.cs">
       <DependentUpon>Register_Sub.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Reset_Password.aspx.cs">
       <DependentUpon>Reset_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Common\Reset_Password.aspx.designer.cs">
       <DependentUpon>Reset_Password.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Reset_Password_Before.aspx.cs">
       <DependentUpon>Reset_Password_Before.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Common\Reset_Password_Before.aspx.designer.cs">
       <DependentUpon>Reset_Password_Before.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Change_Enterprice_Password.aspx.cs">
+      <DependentUpon>Change_Enterprice_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Change_Enterprice_Password.aspx.designer.cs">
+      <DependentUpon>Change_Enterprice_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Enterprice_Index.aspx.cs">
+      <DependentUpon>Enterprice_Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Enterprice_Index.aspx.designer.cs">
+      <DependentUpon>Enterprice_Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\FillEnterpriceInfo.aspx.cs">
+      <DependentUpon>FillEnterpriceInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\FillEnterpriceInfo.aspx.designer.cs">
+      <DependentUpon>FillEnterpriceInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\FillEnterpriceInfo2.aspx.cs">
+      <DependentUpon>FillEnterpriceInfo2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\FillEnterpriceInfo2.aspx.designer.cs">
+      <DependentUpon>FillEnterpriceInfo2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Register_enterprice_Success.aspx.cs">
+      <DependentUpon>Register_enterprice_Success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Register_enterprice_Success.aspx.designer.cs">
+      <DependentUpon>Register_enterprice_Success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Register_ReSuccess_Before.aspx.cs">
+      <DependentUpon>Register_ReSuccess_Before.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Register_ReSuccess_Before.aspx.designer.cs">
+      <DependentUpon>Register_ReSuccess_Before.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\Battle.aspx.cs">
@@ -117,24 +160,28 @@
     </Compile>
     <Compile Include="User\Change_Password.aspx.cs">
       <DependentUpon>Change_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\Change_Password.aspx.designer.cs">
       <DependentUpon>Change_Password.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Register_Success.aspx.cs">
       <DependentUpon>Register_Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\Register_Success.aspx.designer.cs">
       <DependentUpon>Register_Success.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Register_Success_Before.aspx.cs">
       <DependentUpon>Register_Success_Before.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\Register_Success_Before.aspx.designer.cs">
       <DependentUpon>Register_Success_Before.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\User_Center.aspx.cs">
       <DependentUpon>User_Center.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\User_Center.aspx.designer.cs">
       <DependentUpon>User_Center.aspx</DependentUpon>
@@ -169,6 +216,7 @@
     </Compile>
     <Compile Include="User\User_Info.aspx.cs">
       <DependentUpon>User_Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\User_Info.aspx.designer.cs">
       <DependentUpon>User_Info.aspx</DependentUpon>
@@ -232,6 +280,12 @@
     <Content Include="Common\Reports.html" />
     <Content Include="Common\Share1.html" />
     <Content Include="Common\Share2.html" />
+    <Content Include="Enterprice\Change_Enterprice_Password.aspx" />
+    <Content Include="Enterprice\Enterprice_Index.aspx" />
+    <Content Include="Enterprice\FillEnterpriceInfo.aspx" />
+    <Content Include="Enterprice\FillEnterpriceInfo2.aspx" />
+    <Content Include="Enterprice\Register_enterprice_Success.aspx" />
+    <Content Include="Enterprice\Register_ReSuccess_Before.aspx" />
     <Content Include="Public\CSS\carousel.css" />
     <Content Include="Public\CSS\hover.css" />
     <Content Include="Public\CSS\jquery-ui-1.10.0.custom.css" />
