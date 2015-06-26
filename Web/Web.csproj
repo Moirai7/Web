@@ -107,41 +107,110 @@
     <Compile Include="Common\Reset_Password_Before.aspx.designer.cs">
       <DependentUpon>Reset_Password_Before.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Enterprice\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprice\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Buy.aspx.cs">
+      <DependentUpon>Buy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprice\Buy.aspx.designer.cs">
+      <DependentUpon>Buy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Enterprice\Change_Enterprice_Password.aspx.cs">
       <DependentUpon>Change_Enterprice_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Enterprice\Change_Enterprice_Password.aspx.designer.cs">
       <DependentUpon>Change_Enterprice_Password.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Enterprice\Charge.aspx.cs">
+      <DependentUpon>Charge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprice\Charge.aspx.designer.cs">
+      <DependentUpon>Charge.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Enterprice\Enterprice_Index.aspx.cs">
       <DependentUpon>Enterprice_Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Enterprice\Enterprice_Index.aspx.designer.cs">
       <DependentUpon>Enterprice_Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Enterprice\FillEnterpriceInfo.aspx.cs">
       <DependentUpon>FillEnterpriceInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Enterprice\FillEnterpriceInfo.aspx.designer.cs">
       <DependentUpon>FillEnterpriceInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Enterprice\FillEnterpriceInfo2.aspx.cs">
       <DependentUpon>FillEnterpriceInfo2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Enterprice\FillEnterpriceInfo2.aspx.designer.cs">
       <DependentUpon>FillEnterpriceInfo2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Enterprice\History.aspx.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprice\History.aspx.designer.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Invite.aspx.cs">
+      <DependentUpon>Invite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprice\Invite.aspx.designer.cs">
+      <DependentUpon>Invite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\PublishChallenge_BaseInfo.aspx.cs">
+      <DependentUpon>PublishChallenge_BaseInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprice\PublishChallenge_BaseInfo.aspx.designer.cs">
+      <DependentUpon>PublishChallenge_BaseInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\PublishChallenge_ChooseQuiz.aspx.cs">
+      <DependentUpon>PublishChallenge_ChooseQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprice\PublishChallenge_ChooseQuiz.aspx.designer.cs">
+      <DependentUpon>PublishChallenge_ChooseQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Recruit_list.aspx.cs">
+      <DependentUpon>Recruit_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprice\Recruit_list.aspx.designer.cs">
+      <DependentUpon>Recruit_list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Enterprice\Register_enterprice_Success.aspx.cs">
       <DependentUpon>Register_enterprice_Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Enterprice\Register_enterprice_Success.aspx.designer.cs">
       <DependentUpon>Register_enterprice_Success.aspx</DependentUpon>
     </Compile>
     <Compile Include="Enterprice\Register_ReSuccess_Before.aspx.cs">
       <DependentUpon>Register_ReSuccess_Before.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Enterprice\Register_ReSuccess_Before.aspx.designer.cs">
       <DependentUpon>Register_ReSuccess_Before.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprice\Resume.aspx.cs">
+      <DependentUpon>Resume.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Enterprice\Resume.aspx.designer.cs">
+      <DependentUpon>Resume.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\Battle.aspx.cs">
@@ -264,6 +333,7 @@
     <Content Include="Common\Customers.html" />
     <Content Include="Common\Enterprice_menu.html" />
     <Content Include="Common\Enterprise.html" />
+    <Content Include="Common\Enterprise_menu.html" />
     <Content Include="Common\footer.html" />
     <Content Include="Common\Forgot_Password.aspx" />
     <Content Include="Common\Forgot_Password_Sub.aspx" />
@@ -280,13 +350,23 @@
     <Content Include="Common\Reports.html" />
     <Content Include="Common\Share1.html" />
     <Content Include="Common\Share2.html" />
+    <Content Include="Enterprice\Account.aspx" />
+    <Content Include="Enterprice\Buy.aspx" />
     <Content Include="Enterprice\Change_Enterprice_Password.aspx" />
+    <Content Include="Enterprice\Charge.aspx" />
     <Content Include="Enterprice\Enterprice_Index.aspx" />
     <Content Include="Enterprice\FillEnterpriceInfo.aspx" />
     <Content Include="Enterprice\FillEnterpriceInfo2.aspx" />
+    <Content Include="Enterprice\History.aspx" />
+    <Content Include="Enterprice\Invite.aspx" />
+    <Content Include="Enterprice\PublishChallenge_BaseInfo.aspx" />
+    <Content Include="Enterprice\PublishChallenge_ChooseQuiz.aspx" />
+    <Content Include="Enterprice\Recruit_list.aspx" />
     <Content Include="Enterprice\Register_enterprice_Success.aspx" />
     <Content Include="Enterprice\Register_ReSuccess_Before.aspx" />
+    <Content Include="Enterprice\Resume.aspx" />
     <Content Include="Public\CSS\carousel.css" />
+    <Content Include="Public\CSS\font-awesome.min.css" />
     <Content Include="Public\CSS\hover.css" />
     <Content Include="Public\CSS\jquery-ui-1.10.0.custom.css" />
     <Content Include="Public\CSS\max.css" />
@@ -296,7 +376,9 @@
     <Content Include="Public\CSS\theme.min.css" />
     <Content Include="Public\CSS\tourist.css" />
     <Content Include="Public\CSS\video-js.css" />
+    <Content Include="Public\Fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="Public\Images\01.png" />
+    <Content Include="Public\Images\03495419c4679ebcca8ff00e8d05c1ecaadf1259.jpg" />
     <Content Include="Public\Images\1.png" />
     <Content Include="Public\Images\1001.jpg" />
     <Content Include="Public\Images\1014.jpg" />
@@ -315,6 +397,7 @@
     <Content Include="Public\Images\1062.jpg" />
     <Content Include="Public\Images\1063.png" />
     <Content Include="Public\Images\1064.png" />
+    <Content Include="Public\Images\1209.bmp" />
     <Content Include="Public\Images\1405975_175937039_2.jpg" />
     <Content Include="Public\Images\447.jpg" />
     <Content Include="Public\Images\48.jpg" />
@@ -330,11 +413,19 @@
     <Content Include="Public\Images\988.png" />
     <Content Include="Public\Images\989.PNG" />
     <Content Include="Public\Images\991.png" />
+    <Content Include="Public\Images\android.png" />
+    <Content Include="Public\Images\apple.png" />
     <Content Include="Public\Images\Bitmap3.png" />
+    <Content Include="Public\Images\c.png" />
     <Content Include="Public\Images\code.png" />
     <Content Include="Public\Images\comic.jpg" />
     <Content Include="Public\Images\corp.png" />
+    <Content Include="Public\Images\corp_step1.png" />
+    <Content Include="Public\Images\corp_step2.png" />
+    <Content Include="Public\Images\cpp.png" />
     <Content Include="Public\Images\csdn2.png" />
+    <Content Include="Public\Images\d039a653ca17abfd3f2ce16f359be4b9a5d19aa5.jpg" />
+    <Content Include="Public\Images\d58ae1bd78d7cc44d53b7c10d2e4efba803d2b23.jpg" />
     <Content Include="Public\Images\default.jpg" />
     <Content Include="Public\Images\github2.png" />
     <Content Include="Public\Images\hexun.png" />
@@ -343,9 +434,13 @@
     <Content Include="Public\Images\lake.jpg" />
     <Content Include="Public\Images\languages.png" />
     <Content Include="Public\Images\logowall.png" />
+    <Content Include="Public\Images\new_c1.png" />
+    <Content Include="Public\Images\new_c2.png" />
     <Content Include="Public\Images\office.png" />
+    <Content Include="Public\Images\php.png" />
     <Content Include="Public\Images\pic.gif" />
     <Content Include="Public\Images\platform.png" />
+    <Content Include="Public\Images\python.png" />
     <Content Include="Public\Images\quora2.png" />
     <Content Include="Public\Images\school.png" />
     <Content Include="Public\Images\sf2.png" />
@@ -443,9 +538,7 @@
       <Name>OxcoderIBL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Public\Fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
