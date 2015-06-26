@@ -65,6 +65,13 @@
     <Compile Include="Admin\Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Admin_AddQuiz.aspx.cs">
+      <DependentUpon>Admin_AddQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin_AddQuiz.aspx.designer.cs">
+      <DependentUpon>Admin_AddQuiz.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Admin_Challenge.aspx.cs">
       <DependentUpon>Admin_Challenge.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -359,6 +366,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Admin.aspx" />
+    <Content Include="Admin\Admin_AddQuiz.aspx" />
     <Content Include="Admin\Admin_Challenge.aspx" />
     <Content Include="Admin\Admin_Challenge_Item.aspx" />
     <Content Include="Admin\Admin_Enterprise.aspx" />

@@ -45,6 +45,7 @@
     <Compile Include="Invoice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quiz.cs" />
+    <Compile Include="QuizForDB.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

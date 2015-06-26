@@ -7,8 +7,6 @@ using System.Data;
 using System.Data.SqlClient;
 
 /// <summary>
-/// 搜索 的摘要说明
-/// 此类是 BL 的实现类
 /// </summary>
 /// 
 /// Author:岚岚姐
@@ -23,6 +21,40 @@ namespace OxcoderBL
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
             OxcoderIDAL.QuizInfoIDAL en = factory.getQuizInstance();
             return en.QuizInfo(id);
+        }
+
+        public DataSet AllQuizInfo()
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.QuizInfoIDAL en = factory.getQuizInstance();
+            return en.AllQuizInfo();
+        }
+
+        public bool insertAQuiz(Model.QuizForDB quiz)
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.QuizInfoIDAL en = factory.getQuizInstance();
+            if (quiz.Quiz_Type.Equals("php"))
+            {
+                quiz.Quiz_TypeID = 29;
+            }
+            else if (quiz.Quiz_Type.Equals("cpp"))
+            {
+                quiz.Quiz_TypeID = 1;
+            }
+            else if (quiz.Quiz_Type.Equals("python"))
+            {
+                quiz.Quiz_TypeID = 4;
+            }
+            else if (quiz.Quiz_Type.Equals("c"))
+            {
+                quiz.Quiz_TypeID = 34;
+            }
+            else if (quiz.Quiz_Type.Equals("java"))
+            {
+                quiz.Quiz_TypeID = 10;
+            }
+            return en.insertAQuiz(quiz);
         }
     }
 }

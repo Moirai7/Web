@@ -19,5 +19,7 @@ namespace OxcoderIBL
     public interface QuizInfoIBL
     {
         DataSet QuizInfo(string id);
+        DataSet AllQuizInfo();
+        bool insertAQuiz(Model.QuizForDB quiz);
     }
 }

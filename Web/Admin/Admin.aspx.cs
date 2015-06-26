@@ -4,7 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+/// <summary>
+/// </summary>
+/// 
+/// Author:岚岚姐
+/// Date：2015/06/26
+///
 namespace Web.Admin
 {
     public partial class Admin : System.Web.UI.Page
