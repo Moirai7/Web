@@ -36,6 +36,6 @@ namespace OxcoderIBL
         int UpdateUserLevel(string level, string price, string userID);
         double[] GetUserAbility(string userID);
        // int UpdateUserLevel(string level,string price,string userID);
-
+        DataSet AllUserInfo();
     }
 }

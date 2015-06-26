@@ -20,6 +20,7 @@ namespace OxcoderIDAL
 {
     public interface UserIDAL
     {
+        DataSet AllUserInfo();
         int Count();
      //   int DeleteUser(Model.User user);
         SqlDataReader UserInfo(string userID);

@@ -9,6 +9,7 @@ namespace Web.Admin
 {
     public partial class Admin : System.Web.UI.Page
     {
+        OxcoderIBL.UserIBL User = new OxcoderBL.UserBL();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -16,9 +17,9 @@ namespace Web.Admin
                 SetBind();
             }
         }
-             private void SetBind()
+        private void SetBind()
         {
-               // enter.DeleteATest(Request.QueryString["delete"].ToString());
+            rpt_Challenge.DataSource = User.AllUserInfo();
 
            // rpt_Challenge.DataSource = search.SearchByUser(Session["id"].ToString(), reustate, flag, page, 10);
             Page.DataBind();

@@ -19,13 +19,13 @@ namespace OxcoderDAL
 {
     public class UserDAL : OxcoderIDAL.UserIDAL
     {
-       
-   
-        //public DataSet AllUserInfo()
-        //{
-        //    String sql = "select * from [User]";
-        //    return Common.DB.dataSet(sql);
-        //}
+
+
+        public DataSet AllUserInfo()
+        {
+            string sql = "select * from [User]";
+            return Common.DB.dataSet(sql);
+        }
         //public int Insert(Model.User user)
         //{
         //    StringBuilder sql = new StringBuilder();

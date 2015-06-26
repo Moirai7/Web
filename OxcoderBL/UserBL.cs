@@ -24,7 +24,12 @@ namespace OxcoderBL
 {
     public class UserBL : OxcoderIBL.UserIBL
     {
-    
+        public DataSet AllUserInfo()
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
+            return dalad.AllUserInfo();
+        } 
         public int Count()
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
