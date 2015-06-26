@@ -9,7 +9,7 @@ namespace Web.Enterprice
 {
     public partial class Register_enterprice_Success : System.Web.UI.Page
     {
-        OxcoderIBL.EnterpriseInfoIBL enterprice = new OxcoderBL.EnterpriseInfoBL();
+        OxcoderIBL.EnterpriseInfoIBL enterpriceBL = new OxcoderBL.EnterpriseInfoBL();
 
         public string enterprice_name
         {
@@ -28,7 +28,14 @@ namespace Web.Enterprice
             string enterpriceFullName = corpname.Value;
             string enterpricePhone = phone.Value;
             string email = Session["enterpriceName"].ToString();
-            enterprice.UpdateEnterpriceInfo(enterpriceFullName,enterpricePhone,email);
+            Session["enterpriceName"] = enterpriceFullName;
+
+            Model.Enterprice enterprice = enterpriceBL.GetEnterpriceID(email);
+            //Session["enterprice"] = enterprice;
+            Session["enterpriceName"] = enterpriceFullName;
+            Session["email"] = email;
+            Session["enterpriceID"] = enterprice.Enterprice_ID;
+            enterpriceBL.UpdateEnterpriceInfo(enterpriceFullName, enterpricePhone, email);
             Response.Redirect("FillEnterpriceInfo.aspx");
         }
     }

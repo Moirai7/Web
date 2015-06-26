@@ -26,7 +26,8 @@ namespace OxcoderIBL
         Boolean EnterpriceLogin(String email, String password);
         int SetPassword(string email, string password);
         int UpdateEnterpriceInfo(string fullName, string enterpricePhone, string email);
-        int UpdateEnterpriceInfo2(Enterprice enterprice);
+        int UpdateEnterpriceInfo0(Enterprice enterprice);
+        int UpdateEnterpriceInfo1(string position,string email);
 
     }
 }

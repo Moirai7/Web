@@ -240,22 +240,14 @@
 
 
 	<form>
-		<input id="input-speed-all" type="hidden"
-			value="7.81" /> <input
-			id="input-manito-all" type="hidden"
-			value="2.2" /> <input
-			id="input-error-all" type="hidden"
-			value="5.27" /> <input
-			id="input-time-all" type="hidden"
-			value="2.58" /> <input
-			id="input-speed" type="hidden"
-			value="0.0" /> <input
-			id="input-manito" type="hidden"
-			value="0.0" /> <input
-			id="input-error" type="hidden"
-			value="0.0" /> <input
-			id="input-time" type="hidden"
-			value="0.0" />
+		<input id="speedOfAll" name="speedOfAll" type="hidden" value="7.81" runat="server"/> 
+        <input id="manitoOfAll" name="manitoOfAll" type="hidden" value="2.2" runat="server"/> 
+        <input id="errorOfAll" name="errorOfAll" type="hidden" value="5.27" runat="server"/> 
+        <input id="timeOfAll" name="timeOfAll" type="hidden" value="2.58" runat="server"/> 
+        <input id="speed" name="speed" type="hidden" value="0.0" runat="server"/> 
+        <input id="manito" name="manito" type="hidden" value="0.0" runat="server"/> 
+        <input id="error" name="error" type="hidden" value="0.0" runat="server"/> 
+        <input id="time" name="time" type="hidden" value="0.0" runat="server"/>
 	</form>
 
 	
@@ -277,20 +269,20 @@
 								    strokeColor: "rgba(220,220,220,1)",
 								    pointColor: "rgba(220,10,10,1)",
 								    pointStrokeColor: "#fff",
-								    data: [$("#input-speed-all").val(),
-											$("#input-manito-all").val(),
-											$("#input-error-all").val(),
-											$("#input-time-all").val()]
+								    data: [$("#speedOfAll").val(),
+											$("#manitoOfAll").val(),
+											$("#errorOfAll").val(),
+											$("#timeOfAll").val()]
 								},
 								{
 								    fillColor: "rgba(0,0,220,0.5)",
 								    strokeColor: "rgba(151,187,205,1)",
 								    pointColor: "rgba(100,100,205,9)",
 								    pointStrokeColor: "#fff",
-								    data: [$("#input-speed").val(),
-											$("#input-manito").val(),
-											$("#input-error").val(),
-											$("#input-time").val()]
+								    data: [$("#speed").val(),
+											$("#manito").val(),
+											$("#error").val(),
+											$("#time").val()]
 								}]
 				    };
 				    var options = {

@@ -22,7 +22,14 @@ namespace Web.User
                 return temp;
             }
         }
-        string[] temp = new string[9]; 
+        string[] temp = new string[9];
+        public String[] ability {
+            get
+            {
+                return abilityTemp;
+            }
+        }
+        string[] abilityTemp = new string[8];
         protected void Page_Load(object sender, EventArgs e)
         {
             string email = Session["email"].ToString();
@@ -37,6 +44,15 @@ namespace Web.User
             temp[6] = userInfo.User_Age;
             temp[7] = userInfo.User_Email;
             temp[8] = userInfo.User_Sex;
+            double[] abilityTemp = User.GetUserAbility(userID);
+            manitoOfAll.Value = Convert.ToString(abilityTemp[0]);
+            speedOfAll.Value = Convert.ToString(abilityTemp[1]);
+            errorOfAll.Value = Convert.ToString(abilityTemp[2]);
+            timeOfAll.Value = Convert.ToString(abilityTemp[3]);
+            manito.Value = "0.0";
+            speed.Value = "0.0";
+            error.Value = "0.0";
+            time.Value = "0.0";
         }
     }
 }

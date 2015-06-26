@@ -56,12 +56,12 @@
 							<div class="form-group">
 								<label><h3 class="grey">公司规模</h3></label> <select name="scale" class="form-control" id="corp-big" data-bv-field="scale">
 									<option value="">请选择</option>
-									<option value="1">少于15人</option>
-									<option value="2">15~50人</option>
-									<option value="3">50~150人</option>
-									<option value="4">150~500人</option>
-									<option value="5">500~2000人</option>
-									<option value="6">2000人以上</option>
+									<option runat="server" value="1">少于15人</option>
+									<option runat="server" value="2">15~50人</option>
+									<option runat="server" value="3">50~150人</option>
+									<option runat="server" value="4">150~500人</option>
+									<option runat="server" value="5">500~2000人</option>
+									<option runat="server" value="6">2000人以上</option>
 								</select> <span class="text-danger" id="error4" style="display: none;">请选择公司规模</span>
 								<span class="help-block has-error" id="hint3">
 							<small class="help-block" data-bv-validator="notEmpty" data-bv-for="scale" data-bv-result="NOT_VALIDATED" style="display: none;">请选择公司规模</small></span></div>
@@ -71,7 +71,7 @@
 								<span class="help-block has-error" id="hint4">
 							<small class="help-block" data-bv-validator="notEmpty" data-bv-for="cdes" data-bv-result="NOT_VALIDATED" style="display: none;">请输入公司简介</small></span></div>
 							<div class="form-group form-actions pull-right">
-								<asp:Button runat="server" class="btn btn-new1 btn-lg" style="border-radius: 3px;" Text="保存 下一步" OnClick="FillEnterpriceInfo2"></asp:Button>
+								<asp:Button runat="server" class="btn btn-new1 btn-lg" style="border-radius: 3px;" Text="保存 下一步" OnClick="FillEnterpriceInfo0"></asp:Button>
 							</div>
 						</form>
 					</div>

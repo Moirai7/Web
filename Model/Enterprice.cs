@@ -36,6 +36,13 @@ namespace Model
             get { return _Enterprice_Location; }
             set { _Enterprice_Location = value; }
         }
+        private String _Enterprice_LocationCity;
+
+        public String Enterprice_LocationCity
+        {
+            get { return _Enterprice_LocationCity; }
+            set { _Enterprice_LocationCity = value; }
+        }
         private String _Enterprice_Url;
 
         public String Enterprice_Url
@@ -105,6 +112,13 @@ namespace Model
         {
             get { return _Enterprice_Md5; }
             set { _Enterprice_Md5 = value; }
+        }
+        private String _Enterprice_Position;
+
+        public String Enterprice_Position
+        {
+            get { return _Enterprice_Position; }
+            set { _Enterprice_Position = value; }
         }
     }
 }

@@ -8,7 +8,7 @@
 <meta name="author" content="BootstrapStyler">
 
 <title>猿圈 注册</title>
-
+<link rel="shortcut icon" href="../Public/Images/wlogo_sm.png" />
 <!-- Bootstrap core CSS -->
 <link href="http://www.oxcoder.com/bootstrap/css/bootstrap.min.css?v=3.1.0" rel="stylesheet">
 

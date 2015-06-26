@@ -34,5 +34,6 @@ namespace OxcoderIDAL
        // int Insert(Model.User user);
        // DataSet AllUserInfo();
         int UpdateUserInfo(User user);
+        int UpdateUserLevel(string level, string price, string userID);
     }
 }
