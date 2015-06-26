@@ -15,13 +15,13 @@ namespace Web.Enterprise
             public string Name
             {
                 get{
-                    if(Session["name"]!=null)
+                    if (Session["enterpriceName"] != null)
                     {
-                        return Session["name"].ToString();
+                        return Session["enterpriceName"].ToString();
                     }
                     else
                     {
-                        Session["name"] = "dyt有限公司";
+                        Session["enterpriceName"] = "dyt有限公司";
                     }
                     return "公司";
                 }
@@ -37,12 +37,8 @@ namespace Web.Enterprise
         }
         protected void SetBind()
         {
-
-            Session["name"] = "北京钓鱼台有限公司";
-            Session["id"] = "54bf6567-1007-11d1-b0aa-444553540101";
-
             OxcoderIBL.EnterpriseChallengeIBL ec = new OxcoderBL.EnterpriseChallengeBL();
-            DataSet ds = ec.GetChallengeBriefByOwner(Session["id"].ToString(), "1");
+            DataSet ds = ec.GetChallengeBriefByOwner(Session["enterpriceID"].ToString(), "1");
 
             string s = "";
             int i = 0;

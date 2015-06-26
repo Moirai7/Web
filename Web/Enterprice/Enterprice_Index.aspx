@@ -15,7 +15,7 @@
 <body style="">
 
 	<!-- 引入header -->
-<!-- #Include virtual="/Common/enterprice_menu.html" -->
+<!-- #Include virtual="/Common/enterprise_menu.html" -->
 	<div class="container">
 		<div class="row">
 
@@ -30,12 +30,12 @@
 									<section>
 										<section id="middle">
 											<h2 class="h2-tab">
-												<a href="Recruit_list.html">进行中的挑战</a>
+												<a href="Recruit_list.aspx">进行中的挑战</a>
 											</h2>
 											<h2 class="h2-tab">
-												<a href="History.html" class="off">挑战历史</a>
+												<a href="History.aspx" class="off">挑战历史</a>
 											</h2>
-											<a href="Charge.html"><button class="btn btn-new1 pull-right" style="margin-top: 20px;">新增挑战邀请</button></a>
+											<a href="PublishChallenge_BaseInfo.aspx"><button class="btn btn-new1 pull-right" style="margin-top: 20px;">新增挑战邀请</button></a>
 										</section>
 										<!-- /.page-header -->
 										<div id="content">
@@ -75,7 +75,7 @@
 																			</ul>
 																		</div>
 																		<div class="col-md-3">
-																			<a href="Resume.html"><button type="button" class="btn btn-new1">去筛选</button></a> <a href="Invite.html"><button type="button" class="btn btn-new1" style="margin: 16px 5px;">邀请</button></a>
+																			<a href="Resume.aspx"><button type="button" class="btn btn-new1">去筛选</button></a> <a href="Invite.aspx"><button type="button" class="btn btn-new1" style="margin: 16px 5px;">邀请</button></a>
 																		</div>
 																		<!-- new end-->
 																	</div>

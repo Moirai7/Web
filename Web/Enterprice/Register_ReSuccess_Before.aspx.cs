@@ -10,7 +10,7 @@ namespace Web.Enterprice
     public partial class Register_ReSuccess_Before : System.Web.UI.Page
     {
         OxcoderIBL.EnterpriseInfoIBL Enterprice = new OxcoderBL.EnterpriseInfoBL();
-        public string enterprice_name
+        public string Name
         {
             get
             {
@@ -37,6 +37,7 @@ namespace Web.Enterprice
                 {
                     Response.Write("用户已存在，但是激活码有误！");
                 }
+                Page.DataBind();
             }
         }
     }

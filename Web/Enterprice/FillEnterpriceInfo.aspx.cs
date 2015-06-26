@@ -10,7 +10,7 @@ namespace Web.Enterprice
     public partial class FillEnterpriceInfo : System.Web.UI.Page
     {
         OxcoderIBL.EnterpriseInfoIBL Enterprice = new OxcoderBL.EnterpriseInfoBL();
-        public string enterprice_name
+        public string Name
         {
             get
             {
@@ -20,6 +20,7 @@ namespace Web.Enterprice
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            Page.DataBind();
         }
 
         protected void FillEnterpriceInfo0(object sender, EventArgs e)

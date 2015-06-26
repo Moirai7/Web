@@ -11,7 +11,7 @@ namespace Web.Enterprice
     {
         OxcoderIBL.EnterpriseInfoIBL enterpriceBL = new OxcoderBL.EnterpriseInfoBL();
 
-        public string enterprice_name
+        public string Name
         {
             get
             {
@@ -22,6 +22,7 @@ namespace Web.Enterprice
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            Page.DataBind();
         }
         protected void FillEnterpriceInfo(object sender, EventArgs e)
         {

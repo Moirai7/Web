@@ -171,7 +171,7 @@
 					<div class="media-body">
 						<h4 class="media-heading">
 							<!-- <span class="welcome">Hello</span> -->
-							<span>北京捷伦科技有限公司 </span>
+							<span><asp:Label runat="server" Text=<%#Name %>></asp:Label> </span>
 						</h4>
 						<span class="text-muted"><small>上次登录日期: <br> 2015-05-20 13:11:21
 						</small> </span>

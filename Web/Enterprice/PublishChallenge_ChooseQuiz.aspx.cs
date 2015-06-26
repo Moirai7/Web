@@ -15,13 +15,13 @@ namespace Web.Enterprise
         {
             get
             {
-                if (Session["name"] != null)
+                if (Session["enterpriceName"] != null)
                 {
-                    return Session["name"].ToString();
+                    return Session["enterpriceName"].ToString();
                 }
                 else
                 {
-                    Session["name"] = "dyt有限公司";
+                    Session["enterpriceName"] = "dyt有限公司";
                 }
                 return "公司";
             }
@@ -89,7 +89,7 @@ namespace Web.Enterprise
                 string subExc = Request.Form["exercise"];
                 string lev = Request.Form["level"];
                 string typ = Request.Form["type"];
-                bool flag = ec.PublishChallenge(subExc, Session["id"].ToString(), lev, typ);
+                bool flag = ec.PublishChallenge(subExc, Session["enterpriceID"].ToString(), lev, typ);
                 if (flag == true)
                 {
                     Response.Redirect("Recruit_list.aspx");

@@ -15,13 +15,13 @@ namespace Web.Enterprise
         {
             get
             {
-                if (Session["name"] != null)
+                if (Session["enterpriceName"] != null)
                 {
-                    return Session["name"].ToString();
+                    return Session["enterpriceName"].ToString();
                 }
                 else
                 {
-                    Session["name"] = "dyt有限公司";
+                    Session["enterpriceName"] = "dyt有限公司";
                 }
                 return "公司";
             }

@@ -16,7 +16,7 @@
 <body style="">
 	<!-- 引入header -->
 	
-    <!-- #Include virtual="/Common/enterprice_menu.html" -->
+    <!-- #Include virtual="/Common/enterprise_menu.html" -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-push-3 col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2">

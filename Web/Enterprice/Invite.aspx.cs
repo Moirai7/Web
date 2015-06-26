@@ -13,13 +13,13 @@ namespace Web.Enterprise
         {
             get
             {
-                if (Session["name"] != null)
+                if (Session["enterpriceName"] != null)
                 {
-                    return Session["name"].ToString();
+                    return Session["enterpriceName"].ToString();
                 }
                 else
                 {
-                    Session["name"] = "dyt有限公司";
+                    Session["enterpriceName"] = "dyt有限公司";
                 }
                 return "公司";
             }
@@ -37,7 +37,7 @@ namespace Web.Enterprise
             reid.Value = Request.QueryString["reid"];
             rname.InnerHtml = Request.QueryString["rname"];
             OxcoderIBL.InviteIBL i = new OxcoderBL.InviteBL();
-            int number = i.GetInviteNumByEntp(Session["id"].ToString());
+            int number = i.GetInviteNumByEntp(Session["enterpriceID"].ToString());
             numDiv.InnerHtml = number + "";
             inviteNumVal.Value = number + "";
             Page.DataBind();
@@ -46,10 +46,10 @@ namespace Web.Enterprise
         protected void send_Btn_Click(object sender, EventArgs e)
         {
             string[] mailTo = oneEmail.Value.Trim(',').Split(',');
-            string subject =  Session["name"].ToString()+mailSubject.Value;
+            string subject = Session["enterpriceName"].ToString() + mailSubject.Value;
             string content = mailContent.InnerHtml;
             content = content.Replace("<br>", "<br />");
-            content = content.Replace("[公司]", Session["name"].ToString());
+            content = content.Replace("[公司]", Session["enterpriceName"].ToString());
             content = content.Replace("[时间]", System.DateTime.Now.ToString());
             content = content.Replace("[链接]", "www.oxcoder.com/Test.aspx?reid="+reid.Value);
             int len = mailTo.Length;
@@ -60,7 +60,7 @@ namespace Web.Enterprise
             else
             {
                 OxcoderIBL.InviteIBL invit = new OxcoderBL.InviteBL();
-                invit.sendInvites(mailTo, subject, content, Session["id"].ToString());
+                invit.sendInvites(mailTo, subject, content, Session["enterpriceID"].ToString());
                 Response.Redirect("Recruit_list.aspx");
             }
         }
