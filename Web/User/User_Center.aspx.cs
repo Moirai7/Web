@@ -25,7 +25,7 @@ namespace Web.User
         string[] temp = new string[9]; 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string email = Session["email"].ToString();
+            string email = Session["User_Email"].ToString();
             string userID = Session["userID"].ToString();
             Model.User userInfo = User.UserInfo(userID);
             temp[0] = userInfo.User_ID;

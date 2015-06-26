@@ -66,7 +66,7 @@ namespace OxcoderBL
             StringBuilder contentBuilder = new StringBuilder();
             contentBuilder.Append("请点击下面的链接完成激活注册");
             string type = "Enterprice";
-            contentBuilder.Append("<a href='http://localhost:27067/Enterprice/Register_ReSuccess_Before.aspx?email=" + emailTo + "&activeCode=" + activeCode + "&type"+type+"'>http://localhost:15464/Register_Success.aspx?email=" + emailTo + "&activeCode=" + activeCode + "+激活</a>");
+            contentBuilder.Append("<a href='http://localhost:27067/Enterprice/Register_ReSuccess_Before.aspx?email=" + emailTo + "&activeCode=" + activeCode + "&type="+type+"'>http://localhost:15464/Register_Success.aspx?email=" + emailTo + "&activeCode=" + activeCode + "+激活</a>");
             mailMsg.Body = contentBuilder.ToString();
             mailMsg.IsBodyHtml = true;
             SmtpClient client = new SmtpClient();
