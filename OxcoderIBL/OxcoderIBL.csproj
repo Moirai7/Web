@@ -39,8 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnterpriseChallengeIBL.cs" />
     <Compile Include="EnterpriseInfoIBL.cs" />
+    <Compile Include="InviteIBL.cs" />
     <Compile Include="IProgram.cs" />
+    <Compile Include="PayIBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizInfoIBL.cs" />
     <Compile Include="SearchChallengeIBL.cs" />

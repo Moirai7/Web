@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnterpriseChallengeBL.cs" />
     <Compile Include="EnterpriseInfoBL.cs" />
     <Compile Include="Ideone_Service.cs" />
+    <Compile Include="InviteBL.cs" />
+    <Compile Include="PayBL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizInfoBL.cs" />
@@ -58,6 +61,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{ff039ef6-3765-49a8-af4d-3f34f56e1e56}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OxcoderDAL\OxcoderDAL.csproj">
+      <Project>{1baa845b-2d37-4af9-b4ad-47ca8851e081}</Project>
+      <Name>OxcoderDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\OxcoderFactory\OxcoderFactory.csproj">
       <Project>{1724310d-a5c6-4208-b382-b28691e828b8}</Project>

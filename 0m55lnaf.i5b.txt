@@ -1,0 +1,79 @@
+﻿Merge branch 'dyt'
+
+Conflicts:
+	Model/Model.csproj
+	Web/Web.csproj
+	Web/web.config
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   Common/Common.csproj
+#	new file:   Common/SendMails.cs
+#	new file:   Model/Invoice.cs
+#	new file:   OxcoderBL/EnterpriseChallengeBL.cs
+#	new file:   OxcoderBL/InviteBL.cs
+#	modified:   OxcoderBL/OxcoderBL.csproj
+#	new file:   OxcoderBL/PayBL.cs
+#	new file:   OxcoderDAL/EnterpriseChallengeDAL.cs
+#	new file:   OxcoderDAL/InviteDAL.cs
+#	modified:   OxcoderDAL/OxcoderDAL.csproj
+#	new file:   OxcoderDAL/PayDAL.cs
+#	new file:   OxcoderIBL/EnterpriseChallengeIBL.cs
+#	new file:   OxcoderIBL/InviteIBL.cs
+#	modified:   OxcoderIBL/OxcoderIBL.csproj
+#	new file:   OxcoderIBL/PayIBL.cs
+#	new file:   OxcoderIDAL/EnterpriseChallengeIDAL.cs
+#	new file:   OxcoderIDAL/InviteIDAL.cs
+#	modified:   OxcoderIDAL/OxcoderIDAL.csproj
+#	new file:   OxcoderIDAL/PayIDAL.cs
+#	new file:   Web/Common/Enterprise_menu.html
+#	new file:   Web/Enterprise/Account.aspx
+#	new file:   Web/Enterprise/Account.aspx.cs
+#	new file:   Web/Enterprise/Account.aspx.designer.cs
+#	new file:   Web/Enterprise/Buy.aspx
+#	new file:   Web/Enterprise/Buy.aspx.cs
+#	new file:   Web/Enterprise/Buy.aspx.designer.cs
+#	new file:   Web/Enterprise/Charge.aspx
+#	new file:   Web/Enterprise/Charge.aspx.cs
+#	new file:   Web/Enterprise/Charge.aspx.designer.cs
+#	new file:   Web/Enterprise/History.aspx
+#	new file:   Web/Enterprise/History.aspx.cs
+#	new file:   Web/Enterprise/History.aspx.designer.cs
+#	new file:   Web/Enterprise/Invite.aspx
+#	new file:   Web/Enterprise/Invite.aspx.cs
+#	new file:   Web/Enterprise/Invite.aspx.designer.cs
+#	new file:   Web/Enterprise/PublishChallenge_BaseInfo.aspx
+#	new file:   Web/Enterprise/PublishChallenge_BaseInfo.aspx.cs
+#	new file:   Web/Enterprise/PublishChallenge_BaseInfo.aspx.designer.cs
+#	new file:   Web/Enterprise/PublishChallenge_ChooseQuiz.aspx
+#	new file:   Web/Enterprise/PublishChallenge_ChooseQuiz.aspx.cs
+#	new file:   Web/Enterprise/PublishChallenge_ChooseQuiz.aspx.designer.cs
+#	new file:   Web/Enterprise/Recruit_list.aspx
+#	new file:   Web/Enterprise/Recruit_list.aspx.cs
+#	new file:   Web/Enterprise/Recruit_list.aspx.designer.cs
+#	new file:   Web/Enterprise/Resume.aspx
+#	new file:   Web/Enterprise/Resume.aspx.cs
+#	new file:   Web/Enterprise/Resume.aspx.designer.cs
+#	new file:   Web/Public/Images/1209.bmp
+#	new file:   Web/Public/Images/android.png
+#	new file:   Web/Public/Images/apple.png
+#	new file:   Web/Public/Images/c.png
+#	new file:   Web/Public/Images/cpp.png
+#	new file:   Web/Public/Images/new_c1.png
+#	new file:   Web/Public/Images/new_c2.png
+#	new file:   Web/Public/Images/php.png
+#	new file:   Web/Public/Images/python.png
+#
+
