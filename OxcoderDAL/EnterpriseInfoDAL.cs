@@ -18,6 +18,11 @@ namespace OxcoderDAL
 {
     public class EnterpriseInfoDAL : OxcoderIDAL.EnterpriseInfoIDAL
     {
+        public DataSet AllEnterpriseInfo()
+        {
+            string sql = "select * from [Enterprice]";
+            return Common.DB.dataSet(sql);
+        }
         public DataSet EnterpriceInfo(string id)
         {
             String sql = "select * from [Enterprice] where Enterprice_ID=@id";

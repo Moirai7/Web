@@ -18,6 +18,12 @@ namespace OxcoderDAL
 {
     public class SearchChallengeDAL : OxcoderIDAL.SearchChallengeIDAL
     {
+        public DataSet AllChallengeInfo()
+        {
+            string sql = "select * from [Challenge]";
+            return Common.DB.dataSet(sql);
+        }
+
         public DataSet SearchUseCondition(String salary, string provice, int retype, int flag, string searchCondition, int pageindex, int pagesize)
         {
             StringBuilder sql = new StringBuilder();

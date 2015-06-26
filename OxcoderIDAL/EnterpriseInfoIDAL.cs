@@ -18,6 +18,7 @@ namespace OxcoderIDAL
 {
     public interface EnterpriseInfoIDAL
     {
+        DataSet AllEnterpriseInfo();
         DataSet EnterpriceInfo(string id);
         int CheckEnterpriceEmail(string email);
         int RegisterEnterprice(Model.Enterprice enterprice);

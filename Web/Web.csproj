@@ -72,6 +72,20 @@
     <Compile Include="Admin\Admin_Challenge.aspx.designer.cs">
       <DependentUpon>Admin_Challenge.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Admin_Challenge_Item.aspx.cs">
+      <DependentUpon>Admin_Challenge_Item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin_Challenge_Item.aspx.designer.cs">
+      <DependentUpon>Admin_Challenge_Item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin_Enterprise.aspx.cs">
+      <DependentUpon>Admin_Enterprise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin_Enterprise.aspx.designer.cs">
+      <DependentUpon>Admin_Enterprise.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\Forgot_Password.aspx.cs">
       <DependentUpon>Forgot_Password.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -346,6 +360,8 @@
   <ItemGroup>
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\Admin_Challenge.aspx" />
+    <Content Include="Admin\Admin_Challenge_Item.aspx" />
+    <Content Include="Admin\Admin_Enterprise.aspx" />
     <Content Include="Common\Customers.html" />
     <Content Include="Common\Enterprice_menu.html" />
     <Content Include="Common\Enterprise.html" />

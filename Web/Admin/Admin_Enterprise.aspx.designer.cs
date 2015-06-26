@@ -10,7 +10,7 @@
 namespace Web.Admin {
     
     
-    public partial class Admin_Challenge {
+    public partial class Admin_Enterprise {
         
         /// <summary>
         /// rpt_Challenge 控件。

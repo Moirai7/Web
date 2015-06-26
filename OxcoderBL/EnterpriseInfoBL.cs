@@ -21,6 +21,12 @@ namespace OxcoderBL
 {
     public class EnterpriseInfoBL:OxcoderIBL.EnterpriseInfoIBL
     {
+        public DataSet AllEnterpriseInfo()
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.EnterpriseInfoIDAL en = factory.getEnterpriseInstance();
+            return en.AllEnterpriseInfo();
+        }
         public DataSet EnterpriceInfo(string id)
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();

@@ -1,9 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Web.Admin.Admin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Challenge_Item.aspx.cs" Inherits="Web.Admin.Admin_Challenge_Item" %>
 
 <!DOCTYPE html>
 <!-- saved from url=(0045)http://www.oxcoder.com/hr-payment-info.action -->
-<html lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +47,7 @@
         <![endif]-->
 <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
 
-<body>
+<body style="">
 <div class="navbar navbar-default navbar-fixed-top" onload="validateSession()">
 
 	<div class="container">
@@ -94,6 +93,7 @@
 		</select>
         &nbsp; &nbsp;关键字：
         <input type="text" class="input length_2" name="keyword" style="width:200px;" value="" placeholder="请输入关键字..."> <input type="submit" class="btn btn-primary" value="搜索"> </span> 
+        <input type="button" class="btn btn-primary" value="添加"> 
 </div> 
 </div> 
 </form>
@@ -103,39 +103,77 @@
 <thead> 
  <tr> 
  <th width="50">ID</th>
- <th>姓名</th> 
- <th width="50">年龄</th>
- <th width="50">性别</th>
- <th width="50">手机</th>
- <th width="50">邮箱</th> 
- <th width="50">身价</th>
- <th width="50">级别</th>
- <th width="60">操作</th> 
+ <th width="50">题目</th> 
+ <th width="50">职位</th>
+ <th width="50">月薪</th>
+ <th width="50">接受人数</th>
+ <th width="50">推荐状态</th> 
+ <th width="50">发起时间</th>
+ <th width="50">操作1</th>
+ <th width="80">挑战状态</th>
+ <th width="70">操作2</th> 
  </tr> 
  </thead> 
  <tbody>
  <tr>
-   <asp:Repeater ID="rpt_Challenge" runat="server">
-                    <ItemTemplate><td><a><%# Eval("User_ID")%></a></td> 
-   <td><span><%# Eval("User_Name")%></span></td> 
-   <td><%# Eval("User_Age")%></td>
-   <td><%# Eval("User_Sex")%></td> 
-   <td><%# Eval("User_Phone")%></td> 
-   <td><%# Eval("User_Email")%></td> 
-   <td><%# Eval("User_Price")%></td> 
-   <td><%# Eval("User_Level")%></td> 
-   <td><a href="">屏蔽</a> |
-		            	<a href="">详情</a>|
-		            	<a href="" class="J_ajax_del">Rock</a> |
-		            	<a href="" class="J_ajax_del">时间机器</a> 
-	</td> </ItemTemplate>
-                </asp:Repeater>
+   <td><a>25</a></td> 
+   <td>岚岚姐</td> 
+   <td>工程师</td>
+   <td>32323</td> 
+   <td>3244</td> 
+   <td>已推荐</td> 
+   <td>取消推荐</td> 
+   <td>开启中</td> 
+   <td>屏蔽</td> 
+   <td><a href=""></a> 
+	</td> 
 </tr> 
 </tbody>
 </table> 
 <div class="pagination">&nbsp;<span class="current">1</span> <a href=""> 2</a> &nbsp;<a href="">下一页</a> <a href="">尾页</a> </div> </div> </form>
 
-    <!-- #Include virtual="/Common/footer.html" -->
+	<!-- jQuery -->
+	<script src="../Public/JS/jquery-1.11.0.min.js"></script>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="../Public/JS/bootstrap.min.js"></script>
+
+	<!-- Sparkline -->
+	<script src="../Public/JS/jquery.sparkline.min.js"></script>
+
+	<!-- Bootstrap Switch -->
+	<script src="../Public/JS/bootstrap-switch.min.js"></script>
+
+	<!-- Bootstrap Select -->
+	<script src="../Public/JS/bootstrap-select.min.js"></script>
+
+	<!-- Bootstrap File -->
+	<script src="../Public/JS/bootstrap-filestyle.js"></script>
+
+
+
+	<!-- Summernote -->
+	<script src="../Public/JS/summernote.min.js"></script>
+
+	<!-- Theme script -->
+	<script src="../Public/JS/script.js"></script>
+
+	<script src="../Public/JS/bootstrapValidator.js"></script>
+
+	
+	<!-- 引入footer -->
+	
+
+    <div class="afooter navbar-fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    © 2015 oxcoder.com <a href="http://www.oxcoder.com/contact-us.action">联系我们</a> <a href="http://jq.qq.com/?_wv=1027&k=eeKvVb" target="_blank">QQ交流群:77590762</a> <a href="http://www.mikecrm.com/f.php?t=7GdYKp" target="_blank">意见反馈</a> <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1253509620'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1253509620%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1253509620"><a href="http://www.cnzz.com/stat/website.php?web_id=1253509620" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="../Public/Images/pic.gif"></a></span><script src="../Public/JS/z_stat.php" type="text/javascript"></script><script src="../Public/JS/core.php" charset="utf-8" type="text/javascript"></script>
+                </div>
+            </div>
+            
+        </div>
+    </div>
 <script type="text/javascript">
 
     //如果页面内容高度小于屏幕高度，div#footer将绝对定位到屏幕底部，否则div#footer保留它的正常静态定位

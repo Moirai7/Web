@@ -28,6 +28,6 @@ namespace OxcoderIBL
         int UpdateEnterpriceInfo(string fullName, string enterpricePhone, string email);
         int UpdateEnterpriceInfo0(Enterprice enterprice);
         int UpdateEnterpriceInfo1(string position,string email);
-
+        DataSet AllEnterpriseInfo();
     }
 }
