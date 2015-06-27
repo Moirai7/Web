@@ -34,10 +34,8 @@ namespace Web.Enterprise
         }
         protected void SetBind()
         {
-            Session["name"] = "北京钓鱼台有限公司";
-            Session["id"] = "54bf6567-1007-11d1-b0aa-444553540101";
             OxcoderIBL.PayIBL pibl = new OxcoderBL.PayBL();
-            DataSet ds = pibl.GetAccountDetail(Session["id"].ToString());
+            DataSet ds = pibl.GetAccountDetail(Session["enterpriceID"].ToString());
             int inv = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
             int chlg = Convert.ToInt32(ds.Tables[0].Rows[0][1]);
 

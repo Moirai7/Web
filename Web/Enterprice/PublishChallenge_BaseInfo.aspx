@@ -111,7 +111,7 @@
 											<h4 class="col-md-12 col-no-left-padding">请选择挑战类型</h4>
 											<div class="fivecolumns">
 												<div class="col-md-3 col-no-left-padding test">
-													<a id="a-java" href="http://www.oxcoder.com/hr-new-recruit.action#j2-messages" data-toggle="pill">
+													<a id="a-java" data-toggle="pill">
 														<div class="panel panel-default shadow-effect ">
 															<div class="panel-body">
 																<div class="row" style="text-align: center;">
@@ -125,7 +125,7 @@
 													</a>
 												</div>
 												<div class="col-md-3 col-no-left-padding test">
-													<a id="a-android" href="http://www.oxcoder.com/hr-new-recruit.action#j2-messages" data-toggle="pill">
+													<a id="a-android" data-toggle="pill">
 														<div class="panel panel-default shadow-effect">
 															<div class="panel-body">
 																<div class="row" style="text-align: center;">
@@ -139,7 +139,7 @@
 													</a>
 												</div>
 												<div class="col-md-3 col-no-left-padding test">
-													<a id="a-ios" href="http://www.oxcoder.com/hr-new-recruit.action#j2-messages" data-toggle="pill">
+													<a id="a-ios" data-toggle="pill">
 														<div class="panel panel-default shadow-effect">
 															<div class="panel-body">
 																<div class="row" style="text-align: center;">
@@ -153,7 +153,7 @@
 													</a>
 												</div>
 												<div class="col-md-3 col-no-left-padding test">
-													<a id="a-c" href="http://www.oxcoder.com/hr-new-recruit.action#j2-messages" data-toggle="pill">
+													<a id="a-c" data-toggle="pill">
 														<div class="panel panel-default shadow-effect ">
 															<div class="panel-body">
 																<div class="row" style="text-align: center;">
@@ -167,7 +167,7 @@
 													</a>
 												</div>
 												<div class="col-md-3 col-no-left-padding test">
-													<a id="a-cpp" href="http://www.oxcoder.com/hr-new-recruit.action#j2-messages" data-toggle="pill">
+													<a id="a-cpp" data-toggle="pill">
 														<div class="panel panel-default shadow-effect ">
 															<div class="panel-body">
 																<div class="row" style="text-align: center;">
@@ -181,7 +181,7 @@
 													</a>
 												</div>
 												<div class="col-md-3 col-no-left-padding test">
-													<a id="a-php" href="http://www.oxcoder.com/hr-new-recruit.action#j2-messages" data-toggle="pill">
+													<a id="a-php" data-toggle="pill">
 														<div class="panel panel-default shadow-effect ">
 															<div class="panel-body">
 																<div class="row" style="text-align: center;">
@@ -195,7 +195,7 @@
 													</a>
 												</div>
 												<div class="col-md-3 col-no-left-padding test">
-													<a id="a-python" href="http://www.oxcoder.com/hr-new-recruit.action#j2-messages" data-toggle="pill">
+													<a id="a-python" data-toggle="pill">
 														<div class="panel panel-default shadow-effect ">
 															<div class="panel-body">
 																<div class="row" style="text-align: center;">
@@ -214,12 +214,12 @@
 											<h4 class="col-md-12 col-no-left-padding">请选择挑战等级(按薪资划分）</h4>
 
 											<ul class="nav nav-pills nav-justified col-md-12 col-no-left-padding">
-												<li class="level-tag" relevel="1"><a href="http://www.oxcoder.com/hr-new-recruit.action#j2-profile" data-toggle="pill">2k~5k</a></li>
-												<li class="level-tag" relevel="2"><a href="http://www.oxcoder.com/hr-new-recruit.action#j2-messages" data-toggle="pill">5k~8k</a></li>
-												<li class="level-tag" relevel="3"><a href="http://www.oxcoder.com/hr-new-recruit.action#j2-settings" data-toggle="pill">8k~10k</a></li>
-												<li class="level-tag" relevel="4"><a href="http://www.oxcoder.com/hr-new-recruit.action#j2-settings" data-toggle="pill">10k~12k</a></li>
-												<li class="level-tag" relevel="5"><a href="http://www.oxcoder.com/hr-new-recruit.action#j2-settings" data-toggle="pill">12k~15k</a></li>
-												<li class="level-tag" relevel="6"><a href="http://www.oxcoder.com/hr-new-recruit.action#j2-settings" data-toggle="pill">15k以上</a></li>
+												<li class="level-tag" relevel="1"><a data-toggle="pill">2k~5k</a></li>
+												<li class="level-tag" relevel="2"><a data-toggle="pill">5k~8k</a></li>
+												<li class="level-tag" relevel="3"><a data-toggle="pill">8k~10k</a></li>
+												<li class="level-tag" relevel="4"><a data-toggle="pill">10k~12k</a></li>
+												<li class="level-tag" relevel="5"><a data-toggle="pill">12k~15k</a></li>
+												<li class="level-tag" relevel="6"><a data-toggle="pill">15k以上</a></li>
 											</ul>
 											<h4 class="col-md-12 col-no-left-padding"><input name="" value="1" id="check-camera" type="checkbox">使用随机拍照功能</h4>
                                                     <span class="col-md-12 col-no-left-padding text-muted">使用该功能后，将开启参加挑战人员的摄像头，保证人员的真实性，但会在一定程度上减少参加挑战的人数。</span>
@@ -438,7 +438,7 @@
 	    })
 	    function checkForm() {
 
-	        if ($(".active").length > 2) {
+	        if ($(".active").length >= 2) {
 	            $('#nextStep').removeAttr("disabled");
 	            $('#hint1').hide();
 	            return true;
