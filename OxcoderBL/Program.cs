@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 /// <summary>
-/// 搜索 的摘要说明
-/// 此类是 BL 的实现类
 /// </summary>
 /// 
 /// Author:岚岚姐

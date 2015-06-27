@@ -12,12 +12,47 @@ using System.Data.SqlClient;
 /// </summary>
 /// 
 /// Author:岚岚姐
-/// Date：2015/06/09
+/// Date：2015/06/26
 /// 
 namespace OxcoderDAL
 {
     public class QuizInfoDAL : OxcoderIDAL.QuizInfoIDAL
     {
+        public bool insertAQuiz(Model.QuizForDB quiz)
+        {
+            String sql = "insert into [Quiz] (Quiz_ID,Quiz_Name,Quiz_Content,Quiz_Info,Quiz_Type,Quiz_Level,Quiz_Time,Quiz_TypeID,Quiz_Input,Quiz_Output) values(@id,@name,@content,@info,@type,@level,@time,@typeid,@input,@output)";
+            SqlParameter[] par ={
+                                    new SqlParameter("@id",SqlDbType.UniqueIdentifier,50),
+                                    new SqlParameter("@name",SqlDbType.Text),
+                                    new SqlParameter("@content",SqlDbType.Text),
+                                    new SqlParameter("@info",SqlDbType.Text),
+                                    new SqlParameter("@type",SqlDbType.Text),
+                                    new SqlParameter("@level",SqlDbType.SmallInt),
+                                    new SqlParameter("@time",SqlDbType.Int),
+                                    new SqlParameter("@typeid",SqlDbType.Int),
+                                    new SqlParameter("@input",SqlDbType.Text),
+                                    new SqlParameter("@output",SqlDbType.Text)
+                                };
+            par[0].Value = quiz.Quiz_ID;
+            par[1].Value = quiz.Quiz_Name;
+            par[2].Value = quiz.Quiz_Content;
+            par[3].Value = quiz.Quiz_Info;
+            par[4].Value = quiz.Quiz_Type;
+            par[5].Value = quiz.Quiz_Level;
+            par[6].Value = quiz.Quiz_Time;
+            par[7].Value = quiz.Quiz_TypeID;
+            par[8].Value = quiz.Quiz_Input;
+            //publish time
+            par[9].Value = quiz.Quiz_Output;
+            Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
+
+            return true;
+        }
+        public DataSet AllQuizInfo()
+        {
+            string sql = "select * from [Quiz]";
+            return Common.DB.dataSet(sql);
+        }
         public string QuizName(string id)
         {
             String sql = "select Quiz_Name from [Quiz] where Quiz_ID=@id";

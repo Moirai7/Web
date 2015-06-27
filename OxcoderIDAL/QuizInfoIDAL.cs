@@ -18,7 +18,9 @@ namespace OxcoderIDAL
 {
     public interface QuizInfoIDAL
     {
+        DataSet AllQuizInfo();
         string QuizName(string id);
         DataSet QuizInfo(string id);
+        bool insertAQuiz(Model.QuizForDB quiz);
     }
 }
