@@ -28,7 +28,7 @@ namespace Web.User
 
             if (time != -1)
             {
-                tq.UpdateATest(id, order, time, result);
+                tq.UpdateATest(Session["userID"].ToString(), id, order, time, result);
             }
         }
     }

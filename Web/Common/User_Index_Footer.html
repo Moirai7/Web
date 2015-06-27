@@ -40,13 +40,17 @@
 	        // Append buttons gonext, gopre, gotop to the body as you like.
 	        /* $('<div id="mycontrols"><a id="gonext" href="javascript:;" title="下一页"></a><a href="javascript:;" id="gotop"></a><a id="gopre" href="javascript:;"  title="上一页"></a></div>').appendTo('body'); */
 	        // Get object of URL parameters
-	        var allVars = $.getUrlVars();
+	        var allVars = $.getUrlVar('searchCondition');
 	        if ($.getUrlVar('salary'))
 	            $("#isalary").val($.getUrlVar('salary'));
 	        if($.getUrlVar('province'))
 	            $("#iprovince").val($.getUrlVar('province'));
 	        if ($.getUrlVar('retype'))
 	            $("#iretype").val($.getUrlVar('retype'));
+	        if ($.getUrlVar('searchCondition'))
+	            $("#isearchCondition").val($.getUrlVar('searchCondition'));
+	        if ($.getUrlVar('flag'))
+	            $("#iflag").val($.getUrlVar('flag'));
 
 	        var conf = {
 	            // Prefix of form id. Each form represents a subpage data request.

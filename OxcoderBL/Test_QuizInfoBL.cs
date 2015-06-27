@@ -60,15 +60,26 @@ namespace OxcoderBL
             return p1;
         }
 
-        public int UpdateATest(string id, int order, int time, string result)
+        public int UpdateATest(string uid,string id, int order, int time, string result)
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
             OxcoderIDAL.TestInfoIDAL test = factory.getTestInstance();
+            OxcoderIDAL.UserIDAL user = factory.getUserInstance();
             string tid = test.GetTestID(id);
             Model.Quiz p1 = searchQuizInfo(id, order);
-            if (result.Equals(p1.output))
+            if (result.Equals(p1.output) || p1.output == "")
             {
                 test.UpdateATest(tid, order, time);
+                SqlDataReader rd = user.UserInfo(uid);
+                if (rd.Read())
+                {
+                    int price1 = Convert.ToInt32(rd["User_Level"].ToString());
+                    int price = Convert.ToInt32(rd["User_Price"].ToString()) + time / 10;
+                    if ((price - 4000) / 1000 > 0)
+                        user.UpdateUserLevel((price1 + 1).ToString(), price.ToString(), uid);
+                    user.UpdateUserLevel(rd["User_Level"].ToString(), price.ToString(), uid);
+                }
+                
             }
             if(order==2)
             {

@@ -28,7 +28,7 @@ namespace Web.User
                 {
                     Session["username"] = "LanLan";
                 }
-                Session["id"] = "be87e55c-cafd-4a19-b167-dbe9e3de30d8";
+                //Session["id"] = "be87e55c-cafd-4a19-b167-dbe9e3de30d8";
                 return "姓名";
             }
         }
@@ -51,12 +51,12 @@ namespace Web.User
                 page = Convert.ToInt32(Request.QueryString["page"].ToString());
             if (Request.QueryString["add"] != null && Request.QueryString["add"] != "")
             {
-                enter.InsertATest(Request.QueryString["add"].ToString(), Session["id"].ToString());
+                enter.InsertATest(Request.QueryString["add"].ToString(), Session["userID"].ToString());
             }
             if (Request.QueryString["delete"] != null && Request.QueryString["delete"] != "")
                 enter.DeleteATest(Request.QueryString["delete"].ToString());
 
-            rpt_Challenge.DataSource = search.SearchByUser(Session["id"].ToString(), reustate, flag, page, 10);
+            rpt_Challenge.DataSource = search.SearchByUser(Session["userID"].ToString(), reustate, flag, page, 10);
             Page.DataBind();
         }
     }

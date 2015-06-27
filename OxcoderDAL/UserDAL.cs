@@ -194,9 +194,9 @@ namespace OxcoderDAL
             StringBuilder sql = new StringBuilder();
             sql.Append("update [User] set User_Level=@level,User_price=@price where User_ID like @id");
             SqlParameter[] par ={
-                                    new SqlParameter("@level",SqlDbType.Text),
-                                    new SqlParameter("@price",SqlDbType.Int),
-                                    new SqlParameter("@id",SqlDbType.VarChar)
+                                    new SqlParameter("@level",SqlDbType.SmallInt),
+                                    new SqlParameter("@price",SqlDbType.Text),
+                                    new SqlParameter("@id",SqlDbType.Text)
                                 };
             par[0].Value = level;
             par[1].Value = price;

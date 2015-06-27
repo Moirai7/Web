@@ -114,11 +114,13 @@ namespace OxcoderBL
             else
                 dr["Test_Quiz0"] = quiz.QuizName(strTemp) + "未通过";
 
+            strTemp = dr2["Challenge_Quiz_Sec"].ToString();
             if (dr["Test_Quiz1_State"].ToString() != "-1")
                 dr["Test_Quiz1"] = quiz.QuizName(strTemp) + "通过";
             else
                 dr["Test_Quiz1"] = quiz.QuizName(strTemp) + "未通过";
 
+            strTemp = dr2["Challenge_Quiz_Third"].ToString();
             if (dr["Test_Quiz2_State"].ToString() != "-1")
                 dr["Test_Quiz2"] = quiz.QuizName(strTemp) + "通过";
             else

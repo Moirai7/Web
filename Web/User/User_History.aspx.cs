@@ -49,7 +49,7 @@ namespace Web.User
             if (Request.QueryString["page"] != null && Request.QueryString["page"] != "")
                 page = Convert.ToInt32(Request.QueryString["page"].ToString());
 
-            rpt_Challenge.DataSource = search.SearchByUser(Session["id"].ToString(), reustate, flag, page,10);
+            rpt_Challenge.DataSource = search.SearchByUser(Session["userID"].ToString(), reustate, flag, page,10);
             Page.DataBind();
         }
     }
