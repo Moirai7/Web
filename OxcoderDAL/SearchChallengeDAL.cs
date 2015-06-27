@@ -63,7 +63,7 @@ namespace OxcoderDAL
             }
             else if (flag == 2)
             {
-                sql.Append(" order by Challenge_Salary");
+                sql.Append(" order by  cast(Challenge_Salary as varchar(4000))");
             }
             else if (flag == 1)
             {

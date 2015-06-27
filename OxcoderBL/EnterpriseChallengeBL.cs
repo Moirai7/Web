@@ -44,7 +44,7 @@ namespace OxcoderBL
             OxcoderIDAL.EnterpriseInfoIDAL ei = new OxcoderDAL.EnterpriseInfoDAL();
             DataSet ds = ei.EnterpriceInfo(entpId);
             area = ds.Tables[0].Rows[0]["Enterprice_Location"].ToString();
-            position = "五险一金";
+            position = ds.Tables[0].Rows[0]["Enterprice_Position"].ToString();
 
             /*
             switch (level)
@@ -109,8 +109,6 @@ namespace OxcoderBL
             chlg.Challenge_OwnerID = new Guid(entpId);
             //通过ownerid得到position
             chlg.Challenge_Position0 = position;
-            chlg.Challenge_Position1 = position;
-            chlg.Challenge_Position2 = position;
             chlg.Challenge_Quiz0 = exercise.ToString().Split(',')[1];
             chlg.Challenge_Quiz1 = exercise.ToString().Split(',')[2];
             chlg.Challenge_Quiz2 = exercise.ToString().Split(',')[3];

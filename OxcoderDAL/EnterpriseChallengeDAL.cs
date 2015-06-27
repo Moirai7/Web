@@ -24,7 +24,7 @@ namespace OxcoderDAL
         public DataSet GetMatchQuizs(int level, int type)
         {
             //查询Quiz_Name,Quiz_Content,Quiz_OwnerID - Admin_Name, Quiz_level
-            String sql = "select Quiz_Name,Quiz_Content,Quiz_Name,Quiz_level,Quiz_ID from [Quiz] where  Quiz_Type like @type";
+            String sql = "select Quiz_Name,Quiz_Content,Quiz_Name,Quiz_level,Quiz_ID from [Quiz] where  Quiz_TypeID = @type";
             SqlParameter[] par ={
                                     new SqlParameter("@level1",SqlDbType.Int,50),
                                     new SqlParameter("@level2",SqlDbType.Int,50),
@@ -66,7 +66,7 @@ namespace OxcoderDAL
             par[3].Value = chlg.Challenge_Time;
             par[4].Value = chlg.Challenge_Level;
             par[5].Value = chlg.Challenge_Area;
-            par[6].Value = chlg.Challenge_Position0+","+chlg.Challenge_Position1+","+chlg.Challenge_Position2+",";
+            par[6].Value = chlg.Challenge_Position0;
             par[7].Value = chlg.Challenge_EnTime;
             par[8].Value = chlg.Challenge_Num;
             //publish time
