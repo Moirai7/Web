@@ -24,7 +24,7 @@ namespace OxcoderDAL
         public DataSet GetMatchQuizs(int level, int type)
         {
             //查询Quiz_Name,Quiz_Content,Quiz_OwnerID - Admin_Name, Quiz_level
-            String sql = "select Quiz_Name,Quiz_Content,Quiz_Name,Quiz_level,Quiz_ID from [Quiz] ";
+            String sql = "select Quiz_Name,Quiz_Content,Quiz_Name,Quiz_level,Quiz_ID from [Quiz] where  Quiz_Type like @type";
             SqlParameter[] par ={
                                     new SqlParameter("@level1",SqlDbType.Int,50),
                                     new SqlParameter("@level2",SqlDbType.Int,50),
@@ -46,13 +46,13 @@ namespace OxcoderDAL
                                     new SqlParameter("@id",SqlDbType.UniqueIdentifier,50),
                                     new SqlParameter("@name",SqlDbType.VarChar,50),
                                     new SqlParameter("@ownerId",SqlDbType.UniqueIdentifier,50),
-                                    new SqlParameter("@time",SqlDbType.VarChar,50),
+                                    new SqlParameter("@time",SqlDbType.DateTime),
                                     new SqlParameter("@level",SqlDbType.VarChar,50),
                                     new SqlParameter("@area",SqlDbType.VarChar,50),
                                     new SqlParameter("@position",SqlDbType.VarChar,50),
                                     new SqlParameter("@entime",SqlDbType.VarChar,50),
                                     new SqlParameter("@num",SqlDbType.VarChar,50),
-                                    new SqlParameter("@publish",SqlDbType.VarChar,50),
+                                    new SqlParameter("@publish",SqlDbType.DateTime),
                                     new SqlParameter("@state",SqlDbType.VarChar,50),
                                     new SqlParameter("@type",SqlDbType.VarChar,50),
                                     new SqlParameter("@sec",SqlDbType.UniqueIdentifier,50),
