@@ -28,7 +28,7 @@ namespace Web.Enterprice
             string position = tagstr.Value;
             string email = Session["email"].ToString();
             Enterprice.UpdateEnterpriceInfo1(position, email);
-            Response.Redirect("Enterprice_Index.aspx");
+            Response.Redirect("Recruit_list.aspx");
         }
     }
 }

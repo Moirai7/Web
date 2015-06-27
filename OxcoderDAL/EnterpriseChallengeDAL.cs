@@ -24,7 +24,7 @@ namespace OxcoderDAL
         public DataSet GetMatchQuizs(int level, int type)
         {
             //查询Quiz_Name,Quiz_Content,Quiz_OwnerID - Admin_Name, Quiz_level
-            String sql = "select Quiz_Name,Quiz_Content,Admin_Name,Quiz_level,Quiz_ID from [Quiz] as q,[Admin] as a where a.Admin_ID=q.Quiz_OwnerID and Quiz_level<=@level1+1 and Quiz_level>=@level2-1 and Quiz_Type like @type";
+            String sql = "select Quiz_Name,Quiz_Content,Quiz_Name,Quiz_level,Quiz_ID from [Quiz] ";
             SqlParameter[] par ={
                                     new SqlParameter("@level1",SqlDbType.Int,50),
                                     new SqlParameter("@level2",SqlDbType.Int,50),
