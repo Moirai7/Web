@@ -28,7 +28,21 @@ namespace OxcoderDAL
         {
             StringBuilder sql = new StringBuilder();
             List<SqlParameter> par = new List<SqlParameter>();
-            sql.Append("select * from [Challenge] as c,[Enterprice] as e where c.Challenge_OwnerID = e.Enterprice_ID and Challenge_State=1 ");
+            sql.Append("SELECT * from ( select ROW_NUMBER() OVER(");
+            
+            if (flag == 2)
+            {
+                sql.Append(" order by  cast(Challenge_Salary as varchar(4000)))");
+            }
+            else if (flag == 1)
+            {
+                sql.Append(" order by Challenge_Num)");
+            }
+            else
+            {
+                sql.Append(" order by Challenge_Publish)");
+            }
+            sql.Append(" AS RowNum,* from [Challenge] as c,[Enterprice] as e where c.Challenge_OwnerID = e.Enterprice_ID and Challenge_State=1 ");
             if (salary != null && salary != "0")
             {
                 sql.Append(" and Challenge_Salary like @salary");
@@ -45,7 +59,7 @@ namespace OxcoderDAL
             }
             if (searchCondition != null)
             {
-                sql.Append(" and Challenge_Name like @searchCondition");
+                sql.Append(" and Challenge_Name like @searchCondition or Enterprice_FullName like @searchCondition or Enterprice_ShortName like @searchCondition");
                 SqlParameter mParam = new SqlParameter("@searchCondition", SqlDbType.Text);
                 mParam.Value = searchCondition;
                 par.Add(mParam);
@@ -57,19 +71,14 @@ namespace OxcoderDAL
                 mParam.Value = retype;
                 par.Add(mParam);
             }
-            if (flag == -1 || flag == 3)
-            {
-                sql.Append(" order by Challenge_Publish");
-            }
-            else if (flag == 2)
-            {
-                sql.Append(" order by  cast(Challenge_Salary as varchar(4000))");
-            }
-            else if (flag == 1)
-            {
-                sql.Append(" order by Challenge_Num");
-            }
-            return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
+            sql.Append(") as newTable WHERE RowNum >= @page1 AND RowNum <= @page2;");
+            SqlParameter mParam1 = new SqlParameter("@page1", SqlDbType.Int);
+            mParam1.Value = (pageindex-1)*pagesize;
+            par.Add(mParam1);
+            SqlParameter mParam2 = new SqlParameter("@page2", SqlDbType.Int);
+            mParam2.Value = pagesize*pageindex;
+            par.Add(mParam2);
+            return Common.DbHelperSQL.PageQuery(sql.ToString(),pageindex,pagesize, par.ToArray());
         }
 
         public DataSet SearchByUserHistory(string userid, int state, int pageindex, int pagesize)
@@ -93,7 +102,7 @@ namespace OxcoderDAL
                 mParam.Value = state;
                 par.Add(mParam);
             }
-            return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
+            return Common.DbHelperSQL.Query(sql.ToString(), par.ToArray());
         }
 
         public DataSet SearchByUser(string userid, int state, int pageindex, int pagesize)
@@ -117,7 +126,7 @@ namespace OxcoderDAL
                 mParam.Value = state;
                 par.Add(mParam);
             }
-            return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
+            return Common.DbHelperSQL.Query(sql.ToString(), par.ToArray());
         }
 
         public DataSet SearchByOwner(string id, int pageindex, int pagesize)
@@ -126,7 +135,7 @@ namespace OxcoderDAL
             sql.Append("select * from [Challenge] as c,[Enterprice] as e where c.Challenge_OwnerID = e.Enterprice_ID and e.Enterprice_ID like @id ");
             SqlParameter[] par = { new SqlParameter("@id", SqlDbType.Text) };
             par[0].Value = id;
-            return Common.DbHelperSQL.PageQuery(sql.ToString(), pageindex, pagesize, par.ToArray());
+            return Common.DbHelperSQL.Query(sql.ToString(), par.ToArray());
         }
 
         public DataSet SearchByChallengeID(string id)

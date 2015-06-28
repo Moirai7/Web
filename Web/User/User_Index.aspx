@@ -100,7 +100,7 @@
                             <input name="retype" id="input-retype" type="hidden" value="">
                             <input name="flag" id="input-flag" type="hidden" value="">
                             <input name="location" id="input-selected-province" type="hidden" value="">
-                            <input name="searchCondition" class="form-control" placeholder="请输入关键词，如公司名称等" value="">
+                            <input name="searchCondition" id="searchCondition"class="form-control" placeholder="请输入关键词，如公司名称等" value="">
                             <span class="input-group-btn">
                                 <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                             </span>
