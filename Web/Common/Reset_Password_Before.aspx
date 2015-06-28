@@ -9,7 +9,29 @@
 </head>
 <body style="">
 	<!-- 引入header -->
-	<!-- #Include virtual="/Common/Enterprice_menu.html" -->
+	
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand hidden-sm" href="http://www.oxcoder.com/index.action" style="padding: 0;"><img src="../../Public/Images/wlogo_sm.png" style="max-height: 35px; margin: 7px;"/></a>
+		</div>
+		<div class="navbar-collapse collapse" role="navigation">
+			<ul class="nav navbar-nav">
+				<li><a href="http://www.oxcoder.com/index.action?pageflag=user">开发者</a></li>
+				<li><a href="http://www.oxcoder.com/index.action?pageflag=cooper">企业</a></li>
+				<li><a href="http://www.oxcoder.com/oxcoder-customers.action">客户案例</a></li>
+				<li><a href="http://www.oxcoder.com/oxcoder-reports.action">媒体报道</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="Login.aspx">登录</a></li>
+				<li><a href="Register.aspx">注册</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 
 	<div class="container">
 		<div class="row">
