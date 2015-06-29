@@ -78,7 +78,7 @@ namespace OxcoderDAL
             SqlParameter mParam2 = new SqlParameter("@page2", SqlDbType.Int);
             mParam2.Value = pagesize*pageindex;
             par.Add(mParam2);
-            return Common.DbHelperSQL.PageQuery(sql.ToString(),pageindex,pagesize, par.ToArray());
+            return Common.DbHelperSQL.Query(sql.ToString(), par.ToArray());
         }
 
         public DataSet SearchByUserHistory(string userid, int state, int pageindex, int pagesize)

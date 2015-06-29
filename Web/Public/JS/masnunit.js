@@ -107,7 +107,7 @@ if (!String.prototype.cut) {
                             <div class="col-xs-12 panel-header">\
                                 <div class="pull-left">\
                                     <h4 title="<%=u.Challenge_Name%>" class="line-control"><%=u.Challenge_Name%></h4>\
-                                    <h4 title="<%=u.Enterprice_FullName%>" class="line-control"><a href="User_Corp_Detail.aspx?cid=<%=u.Enterprice_ID%>"><%=u.Enterprice_FullName%></h4>\
+                                    <h4 title="<%=u.Enterprice_FullName%>" class="line-control"><a href="User_Corp_Detail.aspx?cid=<%=u.Challenge_OwnerID%>"><%=u.Enterprice_FullName%></h4>\
                                 </div>\
                                 <div class="pull-right client-info hidden-md">\
                                     <span class="percent text-danger"><img class="img-circle" style="width:60px;height:60px" src="<%=u.Enterprice_Logo%>"></span>\

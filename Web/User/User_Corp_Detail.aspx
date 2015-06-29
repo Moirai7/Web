@@ -25,11 +25,11 @@
                                         <div class="col-xs-12 panel-header">
                                             <div class="pull-left">
                                                 <h4 class="line-control">
-                                                    <a href="Challenge.aspx?reid=983"><%# Eval("Challenge_Name")%>
+                                                    <a href="Challenge.aspx?cid=<%# Eval("Challenge_ID")%>"><%# Eval("Challenge_Name")%>
                                                     </a>
                                                 </h4>
                                                 <h4 class="line-control">
-                                                    <a href="User_Corp_Detail.aspx?cid=960"><%# Eval("Enterprice_FullName")%>
+                                                    <a href="User_Corp_Detail.aspx?cid=<%# Eval("Enterprice_ID")%>"><%# Eval("Enterprice_FullName")%>
                                                     </a>
                                                 </h4>
                                             </div>

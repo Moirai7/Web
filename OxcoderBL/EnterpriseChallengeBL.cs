@@ -115,7 +115,7 @@ namespace OxcoderBL
             chlg.Challenge_Salary = Convert.ToInt32(level);
             chlg.Challenge_State = 1;
             chlg.Challenge_Time = DateTime.Now;
-            chlg.Challenge_Type = Convert.ToInt32(level);
+            chlg.Challenge_Type = Convert.ToInt32(type);
 
             return ec.AddChallenge(chlg);
 
