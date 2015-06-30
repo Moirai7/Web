@@ -9,7 +9,7 @@ namespace Web.Enterprice
 {
     public partial class Change_Enterprice_Password : System.Web.UI.Page
     {
-        public string enterprice_name
+        public string Name
         {
             get
             {
@@ -19,7 +19,7 @@ namespace Web.Enterprice
         OxcoderIBL.EnterpriseInfoIBL Enterprice = new OxcoderBL.EnterpriseInfoBL();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Page.DataBind();
         }
 
         protected void ChangeEnPassword(object sender, EventArgs e)

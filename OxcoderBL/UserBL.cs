@@ -24,7 +24,12 @@ namespace OxcoderBL
 {
     public class UserBL : OxcoderIBL.UserIBL
     {
-    
+        public DataSet AllUserInfo()
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
+            return dalad.AllUserInfo();
+        } 
         public int Count()
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
@@ -222,6 +227,33 @@ namespace OxcoderBL
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
             OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
             return dalad.UpdateUserInfo(user);
+        }
+        public int UpdateUserLevel(string level,string price,string userID)
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.UserIDAL dalad = factory.getUserInstance();
+            return dalad.UpdateUserLevel(level,price,userID);
+        }
+        public double[] GetUserAbility(string userID) {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.TestInfoIDAL dalTest = factory.getTestInstance();
+            string[] abilityTemp = dalTest.GetUserAbility(userID);
+            double AvaTime = 500.00;
+            double AvaTime1 = 100.00;
+            double AvaTime2 = 100.00;
+            double AvaTime3 = 100.00;
+            double avarage = 5.00;
+            double home = 5.00;
+            double[] ability = new double[8];
+            //专注度
+            ability[0] = Convert.ToDouble(abilityTemp[0]) / AvaTime1 + Convert.ToDouble(abilityTemp[1]) / AvaTime2 + Convert.ToDouble(abilityTemp[1]) / AvaTime3;
+            //熟练度
+            ability[1] = (Convert.ToDouble(abilityTemp[0]) + Convert.ToDouble(abilityTemp[1]) + Convert.ToDouble(abilityTemp[2])) / AvaTime;
+            //偏差值
+            ability[2] = ability[1] - avarage;
+            ability[3] = home;
+            return ability;
+
         }
     }
 }

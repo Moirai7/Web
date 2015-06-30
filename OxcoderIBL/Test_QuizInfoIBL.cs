@@ -9,6 +9,6 @@ namespace OxcoderIBL
     public interface Test_QuizInfoIBL
     {
         Model.Quiz searchQuizInfo(string reid, int order);
-        int UpdateATest(string id, int order, int time, string result);
+        int UpdateATest(string uid, string id, int order, int time, string result);
     }
 }

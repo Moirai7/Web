@@ -40,13 +40,29 @@
 	        // Append buttons gonext, gopre, gotop to the body as you like.
 	        /* $('<div id="mycontrols"><a id="gonext" href="javascript:;" title="下一页"></a><a href="javascript:;" id="gotop"></a><a id="gopre" href="javascript:;"  title="上一页"></a></div>').appendTo('body'); */
 	        // Get object of URL parameters
-	        var allVars = $.getUrlVars();
-	        if ($.getUrlVar('salary'))
+	        if ($.getUrlVar('salary')) {
 	            $("#isalary").val($.getUrlVar('salary'));
-	        if($.getUrlVar('province'))
-	            $("#iprovince").val($.getUrlVar('province'));
-	        if ($.getUrlVar('retype'))
+	            $("#select-salary").val($.getUrlVar('salary'));
+	            $("#input-salary").val($.getUrlVar('salary'));
+	        }
+	        if ($.getUrlVar('province')) {
+	            $("#iprovince").val(decodeURI($.getUrlVar('province')));
+	            $("#province").val(decodeURI($.getUrlVar('province')));
+	            $("#input-province").val(decodeURI($.getUrlVar('province')));
+	        }
+	        if ($.getUrlVar('retype')) {
 	            $("#iretype").val($.getUrlVar('retype'));
+	            $("#input-retype").val($.getUrlVar('retype'));
+	            $("#select-retype").val($.getUrlVar('retype'));
+	        }
+	        if ($.getUrlVar('searchCondition')) {
+	            $("#isearchCondition").val(decodeURI($.getUrlVar('searchCondition')));
+	            $("#searchCondition").val(decodeURI($.getUrlVar('searchCondition')));
+	        }
+	        if ($.getUrlVar('flag')) {
+	            $("#iflag").val($.getUrlVar('flag'));
+	            $("#input-flag").val($.getUrlVar('flag'));
+	        }
 
 	        var conf = {
 	            // Prefix of form id. Each form represents a subpage data request.

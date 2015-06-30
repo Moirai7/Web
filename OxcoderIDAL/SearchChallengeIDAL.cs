@@ -20,6 +20,7 @@ namespace OxcoderIDAL
 {
     public interface SearchChallengeIDAL
     {
+        DataSet AllChallengeInfo();
         //  Salary 工资范围
         //	Provice 省份
         //	Retype 技术方向

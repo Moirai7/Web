@@ -39,8 +39,8 @@ namespace Web.User
                 {
                     Session["username"] = "LanLan";
                 }
-                Session["id"] = "be87e55c-cafd-4a19-b167-dbe9e3de30d8";
-                uid=Session["id"].ToString();
+                //Session["id"] = "be87e55c-cafd-4a19-b167-dbe9e3de30d8";
+                uid=Session["userID"].ToString();
                 return "姓名";
             }
         }

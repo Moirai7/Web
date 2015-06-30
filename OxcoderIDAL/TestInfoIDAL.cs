@@ -25,5 +25,8 @@ namespace OxcoderIDAL
         int UpdateATest(string id, int order, int time);
         int SetTestState(string id);
         string GetTestID(string id);
+
+        string[] GetUserAbility(string userID);
+
     }
 }

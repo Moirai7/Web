@@ -26,6 +26,12 @@ namespace OxcoderBL
 {
     public class SearchChallengeBL : OxcoderIBL.SearchChallengeIBL
     {
+        public DataSet AllChallengeInfo()
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.SearchChallengeIDAL dalad = factory.getSearchInstance();
+            return dalad.AllChallengeInfo();
+        }
         private DataSet AddPositionAndQuiz(DataSet ds)
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();

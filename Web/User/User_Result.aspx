@@ -67,7 +67,7 @@
 
 											<hr>
 											
-												<h2>您可能尚待巩固的知识点有：</h2>
+												<h2>您的答题结果：</h2>
 												
 													<li class="btn btn-alt btn-primary" style="margin-right: 15px;"><%# Eval("Test_Quiz0")%></li>
 												    <li class="btn btn-alt btn-primary" style="margin-right: 15px;"><%# Eval("Test_Quiz1")%></li>

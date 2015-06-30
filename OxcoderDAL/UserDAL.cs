@@ -19,13 +19,13 @@ namespace OxcoderDAL
 {
     public class UserDAL : OxcoderIDAL.UserIDAL
     {
-       
-   
-        //public DataSet AllUserInfo()
-        //{
-        //    String sql = "select * from [User]";
-        //    return Common.DB.dataSet(sql);
-        //}
+
+
+        public DataSet AllUserInfo()
+        {
+            string sql = "select * from [User]";
+            return Common.DB.dataSet(sql);
+        }
         //public int Insert(Model.User user)
         //{
         //    StringBuilder sql = new StringBuilder();
@@ -188,6 +188,19 @@ namespace OxcoderDAL
             par[2].Value = user.User_Sex;
             par[3].Value = user.User_Phone;
             par[4].Value = user.User_ID;
+            return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
+        }
+        public int UpdateUserLevel(string level, string price, string userID) {
+            StringBuilder sql = new StringBuilder();
+            sql.Append("update [User] set User_Level=@level,User_price=@price where User_ID like @id");
+            SqlParameter[] par ={
+                                    new SqlParameter("@level",SqlDbType.SmallInt),
+                                    new SqlParameter("@price",SqlDbType.Text),
+                                    new SqlParameter("@id",SqlDbType.Text)
+                                };
+            par[0].Value = level;
+            par[1].Value = price;
+            par[2].Value = userID;
             return Common.DbHelperSQL.ExecuteSql(sql.ToString(), par);
         }
     }

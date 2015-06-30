@@ -35,9 +35,9 @@ namespace Web.User
             if (Request.QueryString["salary"] != null && Request.QueryString["salary"] != "")
                 salary = Request.QueryString["salary"].ToString();
             if (Request.QueryString["province"] != null && Request.QueryString["province"] != "")
-                location = HttpUtility.UrlDecode(Request.QueryString["province"].ToString());
+                location = Request.QueryString["province"].ToString();
             if (Request.QueryString["searchCondition"] != null && Request.QueryString["searchCondition"] != "")
-                searchCondition = HttpUtility.UrlDecode(Request.QueryString["searchCondition"].ToString());
+                searchCondition = Request.QueryString["searchCondition"].ToString();
             if (Request.QueryString["flag"] != null && Request.QueryString["flag"] != "")
                 flag = Convert.ToInt32(Request.QueryString["flag"].ToString());
             if (Request.QueryString["page"] != null && Request.QueryString["page"] != "")
@@ -46,12 +46,11 @@ namespace Web.User
                 retype = Convert.ToInt32(Request.QueryString["retype"].ToString());
 
             DataSet ds = search.Search(page, 10,salary,location,retype,flag,searchCondition);
-            DataSet ds2 = search.Search(page+1, 10, salary, location, retype, flag, searchCondition);
             JSONHelper jsonHelp = new JSONHelper();
 
             jsonHelp.success = true;
             jsonHelp.totlalCount = ds.Tables[0].Rows.Count;
-            jsonHelp.has_next = ds2.Tables[0].Rows.Count > 0;
+            jsonHelp.has_next = ds.Tables[0].Rows.Count == 9 ;
 
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
@@ -208,7 +207,7 @@ namespace Web.User
             if(has_next)
                 sb.Append(",\"has_next\": true,");
             else
-                sb.Append(",\"has_next\": False,");
+                sb.Append(",\"has_next\": false,");
             sb.Append("\"totalCount\":" + totlalCount.ToString() + "},");
             sb.Append("\"success\":" + _success.ToString().ToLower());
             sb.Append("}");

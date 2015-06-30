@@ -33,6 +33,9 @@ namespace OxcoderIBL
         int SendResetEmail(string email);
         int SetPassword(string email, string newPwd);
         int UpdateUserInfo(User user);
-
+        int UpdateUserLevel(string level, string price, string userID);
+        double[] GetUserAbility(string userID);
+       // int UpdateUserLevel(string level,string price,string userID);
+        DataSet AllUserInfo();
     }
 }

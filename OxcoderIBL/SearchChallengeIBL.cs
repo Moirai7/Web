@@ -18,7 +18,7 @@ namespace OxcoderIBL
 {
     public interface SearchChallengeIBL
     {
-
+        DataSet AllChallengeInfo();
         //  Salary 工资范围
         //	Provice 省份
         //	Retype 技术方向

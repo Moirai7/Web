@@ -21,6 +21,12 @@ namespace OxcoderBL
 {
     public class EnterpriseInfoBL:OxcoderIBL.EnterpriseInfoIBL
     {
+        public DataSet AllEnterpriseInfo()
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.EnterpriseInfoIDAL en = factory.getEnterpriseInstance();
+            return en.AllEnterpriseInfo();
+        }
         public DataSet EnterpriceInfo(string id)
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
@@ -66,7 +72,7 @@ namespace OxcoderBL
             StringBuilder contentBuilder = new StringBuilder();
             contentBuilder.Append("请点击下面的链接完成激活注册");
             string type = "Enterprice";
-            contentBuilder.Append("<a href='http://localhost:27067/Enterprice/Register_ReSuccess_Before.aspx?email=" + emailTo + "&activeCode=" + activeCode + "&type"+type+"'>http://localhost:15464/Register_Success.aspx?email=" + emailTo + "&activeCode=" + activeCode + "+激活</a>");
+            contentBuilder.Append("<a href='http://localhost:27067/Enterprice/Register_ReSuccess_Before.aspx?email=" + emailTo + "&activeCode=" + activeCode + "&type="+type+"'>http://localhost:15464/Register_Success.aspx?email=" + emailTo + "&activeCode=" + activeCode + "+激活</a>");
             mailMsg.Body = contentBuilder.ToString();
             mailMsg.IsBodyHtml = true;
             SmtpClient client = new SmtpClient();
@@ -133,11 +139,18 @@ namespace OxcoderBL
             OxcoderIDAL.EnterpriseInfoIDAL dalad = factory.getEnterpriseInstance();
             return dalad.UpdateEnterpriceInfo(fullName,enterpricePhone,email);
         }
-        public int UpdateEnterpriceInfo2(Enterprice enterprice)
+        public int UpdateEnterpriceInfo0(Enterprice enterprice)
         {
             OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
             OxcoderIDAL.EnterpriseInfoIDAL dalad = factory.getEnterpriseInstance();
-            return dalad.UpdateEnterpriceInfo2(enterprice);
+            return dalad.UpdateEnterpriceInfo0(enterprice);
+        }
+
+        public int UpdateEnterpriceInfo1(string position,string email)
+        {
+            OxcoderIFactory.IFactory factory = new OxcoderFactory.SqlSeverFactory();
+            OxcoderIDAL.EnterpriseInfoIDAL dalad = factory.getEnterpriseInstance();
+            return dalad.UpdateEnterpriceInfo1(position, email);
         }
     }
 }

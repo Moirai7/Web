@@ -45,7 +45,7 @@ namespace Web.Common
                 Session["enterpriceName"] = enterprice.Enterprice_FullName;
                 Session["email"] = email;
                 Session["enterpriceID"] = enterprice.Enterprice_ID;
-                Response.Redirect("../Enterprice/Enterprice_Index.aspx");
+                Response.Redirect("../Enterprice/Recruit_list.aspx");
             }
             else {
                 remind1 = "用户名或密码错误！";

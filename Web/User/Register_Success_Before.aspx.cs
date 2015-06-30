@@ -32,6 +32,7 @@ namespace Web.User
                     user = User.GetUserID(email);
                     Session["User"] = user;
                     Session["username"] = user.User_Name;
+                    Session["userID"] = user.User_ID;
                     Response.Redirect("Register_Success.aspx");
                 }
                 else
