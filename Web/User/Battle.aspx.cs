@@ -46,38 +46,50 @@ namespace Web.User
                 retype = Convert.ToInt32(Request.QueryString["retype"].ToString());
 
             DataSet ds = search.Search(page, 10,salary,location,retype,flag,searchCondition);
-            JSONHelper jsonHelp = new JSONHelper();
-
-            jsonHelp.success = true;
-            jsonHelp.totlalCount = ds.Tables[0].Rows.Count;
-            jsonHelp.has_next = ds.Tables[0].Rows.Count == 9 ;
-
-            foreach (DataRow dr in ds.Tables[0].Rows)
+            if (ds.Tables[0].Rows.Count > 0)
             {
-                jsonHelp.AddItem("Challenge_ID", dr["Challenge_ID"].ToString());
-                jsonHelp.AddItem("Challenge_Name", dr["Challenge_Name"].ToString());
-                jsonHelp.AddItem("Enterprice_FullName", dr["Enterprice_FullName"].ToString());
-                jsonHelp.AddItem("Enterprice_Logo", dr["Enterprice_Logo"].ToString());
-                jsonHelp.AddItem("Challenge_Salary", dr["Challenge_Salary"].ToString());
-                jsonHelp.AddItem("Challenge_Position0", dr["Challenge_Position0"].ToString());
-                jsonHelp.AddItem("Challenge_Position1", dr["Challenge_Position1"].ToString());
-                jsonHelp.AddItem("Challenge_Position2", dr["Challenge_Position2"].ToString());
-                jsonHelp.AddItem("Challenge_Quiz0", dr["Challenge_Quiz0"].ToString());
-                jsonHelp.AddItem("Challenge_Quiz1", dr["Challenge_Quiz1"].ToString());
-                jsonHelp.AddItem("Challenge_Quiz2", dr["Challenge_Quiz2"].ToString());
-                jsonHelp.AddItem("Challenge_Level", dr["Challenge_Level"].ToString());
-                jsonHelp.AddItem("Enterprice_FullName", dr["Enterprice_FullName"].ToString());
-                jsonHelp.AddItem("Challenge_EnTime", dr["Challenge_EnTime"].ToString());
-                jsonHelp.AddItem("Challenge_Num", dr["Challenge_Num"].ToString());
+                JSONHelper jsonHelp = new JSONHelper();
 
-                jsonHelp.ItemOk();
+                jsonHelp.success = true;
+                jsonHelp.totlalCount = ds.Tables[0].Rows.Count ;
+                jsonHelp.has_next = ds.Tables[0].Rows.Count > 0;
+
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    jsonHelp.AddItem("RowNum", dr["RowNum"].ToString());
+                    jsonHelp.AddItem("Challenge_ID", dr["Challenge_ID"].ToString());
+                    jsonHelp.AddItem("Challenge_Name", dr["Challenge_Name"].ToString());
+                    jsonHelp.AddItem("Enterprice_FullName", dr["Enterprice_FullName"].ToString());
+                    jsonHelp.AddItem("Enterprice_ID", dr["Enterprice_ID"].ToString());
+                    jsonHelp.AddItem("Enterprice_Logo", dr["Enterprice_Logo"].ToString());
+                    jsonHelp.AddItem("Challenge_Salary", dr["Challenge_Salary"].ToString());
+                    jsonHelp.AddItem("Challenge_Position0", dr["Challenge_Position0"].ToString());
+                    jsonHelp.AddItem("Challenge_Position1", dr["Challenge_Position1"].ToString());
+                    jsonHelp.AddItem("Challenge_Position2", dr["Challenge_Position2"].ToString());
+                    jsonHelp.AddItem("Challenge_Quiz0", dr["Challenge_Quiz0"].ToString());
+                    jsonHelp.AddItem("Challenge_Quiz1", dr["Challenge_Quiz1"].ToString());
+                    jsonHelp.AddItem("Challenge_Quiz2", dr["Challenge_Quiz2"].ToString());
+                    jsonHelp.AddItem("Challenge_Level", dr["Challenge_Level"].ToString());
+                    jsonHelp.AddItem("Enterprice_FullName", dr["Enterprice_FullName"].ToString());
+                    jsonHelp.AddItem("Challenge_EnTime", dr["Challenge_EnTime"].ToString());
+                    jsonHelp.AddItem("Challenge_Num", dr["Challenge_Num"].ToString());
+
+                    jsonHelp.ItemOk();
+                }
+
+
+                string strResult = jsonHelp.ToString();
+
+                Response.Clear();
+                Response.Write(strResult);
+                Response.End();
             }
-
-            string strResult = jsonHelp.ToString();
-
-            Response.Clear();
-            Response.Write(strResult);
-            Response.End();
+            else
+            {
+                Response.Clear();
+                Response.Write("{\"data\":{\"has_next\": false,\"totalCount\":0},\"success\":true}");
+                Response.End();
+            }
         }
     }
 
