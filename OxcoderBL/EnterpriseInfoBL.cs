@@ -8,10 +8,7 @@ using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Net;
 using Model;
-/// <summary>
-/// Users 的摘要说明
-/// 此类是 BL User
-/// </summary>
+
 /// 
 /// Author:岚岚姐
 /// Date：2015/04/29
