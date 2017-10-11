@@ -1,0 +1,126 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="javascript:;">所有公司</a></li>
+        <li><a href="{:url('Company/add')}">添加公司</a></li>
+    </ul>
+    <form class="well form-inline margin-top-20" method="post" action="{:url('Company/index')}">
+	行业:
+        <select class="form-control" name="category" style="width: 140px;">
+            <option value='0'>全部</option>
+            {$category_tree|default=''}
+        </select> &nbsp;&nbsp;
+        <!--<input class="form-control" name= "category" type="text" style="width:140px;"  value="0"  placeholder="全部" onclick="doSelectCategory();" id="js-categories-name-input"                      readonly/>
+        <input class="form-control" type="hidden" value="" name="post[categories]" id="js-categories-id-input"/>&nbsp;&nbsp;-->
+	关键字:
+        <input type="text" class="form-control" name="keyword" style="width: 200px;"
+               value="{$keyword|default=''}" placeholder="请输入关键字...">
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+        <a class="btn btn-danger" href="{:url('company/index')}">清空</a>
+    </form>
+
+    <form class="js-ajax-form" action="" method="post">
+        <div class="table-actions">
+            <button class="btn btn-danger btn-sm js-ajax-submit" type="submit"     data-action="{:url('Company/delete')}" data-subcheck="true" data-msg="您确定删除吗？">
+                {:lang('DELETE')}
+            </button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="15">
+                    <label>
+                        <input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
+                    </label>
+                </th>
+                <th width="50">ID</th>
+                <th>名字</th>
+                <th>建立时间</th>
+                <th width="65">注册地</th>
+                <th width="65">网址</th>
+                <th width="65">状态</th>
+                <th width="90">操作</th>
+            </tr>
+            </thead>
+            <foreach name="companies" item="vo">
+                <tr>
+                    <td>
+                        <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]"
+                               value="{$vo.company_id}" title="ID:{$vo.company_id}">
+                    </td>
+                    <td><b>{$vo.company_id}</b></td>
+                    <!--<td>
+                        <notempty name="category">
+                            <a href="{:cmf_url('portal/Article/index',array('id'=>$vo['company_id'],'cid'=>$vo['category_id']))}"
+                               target="_blank">{$vo.company_full_name}</a>
+                            <else/>
+                            <a href="{:cmf_url('portal/Article/index',array('id'=>$vo['company_id']))}"
+                               target="_blank">{$vo.company_full_name}</a>
+                        </notempty>
+                    </td>-->
+		    <td>{$vo.company_full_name}</td>
+                    <td>{$vo.company_establish_time}</td>
+                    <td>{$vo.company_register_area}</td>
+                    <td>{$vo.company_website}</td>
+                    <td>{$vo.company_state}</td>
+                    <td>
+                        <a href="{:url('Company/edit',array('id'=>$vo['company_id']))}">{:lang('EDIT')}</a> |
+                        <a href="{:url('Company/delete',array('id'=>$vo['company_id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
+                    </td>
+               </tr>
+            </foreach>
+            <tfoot>
+            <tr>
+                <th width="15">
+                    <label>
+                        <input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
+                    </label>
+                </th>
+                <th width="50">ID</th>
+                <th>名字</th>
+                <th>地址</th>
+                <th width="65">总融资</th>
+                <th width="65">行业</th>
+                <th width="65">子行业</th>
+                <th width="90">操作</th>
+            </tr>
+            </tfoot>
+        </table>
+        <ul class="pagination">{$page|default=''}</ul>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+<script>
+
+    function reloadPage(win) {
+        win.location.reload();
+    }
+</script>
+<script type="text/javascript">
+
+    function doSelectCategory() {
+        var selectedCategoriesId = $('#js-categories-id-input').val();
+        openIframeLayer("{:url('Company/select')}?ids=" + selectedCategoriesId, '请选择分类', {
+            area: ['700px', '400px'],
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                //do something
+
+                var iframeWin          = window[layero.find('iframe')[0]['name']];
+                var selectedCategories = iframeWin.confirm();
+                if (selectedCategories.selectedCategoriesId.length == 0) {
+                    layer.msg('请选择分类');
+                    return;
+                }
+                $('#js-categories-id-input').val(selectedCategories.selectedCategoriesId.join(','));
+                $('#js-categories-name-input').val(selectedCategories.selectedCategoriesName.join(' '));
+                //console.log(layer.getFrameIndex(index));
+                layer.close(index); //如果>设定了yes回调>，需进行手工关闭
+            }
+        });
+    }
+</script>
+</body>
+</html>
