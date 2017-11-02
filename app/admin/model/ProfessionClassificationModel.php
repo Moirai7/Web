@@ -23,7 +23,7 @@ class ProfessionClassificationModel extends Model
 	}
         $categories = $this->order("id ASC")->where($where)->select()->toArray();
         $tree       = new Tree();
-        $tree->icon = ['&nbsp;&nbsp;│', '&nbsp;&nbsp;├─', '&nbsp;&nbsp;└─'];
+        $tree->icon = ['&nbsp;&nbsp;', '&nbsp;&nbsp;└─', '&nbsp;&nbsp;└─'];
         $tree->nbsp = '&nbsp;&nbsp;';
 	
         $newCategories = [];
@@ -37,7 +37,6 @@ class ProfessionClassificationModel extends Model
         $str     = '<option value=\"{$id}\" {$selected}>{$spacer}{$name}</option>';
 	
         $treeStr = $tree->getTree(0, $str);
-
         return $treeStr;
     }
     /**
@@ -54,7 +53,7 @@ class ProfessionClassificationModel extends Model
         $categories = $this->order("id ASC")->where($where)->select()->toArray();
 
         $tree       = new Tree();
-        $tree->icon = ['&nbsp;&nbsp;│', '&nbsp;&nbsp;├─', '&nbsp;&nbsp;└─'];
+        $tree->icon = ['&nbsp;&nbsp;', '&nbsp;&nbsp;└─', '&nbsp;&nbsp;└─'];
         $tree->nbsp = '&nbsp;&nbsp;';
 
         if (!is_array($currentIds)) {
@@ -78,7 +77,6 @@ class ProfessionClassificationModel extends Model
                     </tr>";
         }
         $treeStr = $tree->getTree(0, $tpl);
-
         return $treeStr;
     }
 }

@@ -34,86 +34,105 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>公司名称<span class="form-required">*</span></th>
+                        <th>名称<span class="form-required">*</span></th>
                         <td>
                             <input class="form-control" type="text" name="post[company_full_name]"
                                    id="title" required value="" placeholder="请输入标题"/>
                         </td>
                     </tr>
                     <tr>
-                        <th>公司注册地</th>
+                        <th>注册地</th>
                         <td>
-                            <input class="form-control" type="text" name="post[company_register_area]" id="address" value=""  placeholder="多关键词之间，用英文逗号隔开">
+<!--company_register_area-->
+
+			<select id="id_provSelect" name="post[provSelect]" onchange="loadCity(this.value);">
+<option value="">请选择国家</option>
+</select>
+			&nbsp;
+<select id="id_citySelect" name="post[citySelect]" onchange="loadArea(this.value);">
+<option value="">请选择省份</option>
+</select>
+&nbsp;
+  <select id="id_areaSelect" name="post[areaSelect]">
+<option value="">请选择市区</option>
+</select>
+&nbsp;  
                         </td>
                     </tr>
                     <tr>
-                        <th>公司地址及电话</th>
+                        <th>地址</th>
                         <td>
-                            <input class="form-control" type="text" name="post[company_phone]" id="phone" value=""  placeholder="北京:18811442500;上海:188111442500;TODO">
+                            <input class="form-control" type="text" name="post[company_address]" id="phone" value=""  placeholder="请输入">
                         </td>
 		    </tr>
                     <tr>
-                        <th>公司类型</th>
+                        <th>电话</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[company_phone]" id="phone" onchange="checkTel(this.value)"value=""  placeholder="请输入">
+                        </td>
+                    </tr>
+                    <!--<tr>
+                        <th>类型</th>
                         <td>
                             <input class="form-control" type="text" name="post[company_type]" id="type1" value=""  placeholder="多关键词之间，用英文逗号隔开">
                         </td>
-                    </tr>
+                    </tr>-->
                     <tr>
-                        <th>公司建立时间</th>
+                        <th>成立时间</th>
                         <td>
-                            <input class="form-control" type="text" name="post[company_establish_time]" id="establish" value=""  placeholder="多关键词之间，用英文逗号隔开">
+                            <input class="form-control" type="date" name="post[company_establish_time]" id="establish" value=""  placeholder="多关键词之间，用英文逗号隔开">
                         </td>
                     </tr>
-                    <tr>
-                        <th>公司邮编</th>
+                    <!--<tr>
+                        <th>邮编</th>
                         <td>
                             <input class="form-control" type="text" name="post[company_postcode]" id="postcode" value=""  placeholder="多关键词之间，用英文逗号隔开">
                         </td>
-                    </tr>
-                    <tr>
-                        <th>公司竞争者</th>
+                    </tr>-->
+                    <!--<tr>
+                        <th>竞争者</th>
                         <td>
                             <input class="form-control" type="text" name="post[company_competitor]" id="postcode" value=""  placeholder="多关键词之间，用英文逗号隔开">
                         </td>
-                    </tr>
+                    </tr>-->
                     <tr>
-                        <th>公司网站</th>
+                        <th>网站</th>
                         <td>
                             <input class="form-control" type="text" name="post[company_website]" id="website" value=""  placeholder="多关键词之间，用英文逗号隔开">
                         </td>
                     </tr>
                     <tr>
-                        <th>公司投资人</th>
+                        <th>创始人</th>
                         <td>
                             <input class="form-control" type="text" name="post[company_founder]" id="founders" value=""  placeholder="多关键词之间，用英文逗号隔开">
                         </td>
                     </tr>
-                    <tr>
-                        <th>公司状态</th>
+                    <!--<tr>
+                        <th>状态</th>
                         <td>
                             <input class="form-control" type="text" name="post[company_state]" id="state" value=""  placeholder="多关键词之间，用英文逗号隔开">
                         </td>
                     </tr>
                     <tr>
-                        <th>公司法人</th>
+                        <th>法人</th>
                         <td>
                             <input class="form-control" type="text" name="post[company_legal_representative]" id="legal" value=""  placeholder="多关键词之间，用英文逗号隔开">
                         </td>
-                    </tr>
+                    </tr>-->
                     <tr>
-                        <th>公司描述</th>
+                        <th>简介</th>
                         <td>
                             <input class="form-control" type="text" name="post[company_description]" id="description" value=""  placeholder="多关键词之间，用英文逗号隔开">
                         </td>
                     </tr>
                     <tr>
-                        <th>公司源码</th>
+                        <th>数据来源</th>
                         <td>
                             <input class="form-control" type="text" name="post[company_source_website]" id="source" value=""  placeholder="多关键词之间，用英文逗号隔开">
                         </td>
                     </tr>
-                    <tr>
-                        <th>公司选择</th>
+                    <!--<tr>
+                        <th>选择</th>
                         <td>
 				<select class="form-control" id="sel" name="post[company_sel]" onchange='doit()'>
                                 <option value='none'>请选择</option>
@@ -121,17 +140,16 @@
 			        <option value='blockchain'>区块链</option>
 				<option value='insurance'>保险</option>
 			        </select> 
-                            <!--<input class="form-control" type="text" name="bigdatacompany_type2]" id="type2" value=""  placeholder="多关键词之间，用英文逗号隔开">-->
                         </td>
                     </tr>
                     <tr class="bigdata">
-                        <th>公司类型</th>
+                        <th>类型</th>
                         <td>
                             <input class="form-control" type="text" name="bigdata[big_data_corp_type]" id="corptype"   value="" placeholder="请输入"/>
                         </td>
                     </tr>
                     <tr class="bigdata">
-                        <th>公司领域</th>
+                        <th>领域</th>
                         <td>
                             <input class="form-control" type="text" name="bigdata[big_data_corp_field]" id="corpfield"   value="" placeholder="请输入"/>
                         </td>
@@ -153,7 +171,7 @@
                         <td>
                             <input class="form-control" type="text" name="insurance[tech_description]" id="corptech"   value="" placeholder="请输入"/>
                         </td>
-                    </tr>
+                    </tr>-->
                     <!--<tr class="insurance">
                         <th>保险类型</th>
                         <td>
@@ -161,8 +179,8 @@
                             <input class="form-control" type="hidden" value="" name="insurance[inscategories]"  id="js-ins-categories-id-input"/>
                         </td>
                     </tr>-->
-                    <tr class="blockchain">
-                        <th>公司资产</th>
+                    <!--<tr class="blockchain">
+                        <th>资产</th>
                         <td>
                             <input class="form-control" type="text" name="blockchain[corp_assessment]" id="corpassess"   value="" placeholder="请输入"/>
                         </td>
@@ -216,7 +234,7 @@
                         </td>
                     </tr>
                     <tr class="blockchain">
-                        <th>公司评估</th>
+                        <th>评估</th>
                         <td>
                             <input class="form-control" type="text" name="blockchain[analysis_evaluation]" id="corpeval"   value="" placeholder="请输入"/>
                         </td>
@@ -244,7 +262,7 @@
                         <td>
                             <input class="form-control" type="text" name="blockchain[data_source]" id="corpdatasource"   value="" placeholder="请输入"/>
                         </td>
-                    </tr>
+                    </tr>-->
                 </table>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
@@ -256,7 +274,7 @@
             <div class="col-md-3">
                 <table class="table table-bordered">
                     <tr>
-                        <th><b>缩略图</b></th>
+                        <th><b>Logo</b></th>
                     </tr>
                     <tr>
                         <td>
@@ -276,7 +294,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input class="form-control js-bootstrap-datetime" type="text" name="post[published_time]"
+                            <input class="form-control js-bootstrap-datetime" type="text" name="post[create_time]"
                                    value="{:date('Y-m-d H:i:s',time())}">
                         </td>
                     </tr>
@@ -636,14 +654,63 @@ function doit(){
     hidden('blockchain');
     show('insurance');
   } 
+}
+
+function loadCity(rid){
+var arr = {:json_encode($district)};
+$("#id_citySelect").html("");
+$("#id_citySelect").append("<option value=''>请选择省份</option>");
+for (var k in arr){
+if (arr[k].id == rid){
+var child = arr[k].children;
+for (var z in child){
+$("#id_citySelect").append("<option value='"+child[z].id+"'>"+child[z].name+"</option>");
+}
+}
+}
+}
+
+function loadArea(rid){
+var arr = {:json_encode($district)};
+$("#id_areaSelect").html("");
+$("#id_areaSelect").append("<option value=''>请选择城市</option>");
+for (var k in arr){
+var child = arr[k].children;
+for (var z in child){
+if (child[z].id == rid){
+var child2 = child[z].children;
+for (var j in child2){
+$("#id_areaSelect").append("<option value='"+child2[j].id+"'>"+child2[j].name+"</option>");
+}
+}
+}
 } 
+}
+
+function loadCountry(rid){
+var arr = {:json_encode($district)};
+$("#id_provSelect").html("");
+$("#id_provSelect").append("<option value=''>请选择国家</option>");
+for (var k in arr){
+	$("#id_provSelect").append("<option value='"+arr[k].id+"'>"+arr[k].name+"</option>");
+}
+}
 window.onload=function(){
- hidden('bigdata');
- hidden('blockchain');
- hidden('insurance');
+ //hidden('bigdata');
+ //hidden('blockchain');
+ //hidden('insurance');
   //var sel=document.getElementById("sel");
   //sel.onchange=doit();
+loadCountry();
 }
-</script> 
+function checkTel(tel)
+{
+   var mobile = /^1[3|5|8]\d{9}$/ , phone = /^0\d{2,3}-?\d{7,8}$/;
+   if (!(mobile.test(tel) || phone.test(tel))){
+	alert('请输入正确号码');
+   }
+   //return mobile.test(tel) || phone.test(tel);
+}
+</script>
 </body>
 </html>

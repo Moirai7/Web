@@ -36,11 +36,12 @@
                     </label>
                 </th>
                 <th width="50">ID</th>
-                <th>名字</th>
-                <th>建立时间</th>
-                <th width="65">注册地</th>
+                <th width="100">名字</th>
+                <th width="100">建立时间</th>
+                <th width="100">发布时间</th>
+                <th width="100">更新时间</th>
                 <th width="65">网址</th>
-                <th width="65">状态</th>
+                <th width="65">创始人</th>
                 <th width="90">操作</th>
             </tr>
             </thead>
@@ -62,9 +63,10 @@
                     </td>-->
 		    <td>{$vo.company_full_name}</td>
                     <td>{$vo.company_establish_time}</td>
-                    <td>{$vo.company_register_area}</td>
+                    <td>{$vo.create_time}</td>
+                    <td>{$vo.last_update_time}</td>
                     <td>{$vo.company_website}</td>
-                    <td>{$vo.company_state}</td>
+                    <td>{$vo.company_founder}</td>
                     <td>
                         <a href="{:url('Company/edit',array('id'=>$vo['company_id']))}">{:lang('EDIT')}</a> |
                         <a href="{:url('Company/delete',array('id'=>$vo['company_id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
@@ -78,12 +80,13 @@
                         <input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
                     </label>
                 </th>
-                <th width="50">ID</th>
-                <th>名字</th>
-                <th>地址</th>
-                <th width="65">总融资</th>
-                <th width="65">行业</th>
-                <th width="65">子行业</th>
+		<th width="50">ID</th>
+                <th width="100">名字</th>
+                <th width="100">建立时间</th>
+                <th width="100">发布时间</th>
+                <th width="100">更新时间</th>
+                <th width="65">网址</th>
+                <th width="65">创始人</th>
                 <th width="90">操作</th>
             </tr>
             </tfoot>
