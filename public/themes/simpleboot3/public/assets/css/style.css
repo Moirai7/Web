@@ -1,7 +1,14 @@
 @CHARSET "UTF-8";
 body {
-    padding-top: 70px;
     background: #f0f0f0;
+}
+
+a {
+    color: #373737;
+}
+
+body {
+    background: #fff;
 }
 
 body.body-white {
@@ -41,9 +48,15 @@ body.body-white {
 .tc-box {
     background: #fff;
     padding: 5px 10px;
-    margin: 0 0 10px 0;
+    margin: 0 0px 10px 10px;
+    height: 100%;
 }
-
+.col-md-9 {
+    width: 66%;
+}
+.col-md-3 {
+    width: 32%;
+}
 .body-white .tc-box{
     border: solid 1px #eee;
 }
@@ -462,7 +475,7 @@ body.body-white {
 }
 
 .ranking li.top3 i {
-    background: #FC9B0B;
+    background: #373737;
 }
 
 /*comment ranking box*/

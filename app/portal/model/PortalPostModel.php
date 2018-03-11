@@ -101,11 +101,13 @@ class PortalPostModel extends Model
 
         $this->categories()->save($categories);
 
-        $data['post_keywords'] = str_replace('，', ',', $data['post_keywords']);
+	if(array_key_exists('post_keywords',$data)) {
+	        $data['post_keywords'] = str_replace('，', ',', $data['post_keywords']);
+        	$keywords = explode(',', $data['post_keywords']);
+        	$this->addTags($keywords, $this->id);
+	}
 
-        $keywords = explode(',', $data['post_keywords']);
 
-        $this->addTags($keywords, $this->id);
 
         return $this;
 
@@ -150,12 +152,13 @@ class PortalPostModel extends Model
         }
 
 
+	if(array_key_exists('post_keywords',$data)) {
         $data['post_keywords'] = str_replace('，', ',', $data['post_keywords']);
 
         $keywords = explode(',', $data['post_keywords']);
 
         $this->addTags($keywords, $data['id']);
-
+	}
         return $this;
 
     }

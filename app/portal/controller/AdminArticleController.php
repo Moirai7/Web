@@ -13,6 +13,7 @@ namespace app\portal\controller;
 use cmf\controller\AdminBaseController;
 use app\portal\model\PortalPostModel;
 use app\portal\service\PostService;
+use app\portal\service\ApiService;
 use app\portal\model\PortalCategoryModel;
 use think\Db;
 use app\admin\model\ThemeModel;
@@ -35,16 +36,22 @@ class AdminArticleController extends AdminBaseController
     public function index()
     {
         $param = $this->request->param();
-
+	$categoryId = $this->request->param('category', 7, 'intval');
+        $apiService = new ApiService();
+        $categories = $apiService->subCategories($categoryId);
+        $param["categories"] = Array();
+        foreach ($categories as $category) {
+                $param["categories"][] = $category['id'];
+        }
+	$param["categories"][] = 7;
         $categoryId = $this->request->param('category', 0, 'intval');
-
         $postService = new PostService();
-        $data        = $postService->adminArticleList($param);
+        $data        = $postService->adminArticleList($param,'not in');
 
         $data->appends($param);
 
         $portalCategoryModel = new PortalCategoryModel();
-        $categoryTree        = $portalCategoryModel->adminCategoryTree($categoryId);
+        $categoryTree        = $portalCategoryModel->adminCategoryTree($categoryId,$param["categories"],'not in');
 
         $this->assign('start_time', isset($param['start_time']) ? $param['start_time'] : '');
         $this->assign('end_time', isset($param['end_time']) ? $param['end_time'] : '');

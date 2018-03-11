@@ -1,4 +1,7 @@
-<nav class="navbar navbar-default navbar-fixed-top active">
+<div class="container">
+<img src="{:cmf_get_image_url('portal/main.jpg')}" alt="北京师范大学政府管理学院中国公共管理与政策分析案例中心" width="100%" height="141">
+</div>
+<nav class="navbar navbar-default active">
     <div class="container active">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -8,27 +11,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="__ROOT__/">{$theme_vars.company_name|default='ThinkCMF'}</a>
+            <!--<a class="navbar-brand" href="__ROOT__/">{$theme_vars.company_name|default='ThinkCMF'}</a>-->
         </div>
 
-        <div class="collapse navbar-collapse active" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse active" id="bs-example-navbar-collapse-1"style="
+    border-bottom: 1px dotted #e4e9f0;font-weight: bold;
+">
             <ul id="main-menu" class="nav navbar-nav">
-                <navigation nav-id="" root="" id="main-navigation" class="nav navbar-nav navbar-nav-custom"
-                            max-level="0">
-                    <navigationMenu>
-                        <if condition="$level gt 1">
-                            <li class="menu-item menu-item-level-{$level} levelgt1">
-                                <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
-                                    {$menu.name|default=''}
-                                </a>
-                            </li>
-                            <else/>
-                            <li class="menu-item menu-item-level-{$level}">
-                                <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
-                                    {$menu.name|default=''}
-                                </a>
-                            </li>
-                        </if>
+                <navigation nav-id="" root="" id="main-navigation" class="nav navbar-nav navbar-nav-custom" max-level="0">
+                    <navigationMenu root="li" class="menu-item menu-item-level-{$level}">
+                        <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                            {$menu.name|default=''}
+                        </a>
                     </navigationMenu>
                     <navigationFolder root="li"
                                       class="dropdown dropdown-custom dropdown-custom-level-{$level}"
@@ -41,13 +35,16 @@
                 </navigation>
             </ul>
             <ul class="nav navbar-nav navbar-right" id="main-menu-user">
+		<li class="dropdown">
+		<a class="dropdown" href="{:cmf_url('/admin/index')}">后台</a></li>
                 <!--
                 <li class="login">
                     <a class="dropdown-toggle notifactions" href="/index.php/user/notification/index"> <i
                             class="fa fa-envelope"></i> <span class="count">0</span></a>
                 </li>
                 -->
-                <li class="dropdown user login">
+                <!--
+		<li class="dropdown user login">
                     <a class="dropdown-toggle user" data-toggle="dropdown" href="#">
                         <php>$user=cmf_get_current_user();</php>
                         <if condition="empty($user['avatar'])">
@@ -73,7 +70,7 @@
                         <li class="divider"></li>
                         <li><a href="{:cmf_url('user/Register/index')}"><i class="fa fa-user"></i> &nbsp;注册</a></li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
             <form class="navbar-form navbar-right" method="post" action="{:cmf_url('portal/Search/index')}">
                 <div class="form-group">

@@ -160,6 +160,7 @@
 
 /* added to the original element calling slippry */
 .sy-box.sy-loading {
+  height: 200px;
   background: url(assets/img/sy-loader.gif) 50% 50% no-repeat;
   -webkit-background-size: 32px;
   -moz-background-size: 32px;
@@ -262,6 +263,7 @@
   display: block;
   width: 100%;
   border: 0;
+  height: 200px;
 }
 
 /* next/ prev buttons, with arrows and clickable area a lot larger than the visible buttons */

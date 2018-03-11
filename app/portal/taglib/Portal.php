@@ -241,7 +241,7 @@ parse;
         if (!empty($tag['where']) && strpos($tag['where'], '$') === 0) {
             $where = $tag['where'];
         }
-
+echo $item;
         $parse = <<<parse
 <?php
 \${$returnVarName} = \app\portal\service\ApiService::categories([

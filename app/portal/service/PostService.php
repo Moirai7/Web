@@ -15,9 +15,9 @@ use app\portal\model\PortalPostModel;
 class PostService
 {
 
-    public function adminArticleList($filter)
+    public function adminArticleList($filter,$type='in')
     {
-        return $this->adminPostList($filter);
+        return $this->adminPostList($filter,false,$type);
     }
 
     public function adminPageList($filter)
@@ -25,7 +25,7 @@ class PostService
         return $this->adminPostList($filter, true);
     }
 
-    public function adminPostList($filter, $isPage = false)
+    public function adminPostList($filter, $isPage = false,$type='in')
     {
 
         $where = [
@@ -38,10 +38,9 @@ class PostService
         ];
 
         $field = 'a.*,u.user_login,u.user_nickname,u.user_email';
-
-        $category = empty($filter['category']) ? 0 : intval($filter['category']);
+        $category = empty($filter['categories']) ? 0 : $filter['categories'];
         if (!empty($category)) {
-            $where['b.category_id'] = ['eq', $category];
+            $where['b.category_id'] = [$type, $category];
             array_push($join, [
                 '__PORTAL_CATEGORY_POST__ b', 'a.id = b.post_id'
             ]);
@@ -77,6 +76,7 @@ class PostService
             ->join($join)
             ->where($where)
             ->order('update_time', 'DESC')
+	    ->group('a.id')
             ->paginate(10);
 
         return $articles;

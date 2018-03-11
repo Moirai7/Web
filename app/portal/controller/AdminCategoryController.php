@@ -15,6 +15,7 @@ use cmf\controller\AdminBaseController;
 use app\portal\model\PortalCategoryModel;
 use think\Db;
 use app\admin\model\ThemeModel;
+use app\portal\service\ApiService;
 
 
 class AdminCategoryController extends AdminBaseController
@@ -125,7 +126,7 @@ class AdminCategoryController extends AdminBaseController
             $category = PortalCategoryModel::get($id)->toArray();
 
             $portalCategoryModel = new PortalCategoryModel();
-            $categoriesTree      = $portalCategoryModel->adminCategoryTree($category['parent_id'], $id);
+            $categoriesTree      = $portalCategoryModel->adminCategoryTree($category['parent_id']);
 
             $themeModel        = new ThemeModel();
             $listThemeFiles    = $themeModel->getActionThemeFiles('portal/List/index');
@@ -195,6 +196,22 @@ class AdminCategoryController extends AdminBaseController
      */
     public function select()
     {
+	$type  = $this->request->param('type');
+
+	$categoryId = $this->request->param('category', 7, 'intval');
+        $apiService = new ApiService();
+        $categories = $apiService->subCategories($categoryId);
+        $param["categories"] = Array();
+        foreach ($categories as $category) {
+                $param["categories"][] = $category['id'];
+        }
+        $param["categories"][] = 7;
+
+	if (!empty($type)){
+		$type = 'in';
+	}else{
+		$type = 'not in';
+	}
         $ids                 = $this->request->param('ids');
         $selectedIds         = explode(',', $ids);
         $portalCategoryModel = new PortalCategoryModel();
@@ -210,7 +227,7 @@ class AdminCategoryController extends AdminBaseController
 </tr>
 tpl;
 
-        $categoryTree = $portalCategoryModel->adminCategoryTableTree($selectedIds, $tpl);
+        $categoryTree = $portalCategoryModel->adminCategoryTableTree($selectedIds, $tpl,$param["categories"],$type);
 
         $where      = ['delete_time' => 0];
         $categories = $portalCategoryModel->where($where)->select();

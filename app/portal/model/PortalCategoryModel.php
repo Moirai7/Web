@@ -27,11 +27,14 @@ class PortalCategoryModel extends Model
      * @param int $currentCid 需要隐藏的分类 id
      * @return string
      */
-    public function adminCategoryTree($selectId = 0, $currentCid = 0)
+    public function adminCategoryTree($selectId = 0, $currentCid = 0, $type='not in')
     {
         $where = ['delete_time' => 0];
         if (!empty($currentCid)) {
-            $where['id'] = ['neq', $currentCid];
+            if (!is_array($currentCid)) {
+                $currentCid = [$currentCid];
+            }
+	    $where['id'] = [$type, $currentCid];
         }
         $categories = $this->order("list_order ASC")->where($where)->select()->toArray();
 
@@ -58,12 +61,15 @@ class PortalCategoryModel extends Model
      * @param string $tpl
      * @return string
      */
-    public function adminCategoryTableTree($currentIds = 0, $tpl = '')
+    public function adminCategoryTableTree($currentIds = 0, $tpl = '', $currentCid=0, $type='not in')
     {
         $where = ['delete_time' => 0];
-//        if (!empty($currentCid)) {
-//            $where['id'] = ['neq', $currentCid];
-//        }
+        if (!empty($currentCid)) {
+	    if (!is_array($currentCid)) {
+            	$currentCid = [$currentCid];
+            }
+            $where['id'] = [$type, $currentCid];
+        }
         $categories = $this->order("list_order ASC")->where($where)->select()->toArray();
 
         $tree       = new Tree();

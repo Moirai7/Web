@@ -37,7 +37,7 @@
                             <div class="pull-left">
                                 <div class="list-actions">
                                     <a href="javascript:;"><i class="fa fa-eye"></i><span>{$vo.post_hits}</span></a>
-                                    <a href="{:url('portal/Article/doLike',array('id'=>$vo['id']))}"
+                                    <!--<a href="{:url('portal/Article/doLike',array('id'=>$vo['id']))}"
                                        class="js-count-btn"><i class="fa fa-thumbs-up"></i><span class="count">{$vo.post_like}</span></a>
                                     <a href="{:url('user/Favorite/add',array('id'=>$vo['id'],'cid'=>$category['id']))}"
                                        class="js-favorite-btn"
@@ -47,7 +47,7 @@
                                        data-url="{:cmf_url_encode('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category['id']))}"
                                     >
                                         <i class="fa fa-star-o"></i>
-                                    </a>
+                                    </a>-->
                                 </div>
                             </div>
                             <a class="btn btn-warning btn-sm pull-right"
@@ -89,36 +89,34 @@
                 </div>
             </widget>
 
-
-            <widget name="last_articles">
+<widget name="last_articles">
                 <div class="tc-box">
                     <div class="headtitle">
                         <h2>{$widget.title}</h2>
                     </div>
                     <div class="posts">
-                        <portal:articles limit="5" order="post.published_time DESC"
-                                         categoryIds="$widget.vars.last_articles_category_id">
-                            <dl class="dl-horizontal">
-                                <dt>
-                                    <a class="img-wraper"
-                                       href="{:cmf_url('portal/Article/index',array('id'=>$vo.id))}">
-                                        <if condition="empty($vo.more.thumbnail)">
-                                            <img src="__TMPL__/public/assets/images/default_tupian4.png"
-                                                 class="img-responsive" alt="{$vo.post_title}"/>
-                                            <else/>
-                                            <img src="{:cmf_get_image_url($vo.more.thumbnail)}"
-                                                 class="img-responsive" alt="{$vo.post_title}"/>
-                                        </if>
+                                <div class="ranking">
+                        <php>
+                            $hot_articles=[];
+                        </php>
+                        <ul class="list-unstyled">
+                            <portal:articles limit="5" order="post.post_hits DESC"
+                                             categoryIds="$widget.vars.last_articles_category_id">
+                                <php>$top=$key<3?"top3":"";</php>
+                                <li class="{$top}">
+                                    <i>{$key+1}</i>
+                                    <a title="{$vo.post_title}"
+                                       href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">
+                                        {$vo.post_title}
                                     </a>
-                                </dt>
-                                <dd>
-                                    <a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">{$vo.post_title}</a>
-                                </dd>
-                            </dl>
-                        </portal:articles>
+                                </li>
+                            </portal:articles>
+                        </ul>
+                    </div>
                     </div>
                 </div>
             </widget>
+
 
         </div>
     </div>

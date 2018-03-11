@@ -32,7 +32,6 @@ class ArticleController extends HomeBaseController
             abort(404, '文章不存在!');
         }
 
-
         $prevArticle = $postService->publishedPrevArticle($articleId, $categoryId);
         $nextArticle = $postService->publishedNextArticle($articleId, $categoryId);
 
