@@ -22,7 +22,7 @@ define('APP_PATH', CMF_ROOT . 'app/');
 define('CMF_PATH', CMF_ROOT . 'simplewind/cmf/');
 
 // 定义插件目录
-define('PLUGINS_PATH', __DIR__ . '/plugins/');
+define('PLUGINS_PATH', __DIR__ . 'plugins/');
 
 // 定义扩展目录
 define('EXTEND_PATH', CMF_ROOT . 'simplewind/extend/');

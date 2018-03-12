@@ -644,6 +644,22 @@ ul.tc-photos {
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
-
+.myclass{
+        display: inline-block;
+    background: #DDDDDD;
+    width: 100%;
+    padding-top: 25%;
+    text-align: center;
+    height: 200px;
+font-size: 20px;
+}
+.myclass2{
+    display: inline-block;
+    background: #DDDDDD;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+}
 
 		
