@@ -646,9 +646,10 @@ ul.tc-photos {
 }
 .myclass{
         display: inline-block;
-    background: #DDDDDD;
+	
+	background-image: url(/public/upload/portal/main2.png);
     width: 100%;
-    padding-top: 25%;
+    padding-top: 15%;
     text-align: center;
     height: 200px;
 font-size: 20px;

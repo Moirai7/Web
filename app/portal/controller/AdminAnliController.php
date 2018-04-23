@@ -52,7 +52,6 @@ class AdminAnliController extends AdminBaseController
 
         $portalCategoryModel = new PortalCategoryModel();
         $categoryTree        = $portalCategoryModel->adminCategoryTree($categoryId,$param["categories"],'in');
-
         $this->assign('start_time', isset($param['start_time']) ? $param['start_time'] : '');
         $this->assign('end_time', isset($param['end_time']) ? $param['end_time'] : '');
         $this->assign('keyword', isset($param['keyword']) ? $param['keyword'] : '');
@@ -127,7 +126,7 @@ class AdminAnliController extends AdminBaseController
                     array_push($data['post']['more']['files'], ["url" => $fileUrl, "name" => $data['file_names'][$key]]);
                 }
             }
-	
+            $data['post']["more"]["template"]= "manli" ;
             $portalPostModel->adminAddArticle($data['post'], $data['post']['categories']);
 
             $data['post']['id'] = $portalPostModel->id;
@@ -215,6 +214,7 @@ class AdminAnliController extends AdminBaseController
                     array_push($data['post']['more']['files'], ["url" => $fileUrl, "name" => $data['file_names'][$key]]);
                 }
             }
+            $data['post']["more"]["template"]= "manli" ;
 
             $portalPostModel->adminEditArticle($data['post'], $data['post']['categories']);
 

@@ -68,10 +68,13 @@ class PortalCategoryModel extends Model
 	    if (!is_array($currentCid)) {
             	$currentCid = [$currentCid];
             }
+	    $start = 7;
+	    if ($type == 'not in') {
+		$start = 0;
+            }
             $where['id'] = [$type, $currentCid];
         }
         $categories = $this->order("list_order ASC")->where($where)->select()->toArray();
-
         $tree       = new Tree();
         $tree->icon = ['&nbsp;&nbsp;│', '&nbsp;&nbsp;├─', '&nbsp;&nbsp;└─'];
         $tree->nbsp = '&nbsp;&nbsp;';
@@ -99,7 +102,7 @@ class PortalCategoryModel extends Model
                         <td>\$str_action</td>
                     </tr>";
         }
-        $treeStr = $tree->getTree(0, $tpl);
+        $treeStr = $tree->getTree($start, $tpl);
 
         return $treeStr;
     }

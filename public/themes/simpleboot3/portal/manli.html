@@ -55,6 +55,10 @@
                 <hook name="before_content" param="before_content_hook_param"/>
 
                 <div id="article_content">
+		    <p>案例标题： {$article.post_title}</p>
+		    <p>指导老师： {$article.post_excerpt}</p>
+		    <p>案例编号： {$article.post_source}</p>
+		    <p>案例介绍： </p>
                     {$article.post_content}
                 </div>
                 <!--<if condition="!empty($article['post_source'])">
@@ -63,17 +67,26 @@
                     </div>
                 </if>-->
 
-                <php>
-                    $after_content_hook_param=[
-                    'object_id'=>$article['id'],
-                    'table_name'=>'portal_post',
-                    'object_title'=>$article['post_title'],
-                    'user_id'=>$article['user_id'],
-                    'url'=>cmf_url_encode('portal/Article/index',array('id'=>$article['id'],'cid'=>$category['id'])),
-                    'object'=>$article
-                    ];
-                </php>
                 <hook name="after_content" param="after_content_hook_param"/>
+		<if condition="cmf_get_current_admin_id()">
+			<div style="border: 1px dashed #ddd;padding-top: 10px;    padding-left: 10px;">
+				<ul id="files" class="pic-list list-unstyled form-inline">
+                                <notempty name="article.more.files">
+                                    <foreach name="article.more.files" item="vo">
+                                        <php>$file_url=cmf_get_file_download_url($vo['url']);</php>
+                                        <li id="saved-file{$key}">
+                                            <input id="file-{$key}" type="hidden" name="file_urls[]"
+                                                   value="{$vo.url}">
+                                            <input class="form-control" id="file-{$key}-name" type="text"
+                                                   name="file_names[]"
+                                                   value="{$vo.name}" style="width: 200px;" title="图片名称">
+                                            <a id="file-{$key}-preview" href="{$file_url}" target="_blank">下载</a>
+                                        </li>
+                                    </foreach>
+                                </notempty>
+                            </ul>
+			</div>
+		</if>	
 <!--
                 <php>
                     $comment_hook_param=[
