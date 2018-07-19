@@ -1,0 +1,1233 @@
+<include file="public@header"/>
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li ><a href="{:url('Company/index')}">所有公司</a></li>
+	<li ><a href="{:url('Company/add')}">添加公司</a></li>
+        <li class="active"><a href="javascript:;">编辑公司</a></li>
+    </ul>
+    <ul class="nav nav-tabs">
+        <li ><a href="#basic">基本信息</a></li>
+	<!--<li ><a href="#finance">金融信息</a></li>-->
+	<li ><a href="#team">管理团队</a></li>
+	<!--<li ><a href="#address">公司地址</a></li>-->
+	<!--<li ><a href="#merge">并购信息</a></li>-->
+	<li ><a href="#raise">融资信息</a></li>
+	<!--<li ><a href="#investor">投资人信息</a></li>-->
+	<li ><a href="#product">产品与业务</a></li>
+    </ul>
+<div class="headtitle" id="basic"><h2>基本信息</h2></div>
+    <form  action="{:url('Company/editBasic',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width='150'>行业</th>
+                        <td>
+                       <input class="form-control" type="text" style="width:400px;"  value="{:implode(' ',$post.postCategories)}" placeholder="请选择分类" onclick="doSelectCategory(this,'checkbox');" id="js-categories-name-input" readonly/>
+                            <input class="form-control" type="hidden" value="{$post.postCategoryIds}"
+                                   name="post[categories]"
+                                   id="js-categories-id-input"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>名称<span class="form-required">*</span></th>
+                        <td>
+                            <input class="form-control" type="text" name="post[company_full_name]"
+                                   id="title" required value="{$post.company_full_name}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>注册地</th>
+                        <td>
+<select id="id_provSelect" name="post[provSelect]" onchange="loadCity(this.value);">
+<option value="">请选择国家</option>
+</select>
+                        &nbsp;
+<select id="id_citySelect" name="post[citySelect]" onchange="loadArea(this.value);">
+<option value="">请选择省份</option>
+</select>
+&nbsp;
+  <select id="id_areaSelect" name="post[areaSelect]">
+<option value="">请选择市区</option>
+</select>
+&nbsp;
+                            <!--<input class="form-control" type="text" name="post[company_register_area]" id="address" value="{$post.company_register_area}"  placeholder="多关键词之间，用英文逗号隔开">-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>地址</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[company_address]" id="phone" value=""  placeholder="请输入">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>电话</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[company_phone]" id="phone" value="{$post.company_phone}"  placeholder="请输入" onchange="checkTel(this.value)">
+                        </td>
+		    </tr>
+                    <!--<tr>
+                        <th>类型</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[company_type]" id="type1" value="{$post.company_type}"  placeholder="多关键词之间，用英文逗号隔开">
+                        </td>
+                    </tr>-->
+                    <tr>
+                        <th>成立时间</th>
+                        <td>
+                            <input class="form-control" type="date" name="post[company_establish_time]" id="establish" value="{$post.company_establish_time}"  placeholder="多关键词之间，用英文逗号隔开">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>网站</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[company_website]" id="website" value="{$post.company_website}"  placeholder="多关键词之间，用英文逗号隔开">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>创始人</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[company_founder]" id="founders" value="{$post.company_founder}"  placeholder="多关键词之间，用英文逗号隔开">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>简介</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[company_description]" id="description" value="{$post.company_description}"  placeholder="多关键词之间，用英文逗号隔开">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>数据来源</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[company_source_website]" id="source" value="{$post.company_source_website}"  placeholder="多关键词之间，用英文逗号隔开">
+                        </td>
+                    </tr>
+                    <!--<tr>
+                        <th>选择</th>
+                        <td>
+				<select class="form-control" id="sel" name="post[company_sel]" onchange='doit()' value="{$post.company_type}">
+                                <option value='none'>请选择</option>
+			        <option value='bigdata'>大数据</option>
+			        <option value='blockchain'>区块链</option>
+				<option value='insurance'>保险</option>
+			        </select> 
+                        </td>
+                    </tr>-->
+                </table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('EDIT')}</button>
+                        <a class="btn btn-default" href="{:url('Company/index')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-bordered">
+                    <tr>
+                        <th><b>Logo</b></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="text-align: center;">
+                                <input type="hidden" name="post[more][thumbnail]" id="thumbnail" value="">
+                                <a href="javascript:uploadOneImage('图片上传','#thumbnail');">
+                                    <img src="{$post.company_logo}"
+                                         id="thumbnail-preview"
+                                         width="135" style="cursor: pointer"/>
+                                </a>
+                                <input type="button" class="btn btn-sm btn-cancel-thumbnail" value="取消图片">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><b>更新时间</b></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="form-control js-bootstrap-datetime" type="text" name="post[create_time]"
+                                   value="{:date('Y-m-d H:i:s',time())}">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+
+<!--<div class="headtitle" id='finance'><h2>金融信息</h2></div>
+<foreach name="finance" item="vo">
+    <form  action="{:url('Company/editFinance',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr >
+                        <th>ID</th>
+                        <td>
+                            <input readonly class="form-control" type="text" name="finance[id]" id="year"   value="{$vo.id}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>年</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[year]" id="year"   value="{$vo.year}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>季度</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[quarter]" id="quarter" value="{$vo.quarter}"  placeholder="请输入">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>收入</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[earning]" id="earning" value="{$vo.earning}"  placeholder="请输入">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>支出</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[cost]" id="cost" value="{$vo.cost}"  placeholder="请输入">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>利润</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[profit]" id="profit" value="{$vo.profit}"  placeholder="请输入">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>源码</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[source]" id="sources" value="{$vo.source}"  placeholder="请输入">
+                        </td>
+                    </tr>
+		</table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('EDIT')}</button>
+                        <a class="btn btn-default" href="{:url('Company/index')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+	</div>
+    </form>
+</foreach>
+    <form  action="{:url('Company/editFinance',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>年</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[year]" id="year"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>季度</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[quarter]" id="quarter" value=""  placeholder="请输入">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>收入</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[enrning]" id="earning" value=""  placeholder="请输入">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>支出</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[cost]" id="cost" value=""  placeholder="请输入">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>利润</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[profit]" id="profit" value=""  placeholder="请输入">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>源码</th>
+                        <td>
+                            <input class="form-control" type="text" name="finance[source]" id="sources" value=""  placeholder="请输入">
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                        <a class="btn btn-default" href="{:url('Company/index')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+-->
+<div class="headtitle" id='team'><h2>管理团队</h2></div>
+<foreach name="team" item="vo">
+    <form action="{:url('Company/editTeam',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr style='display:none;' width='150'>
+                        <th>ID</th>
+                        <td>
+                            <input class="form-control" type="text" name="team[id]" id="year"   value="{$vo.id}" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width='150'>名字</th>
+                        <td>
+                            <input class="form-control" type="text" name="team[name]"
+                                   id="name"  value="{$vo.name}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width='150'>职位</th>
+                        <td>
+                            <input class="form-control" type="text" name="team[position]"   id="position"  value="{$vo.position}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width='150'>简历</th>
+                        <td>
+                            <input class="form-control" type="text" name="team[resume]"   id="resume"  value="{$vo.resume}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width='150'>描述</th>
+                        <td>
+                            <input class="form-control" type="text" name="team[description]"   id="des"  value="{$vo.description}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+		</table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('EDIT')}</button>
+                        <a class="btn btn-default" href="{:url('Company/index')}">{:lang('BACK')}</a>
+			<a class="btn btn-default js-ajax-delete" href="{:url('Company/deleteTeam',array('id'=>$vo.id,'id2'=>$id))}">{:lang('DELETE')}</a>
+                    </div>
+                </div>
+            </div>
+	</div>
+    </form>
+</foreach>
+    <form action="{:url('Company/editTeam',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width='150'>名字</th>
+                        <td>
+                            <input class="form-control" type="text" name="team[name]"
+                                   id="name"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>职位</th>
+                        <td>
+                            <input class="form-control" type="text" name="team[position]"   id="position"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>简历</th>
+                        <td>
+                            <input class="form-control" type="text" name="team[resume]"   id="resume"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>描述</th>
+                        <td>
+                            <input class="form-control" type="text" name="team[description]"   id="des"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+		</table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                        <a class="btn btn-default" href="{:url('Company/index')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+	</div>
+    </form>
+<!--
+<div class="headtitle" id="merge"><h2>并购信息</h2></div>
+<foreach name="merge" item="vo">
+    <form action="{:url('Company/editMerge',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th >ID</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[id]" id="year"   value="{$vo.id}" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>投资人</th>
+                        <td>
+                            <input class="form-control" type="text" style="width:400px;" value="{$vo.investorName}"placeholder="请选择分类" onclick="doSelectInvCategory(this);" id="js-categories-name-input"readonly/>
+                            <input class="form-control" type="hidden" value="{$vo.investorId}"
+                                   name="merge[investor_id]"
+                                   id="js-categories-id-input"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>购买人</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[buyer]"
+                                   id="buyer"  value="{$vo.buyer}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>轮</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[round]"
+                                   id="round"  value="{$vo.round}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>投资金额</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[money]"
+                                   id="money"  value="{$vo.money}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>评估</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[assessment]"
+     id="assess"  value="{$vo.assessment}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>时间</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[time]"id="time"  value="{$vo.time}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+		</table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('EDIT')}</button>
+                        <a class="btn btn-default" href="{:url('AdminArticle/index')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+	</div>
+    </form>
+</foreach>
+    <form action="{:url('Company/editMerge',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th >投资人</th>
+                        <td>
+                            <input class="form-control" type="text" style="width:400px;" value=""placeholder="请选
+择分类" onclick="doSelectInvCategory(this);" id="js-categories-name-input"readonly/>
+                            <input class="form-control" type="hidden" value=""
+                                   name="merge[investor_id]"
+                                   id="js-categories-id-input"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>购买人</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[buyer]"
+                                   id="buyer"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>轮</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[round]"
+                                   id="round"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>投资金额</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[money]"
+                                   id="money"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>评估</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[assess]"
+     id="assess"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>时间</th>
+                        <td>
+                            <input class="form-control" type="text" name="merge[time]"id="time"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+		</table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                        <a class="btn btn-default" href="{:url('AdminArticle/index')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+	</div>
+    </form>
+-->
+<div class="headtitle" id='raise'><h2>融资信息</h2></div>
+<foreach name="raise" item="vo">
+    <form action="{:url('Company/editRaise',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr style='display:none;'>
+                        <th >ID</th>
+                        <td>
+                            <input class="form-control" type="text" name="raise[id]" id="year"   value="{$vo.id}" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width='150'>投资人</th>
+                        <td>
+                            <input class="form-control" type="text" style="width:400px;" value="{$vo.investorName}"placeholder="请选择分类" onclick="doSelectInvCategory(this);" id="js-categories-name-input"readonly/>
+                            <input class="form-control" type="hidden" value="{$vo.investorId}"
+                                   name="raise[investor_id]"
+                                   id="js-categories-id-input"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>轮</th>
+                        <td>
+                            <input class="form-control" type="text" name="raise[round]"
+                                   id="round"  value="{$vo.round}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>投资金额</th>
+                        <td>
+                            <input class="form-control" type="text" name="raise[money]"
+                                   id="money"  value="{$vo.money}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>评估</th>
+                        <td>
+                            <input class="form-control" type="text" name="raise[assessment]"
+     id="assess"  value="{$vo.assessment}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>时间</th>
+                        <td>
+                            <input class="form-control" type="text" name="raise[time]"id="time"  value="{$vo.time}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+		</table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('EDIT')}</button>
+                        <a class="btn btn-default" href="{:url('AdminArticle/index')}">{:lang('BACK')}</a>
+			<a class="btn btn-default js-ajax-delete" href="{:url('Company/deleteRaise',array('id'=>$vo.id,'id2'=>$id))}">{:lang('DELETE')}</a>
+                    </div>
+                </div>
+            </div>
+	</div>
+    </form>
+</foreach>
+    <form action="{:url('Company/editRaise',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width='150'>投资人</th>
+                        <td>
+                            <input class="form-control" type="text" style="width:400px;" value=""placeholder="请选
+择分类" onclick="doSelectInvCategory(this);" id="js-categories-name-input"readonly/>
+                            <input class="form-control" type="hidden" value=""
+                                   name="raise[investor_id]"
+                                   id="js-categories-id-input"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>轮</th>
+                        <td>
+                            <input class="form-control" type="text" name="raise[round]"                                   id="round"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>投资金额</th>
+                        <td>
+                            <input class="form-control" type="text" name="raise[money]"
+                                   id="money"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>评估</th>
+                        <td>
+                            <input class="form-control" type="text" name="raise[assessment]"
+     id="assess"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>时间</th>
+                        <td>
+                            <input class="form-control" type="text" name="raise[time]"id="time"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+		</table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                        <a class="btn btn-default" href="{:url('AdminArticle/index')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+	</div>
+    </form>
+<div class="headtitle" id='product'><h2>产品与业务</h2></div>
+<foreach name="product" item="vo">
+    <form  action="{:url('Company/editProduct',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr style='display:none;'>
+                        <th>ID</th>
+                        <td>
+                            <input class="form-control" type="text" name="product[id]" readonly
+  id="id"  value="{$vo.id}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr style='display:none;'>
+                        <th width='150'>选择</th>
+                        <td>
+                                <input class="form-control"  name="product[company_sel]"  value="none">
+                                </input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width='150'>行业</th>
+                        <td>
+                            <input class="form-control" type="text" style="width:400px;"value="{$vo.productCategories}" placeholder="请选择分类" onclick="doSelectCategory(this,'radio');" id="js-categories-name-input" readonly/>
+                            <input class="form-control" type="hidden" value="{$vo.productCategoryIds}"
+                                   name="product[profession_classification_id]"
+                                   id="js-categories-id-input"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>客户类型</th>
+                        <td>
+                            <input class="form-control" type="text" name="product[customer_type]"
+  id="customertype"  value="{$vo.customer_type}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>产品服务</th>
+                        <td>
+                            <input class="form-control" type="text" name="product[product_service]"id="productser"  value="{$vo.product_service}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>业务地区</th>
+                        <td>
+                            <input class="form-control" type="text" name="product[business_district]"id="busdis"  value="{$vo.business_district}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>代表客户</th>
+                        <td>
+                            <input class="form-control" type="text" name="product[representative_customer]"id="custo"  value="{$vo.representative_customer}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+		</table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('Edit')}</button>
+                        <a class="btn btn-default" href="{:url('Company/index')}">{:lang('BACK')}</a>
+			<a class="btn btn-default js-ajax-delete" href="{:url('Company/deleteProduct',array('id'=>$vo.id,'id2'=>$id))}">{:lang('DELETE')}</a>
+                    </div>
+                </div>
+            </div>
+	</div>
+    </form>
+</foreach>
+<foreach name="bigdata" item="vo">
+    <form  action="{:url('Company/editProduct',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr style='display:none;'>
+                        <th>ID</th>
+                        <td>
+                            <input class="form-control" type="text" name="bigdata[big_data_corp_id]"readonly
+  id="id"  value="{$vo.big_data_corp_id}" placeholder="请输入标题"/>
+                        </td>
+                    <tr style='display:none;'>
+                        <th width='150'>选择</th>
+                        <td>
+                                <input class="form-control"  name="product[company_sel]" onchange='doit()' value="bigdata">
+                                </input>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th width='150'>类型</th>
+                        <td>
+                            <input class="form-control" type="text" name="bigdata[big_data_corp_type]" id="corptype"   value="{$vo.big_data_corp_type}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>领域</th>
+                        <td>
+                            <input class="form-control" type="text" name="bigdata[big_data_corp_field]" id="corpfield"   value="{$vo.big_data_corp_field}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+		</table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('Edit')}</button>
+                        <a class="btn btn-default" href="{:url('Company/index')}">{:lang('BACK')}</a>
+<a class="btn btn-default js-ajax-delete" href="{:url('Company/deleteBigdata',array('id'=>$vo.big_data_corp_id,'id2'=>$id))}">{:lang('DELETE')}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</foreach>
+<foreach name="ins" item="vo">
+    <form  action="{:url('Company/editProduct',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr style='display:none;'>
+                        <th>ID</th>
+                        <td>
+                            <input class="form-control" type="text" name="insurance[insurance_corp_id]" readonly
+  id="id"  value="{$vo.insurance_corp_id}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr style='display:none;'>
+                        <th width='150'>选择</th>
+                        <td>
+                                <input class="form-control"  name="product[company_sel]" onchange='doit()' value="insurance">
+                                </input>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th width='150'>顾客数目</th>
+                        <td>
+                            <input class="form-control" type="text" name="insurance[customer_number]" id="corpcustomre"   value="{$vo.customer_number}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th width='150'>保险数目</th>
+                        <td>
+                            <input class="form-control" type="text" name="insurance[insurance_number]" id="corpins"   value="{$vo.insurance_number}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <!--<tr >
+                        <th>技术描述</th>
+                        <td>
+                            <input class="form-control" type="text" name="insurance[tech_description]" id="corptech"   value="{$vo.tech_description}" placeholder="请输入"/>
+                        </td>
+                    </tr>-->
+                </table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('Edit')}</button>
+                        <a class="btn btn-default" href="{:url('Company/index')}">{:lang('BACK')}</a>
+<a class="btn btn-default js-ajax-delete" href="{:url('Company/deleteIns',array('id'=>$vo.insurance_corp_id,'id2'=>$id))}">{:lang('DELETE')}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</foreach>
+<foreach name="block" item="vo">
+    <form  action="{:url('Company/editProduct',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr style='display:none;'>
+                        <th>ID</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[blockchain_corp_id]" readonly
+  id="id"  value="{$vo.blockchain_corp_id}" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr style='display:none;'>
+                        <th width='150'>选择</th>
+                        <td>
+                                <input class="form-control"  name="product[company_sel]" onchange='doit()' value="blockchain">
+                                </input>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th width='150'>资产</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[corp_assessment]" id="corpassess"   value="{$vo.corp_assessment}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>技术特点</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[tech_characteristic]" id="corpcharac"   value="{$vo.tech_characteristic}" placeholder="请>输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>技术平台</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[tech_platform]" id="corpplat"   value="{$vo.tech_platform}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>可行性</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[tech_feasibility]" id="corpfeas"   value="{$vo.tech_feasibility}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>技术类型</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[tech_blockchain_type]" id="corptp"   value="{$vo.tech_blockchain_type}" placeholder="请输>入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>分析计划</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_plan]" id="corpap"   value="{$vo.analysis_plan}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>分析应用</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_application]" id="corpaapp"   value="{$vo.analysis_application}" placeholder="请>输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>竞争者</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_competitor]" id="corpcom"   value="{$vo.analysis_competitor}" placeholder="请输入
+"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>分析审计</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_audit]" id="corpaudit"   value="{$vo.analysis_audit}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>评估</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_evaluation]" id="corpeval"   value="{$vo.analysis_evaluation}" placeholder="请输>入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>利润模式</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_profit_model]" id="corpeprofitmodel"   value="{$vo.analysis_profit_model}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>合作模式</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_correlation]" id="corpcoop"   value="{$vo.analysis_correlation}" placeholder="请>输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>官方网站</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[official_website]" id="corpoffweb"   value="{$vo.official_website}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <th>数据源</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[data_source]" id="corpdatasource"   value="{$vo.data_source}" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('Edit')}</button>
+                        <a class="btn btn-default" href="{:url('Company/index')}">{:lang('BACK')}</a>
+<a class="btn btn-default js-ajax-delete" href="{:url('Company/deleteBlockchain',array('id'=>$vo.blockchain_corp_id,'id2'=>$id))}">{:lang('DELETE')}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</foreach>
+    <form  action="{:url('Company/editProduct',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+		    <tr>
+                        <th width='150'>选择</th>
+                        <td>
+                                <select class="form-control" id="sel" name="product[company_sel]" onchange='doit()' value="{$post.company_type}">
+                                <option value='none'>请选择</option>
+                                <option value='bigdata'>大数据</option>
+                                <option value='blockchain'>区块链</option>
+                                <option value='insurance'>保险</option>
+                                </select>
+                        </td>
+                    </tr>
+                    <tr class="none">
+                        <th >行业</th>
+                        <td>
+                            <input class="form-control" type="text" style="width:400px;" value=""placeholder="请选择分类" onclick="doSelectCategory(this,'radio');" id="js-categories-name-input"readonly/>
+                            <input class="form-control" type="hidden" value=""
+                                   name="product[profession_classification_id]"
+                                   id="js-categories-id-input"/>
+                        </td>
+                    </tr>
+                    <tr class="none">
+                        <th>客户类型</th>
+                        <td>
+                            <input class="form-control" type="text" name="product[customer_type]"
+  id="customertype"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr class="none">
+                        <th>产品服务</th>
+                        <td>
+                            <input class="form-control" type="text" name="product[product_service]"id="productser"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr class="none">
+                        <th>业务地区</th>
+                        <td>
+                            <input class="form-control" type="text" name="product[business_district]"id="busdis"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr class="none">
+                        <th>代表客户</th>
+                        <td>
+                            <input class="form-control" type="text" name="product[representative_customer]"id="custo"  value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+                    <tr class="bigdata">
+                        <th>类型</th>
+                        <td>
+                            <input class="form-control" type="text" name="bigdata[big_data_corp_type]" id="corptype"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="bigdata">
+                        <th>领域</th>
+                        <td>
+                            <input class="form-control" type="text" name="bigdata[big_data_corp_field]" id="corpfield"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="insurance">
+                        <th>顾客数目</th>
+                        <td>
+                            <input class="form-control" type="text" name="insurance[customer_number]" id="corpcustomre"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="insurance">
+                        <th>保险数目</th>
+                        <td>
+                            <input class="form-control" type="text" name="insurance[insurance_number]" id="corpins"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <!--<tr class="insurance">
+                        <th>技术描述</th>
+                        <td>
+                            <input class="form-control" type="text" name="insurance[tech_description]" id="corptech"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>-->
+                    <tr class="blockchain">
+                        <th>资产</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[corp_assessment]" id="corpassess"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>技术特点</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[tech_characteristic]" id="corpcharac"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>技术平台</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[tech_platform]" id="corpplat"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>可行性</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[tech_feasibility]" id="corpfeas"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>技术类型</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[tech_blockchain_type]" id="corptp"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>分析计划</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_plan]" id="corpap"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>分析应用</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_application]" id="corpaapp"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>竞争者</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_competitor]" id="corpcom"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>分析审计</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_audit]" id="corpaudit"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>评估</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_evaluation]" id="corpeval"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>利润模式</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_profit_model]" id="corpeprofitmodel"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>合作模式</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[analysis_correlation]" id="corpcoop"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>官方网站</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[official_website]" id="corpoffweb"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+                    <tr class="blockchain">
+                        <th>数据源</th>
+                        <td>
+                            <input class="form-control" type="text" name="blockchain[data_source]" id="corpdatasource"   value="" placeholder="请输入"/>
+                        </td>
+                    </tr>
+		</table>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                        <a class="btn btn-default" href="{:url('Company/index')}">{:lang('BACK')}</a>
+                    </div>
+                </div>
+            </div>
+	</div>
+    </form>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        //editorcontent = new baidu.editor.ui.Editor();
+        //editorcontent.render('content');
+        //try {
+        //    editorcontent.sync();
+        //} catch (err) {
+        //}
+
+        $('.btn-cancel-thumbnail').click(function () {
+            $('#thumbnail-preview').attr('src', '__TMPL__/public/assets/images/default-thumbnail.png');
+            $('#thumbnail').val('');
+        });
+    });
+
+    function doSelectCategory(obj,type) {
+        var selectedCategoriesId = $(obj).next().val();//$('#js-categories-id-input').val();
+        openIframeLayer("{:url('Company/select')}?types="+type+"&ids=" + selectedCategoriesId, '请选择分类', {
+            area: ['700px', '400px'],
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                //do something
+                var iframeWin          = window[layero.find('iframe')[0]['name']];
+                var selectedCategories = iframeWin.confirm();
+                if (selectedCategories.selectedCategoriesId.length == 0) {
+                    layer.msg('请选择分类');
+                    return;
+                }
+		$(obj).next().val(selectedCategories.selectedCategoriesId.join(','));
+                //$('#js-categories-id-input').val(selectedCategories.selectedCategoriesId.join(','));
+		$(obj).val(selectedCategories.selectedCategoriesName.join(' '));
+                //$('#js-categories-name-input').val(selectedCategories.selectedCategoriesName.join(' '));
+                console.log(layer.getFrameIndex(index));
+                layer.close(index); //如果>设定了yes回调>>，需进行手工关闭
+            }
+        });
+    }
+    function doSelectInvCategory(obj) {
+        var selectedCategoriesId = $(obj).next().val();//$('#js-categories-id-input').val();
+        openIframeLayer("{:url('Investor/select')}?ids=" + selectedCategoriesId, '请选择分类', {
+            area: ['700px', '400px'],
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                //do something
+                var iframeWin          = window[layero.find('iframe')[0]['name']];
+                var selectedCategories = iframeWin.confirm();
+                if (selectedCategories.selectedCategoriesId.length == 0) {
+                    layer.msg('请选择分类');
+                    return;
+                }
+		$(obj).next().val(selectedCategories.selectedCategoriesId.join(','));
+                //$('#js-categories-id-input').val(selectedCategories.selectedCategoriesId.join(','));
+		$(obj).val(selectedCategories.selectedCategoriesName.join(' '));
+                //$('#js-categories-name-input').val(selectedCategories.selectedCategoriesName.join(' '));
+                console.log(layer.getFrameIndex(index));
+                layer.close(index); //如果>设定了yes回调>>，需进行手工关闭
+            }
+        });
+    }
+    function doSelectInsCategory(obj) {
+	console.log('#js-ins-categories-id-input');
+        var selectedCategoriesId = $('#js-ins-categories-id-input').val();
+        openIframeLayer("{:url('Company/select')}?ids=" + selectedCategoriesId, '请选择分类', {
+            area: ['700px', '400px'],
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {
+               //do something
+
+                var iframeWin          = window[layero.find('iframe')[0]['name']];
+                var selectedCategories = iframeWin.confirm();
+                if (selectedCategories.selectedCategoriesId.length == 0) {
+                    layer.msg('请选择分类');
+                    return;
+                }
+                $('#js-ins-categories-id-input').val(selectedCategories.selectedCategoriesId.join(','));
+                $('#js-ins-categories-name-input').val(selectedCategories.selectedCategoriesName.join(' '));
+                //console.log(layer.getFrameIndex(index));
+                layer.close(index); //如果设定了yes回调>，需进行手工关闭
+            }
+        });
+    }
+</script>
+<script type="text/javascript"> 
+function show(objid){
+  var ob = document.getElementsByClassName(objid);
+  for (var i=0;i<ob.length;++i) {
+	ob[i].style.display='';
+  }
+  //$(objid).style.display='inline';
+} 
+function hidden(objid){
+  var ob = document.getElementsByClassName(objid);
+  for (var i=0;i<ob.length;++i) {
+     ob[i].style.display='none';
+  }
+  //$(objid).style.display='none';
+} 
+function doit(){ 
+  var sel_val=document.getElementById("sel").value; 
+  if(sel_val=='none'){
+    show('none');
+    hidden('bigdata');
+    hidden('blockchain');
+    hidden('insurance');
+  } 
+  if(sel_val=='bigdata'){
+    hidden('none');
+    show('bigdata');
+    hidden('blockchain');
+    hidden('insurance');
+  } 
+  if(sel_val=='blockchain'){
+    hidden('none');
+    hidden('bigdata');
+    show('blockchain');
+    hidden('insurance');
+  } 
+  if(sel_val=='insurance'){
+    hidden('none');
+    hidden('bigdata');
+    hidden('blockchain');
+    show('insurance');
+  } 
+} 
+function loadCity(rid){
+var arr = {:json_encode($district)};
+$("#id_citySelect").html("");
+$("#id_citySelect").append("<option value=''>请选择省份</option>");
+for (var k in arr){
+if (arr[k].id == rid){
+var child = arr[k].children;
+for (var z in child){
+$("#id_citySelect").append("<option value='"+child[z].id+"'>"+child[z].name+"</option>");
+}
+}
+}
+}
+
+function loadArea(rid){
+var arr = {:json_encode($district)};
+$("#id_areaSelect").html("");
+$("#id_areaSelect").append("<option value=''>请选择城市</option>");
+for (var k in arr){
+var child = arr[k].children;
+for (var z in child){
+if (child[z].id == rid){
+var child2 = child[z].children;
+for (var j in child2){
+$("#id_areaSelect").append("<option value='"+child2[j].id+"'>"+child2[j].name+"</option>");
+}
+}
+}
+}
+}
+
+function loadCountry(rid){
+var arr = {:json_encode($district)};
+$("#id_provSelect").html("");
+$("#id_provSelect").append("<option value=''>请选择国家</option>");
+for (var k in arr){
+        $("#id_provSelect").append("<option value='"+arr[k].id+"'>"+arr[k].name+"</option>");
+}
+}
+window.onload=function(){
+ show('none');
+ hidden('bigdata');
+ hidden('blockchain');
+ hidden('insurance');
+  //var sel=document.getElementById("sel");
+  //sel.onchange=doit();
+loadCountry({$post['provSelect']});
+$("#id_provSelect").val({$post['provSelect']});
+loadCity({$post['provSelect']});
+$("#id_citySelect").val({$post['citySelect']});
+loadArea({$post['citySelect']});
+$("#id_areaSelect").val({$post['areaSelect']});
+}
+function checkTel(tel)
+{
+   var mobile = /^1[3|5|8]\d{9}$/ , phone = /^0\d{2,3}-?\d{7,8}$/;
+   if (!(mobile.test(tel) || phone.test(tel))){
+        alert('请输入正确号码');
+   }
+   //return mobile.test(tel) || phone.test(tel);
+}
+</script> 
+</body>
+</html>
