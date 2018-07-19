@@ -1,0 +1,32 @@
+/*sidebar ----------------------------*/
+.sidebar {min-height: 1220px;float: left;width: 250px;background: url(../images/1405975_175937039_2.jpg);border-right: 1px #DDDDDD solid;}
+.sidebar ul {margin-top: 30px;}
+.sidebar li {list-style: none;padding: 10px;position: relative;}
+.sidebar a {text-decoration: none;color: #555;font: 14px Open Sans;text-transform: uppercase;position: relative;z-index: 1000;}
+.sidebar .hover {display: block;position: absolute;width: 0%;height: 40px;top: 0px;left: 0px;background: #439462;z-index: 0;opacity: 0;}
+.sidebar a:hover {color: #FFF;}
+.sidebar .fa-angle-right {position: absolute;left: 150px;top: 1px;}
+.sidebar .sub-menu {position: absolute;left: 210px;top: -30px;padding: 0px;width: 220px;display: none;background: url(../images/1405975_175937039_2.jpg);}
+.sidebar .sub-menu li a {padding-left: 20px;font-size: 13px;}
+.sidebar .sub-menu i {left: 180px;}
+.sidebar ul li:hover ul {display: block;}
+.sidebar .push {margin-right: 0px;}
+.sidebar h1 {color: #555;font: 16px Open Sans;padding-left: 50px;padding-top: 30px;}
+.color {color: #439462;}
+/*account ---------------------------*/
+.col-main .my-account {margin-left:10px;width: 1000px;}
+.page-title,.box-head {margin: 30px 0 25px;height: 35px;line-height: 35px;padding: 0px;border: none;border-bottom: 1px solid #ddd;}
+.page-title h1{float: left;text-transform: uppercase;font-size: 20px;font-weight: bold;}
+.welcome-msg,.box-content {padding-bottom: 12px;}
+.welcome-msg .hello {padding-bottom: 5px;}
+.welcome-msg a{color: black;float:right;text-decoration: underline;}
+.box-title {background-color: #7d7d7d;margin-bottom: 10px;padding: 3px 10px;position: relative;}
+.box-title h3 {color: white;display: inline;font-size: 14px;font-weight: bold;margin: 10px 0;position: relative;}
+.box-title a {color: white;float: right;text-decoration: underline;}
+.fieldset {background-color: #f5f4f4;padding: 22px 25px 12px 33px;margin:10px 0 10px 0;}
+.fieldset .legend {float: left;font-weight: bold;font-size: 13px;border: 1px solid #fefefe;background: #dedede;color: #333;margin: -33px 0 0 -10px;padding: 0 8px;position: relative;}
+.form-list label {float: left;color: #111;font-weight: bold;position: relative;z-index: 0;}
+.form-list label.required em {float: right;font-style: normal;color: #eb340a;position: absolute;top: 0;right: -8px;}
+.input-box {display: block;width: 260px;}
+.form-list input.input-text {width: 254px;}
+#form-validate {margin-bottom: 50px}
