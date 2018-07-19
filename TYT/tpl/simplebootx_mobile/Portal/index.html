@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>{$site_seo_title} {$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<tc_include file="Public:head" />
+		<link href="__TMPL__Public/css/slippry/slippry.css" rel="stylesheet">
+		<style>
+			.caption-wraper{position: absolute;left:50%;bottom:2em;}
+			.caption-wraper .caption{
+			position: relative;left:-50%;
+			background-color: rgba(0, 0, 0, 0.54);
+			padding: 0.4em 1em;
+			color:#fff;
+			-webkit-border-radius: 1.2em;
+			-moz-border-radius: 1.2em;
+			-ms-border-radius: 1.2em;
+			-o-border-radius: 1.2em;
+			border-radius: 1.2em;
+			}
+			@media (max-width: 767px){
+				.sy-box{margin: 12px -20px 0 -20px;}
+				.caption-wraper{left:0;bottom: 0.4em;}
+				.caption-wraper .caption{
+				left: 0;
+				padding: 0.2em 0.4em;
+				font-size: 0.92em;
+				-webkit-border-radius: 0;
+				-moz-border-radius: 0;
+				-ms-border-radius: 0;
+				-o-border-radius: 0;
+				border-radius: 0;}
+			}
+		</style>
+	</head>
+<body class="body-white">
+<tc_include file="Public:nav" />
+
+<php>
+$home_slides=sp_getslide("portal_index");
+
+$home_slides=empty($home_slides)?$default_home_slides:$home_slides;
+</php>
+<ul id="homeslider" class="unstyled">
+	<foreach name="home_slides" item="vo">
+	<li>
+		<div class="caption-wraper">
+			<div class="caption">{$vo.slide_name}</div>
+		</div>
+		<a href="{$vo.slide_url}"><img src="{:sp_get_asset_upload_path($vo['slide_pic'])}" alt=""></a>
+	</li>
+	</foreach>
+</ul>
+<div class="container">
+	
+	<div>
+		<h1 class="text-center">快速了解ThinkCMF</h1>
+		<h3 class="text-center">Quickly understand the ThinkCMF</h3>
+	</div>
+	<div class="span4 text-right-notice">
+	<?php
+		for ($i=0; $i < $falength; $i++) { 
+			print  "<div class='row'>";
+			print  "<h2 class='font-large nospace'><i class='fa fa-bars'></i>".$father[$i]['link_name']."</h2>";
+			print  "<div class='ranking'> <ul class='unstyled'>";
+			foreach ($sons[$i] as $key => $value) {
+				print  "<li class='top3'><i>".$key."</i><a href=".$value['link_url']." target=".$value['link_target'].">".$value['link_name']."</a></li>";
+			}
+			print  "</ul></div></div>";
+		}
+	?> 
+	</div>
+	
+	<div>
+		<h1 class="text-center">最新资讯</h1>
+		<h3 class="text-center">Last News</h3>
+	</div>
+	<div class="row">
+		<div class="span4 text-right-notice">
+			 <h2 class="font-large nospace"><i class="fa fa-bars"></i> 公告 <span><a href="{:leuu('list/index',array('id'=>$portal_index_notice))}">more</a></span></h2>
+	        	<div class="ranking">
+	        		<php>
+						$hot_articles=sp_sql_posts("cid:$portal_index_notice;field:post_title,post_excerpt,tid,smeta;order:post_hits desc;limit:9;"); 
+					</php>
+		        	<ul class="unstyled">
+		        		<foreach name="hot_articles" item="vo">
+		        			<php>$top=$key<3?"top3":"";</php>
+							<li class="{$top}"><i>{$key+1}</i><a title="{$vo.post_title}" href="{:leuu('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></li>
+						</foreach>
+					</ul>
+				</div>
+		</div>
+		<div class="span4 text-left-news">
+			 <h2 class="font-large nospace"><i class="fa fa-group"></i> 新闻 <span><a href="{:leuu('list/index',array('id'=>$portal_index_news))}">more</a></span></h2>
+			 <php>
+		$lastnews=sp_sql_posts("cid:$portal_index_news;field:post_title,post_excerpt,tid,smeta;order:listorder asc;limit:6;"); 
+	</php>
+	<div class="row">
+		<foreach name="lastnews" item="vo">
+		<php>$smeta=json_decode($vo['smeta'],true);</php>
+		<div class="span3">
+			<div class="tc-gridbox">
+				<div class="header">
+					<div class="item-image">
+						<a href="{:leuu('article/index',array('id'=>$vo['tid']))}">
+							<if condition="empty($smeta['thumb'])"> 
+								<img src="__TMPL__Public/images/default_tupian1.png" class="img-responsive" alt="{$vo.post_title}"/>
+							<else /> 
+								<img src="{:sp_get_asset_upload_path($smeta['thumb'])}" class="img-responsive img-thumbnail" alt="{$vo.post_title}" />
+							</if>
+						</a>
+					</div>
+					<h3><a href="{:leuu('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></h3>
+					<hr>
+				</div>
+				<div class="body">
+					<p><a href="{:leuu('article/index',array('id'=>$vo['tid']))}">{:msubstr($vo['post_excerpt'],0,32)}</a></p>
+				</div>
+			</div>
+		</div>
+		</foreach>
+	</div>
+		</div>
+	</div>
+	
+<tc_include file="Public:footer"/>
+</div>
+
+<tc_include file="Public:scripts"/>
+<script src="__TMPL__Public/js/slippry.min.js"></script>
+<script>
+$(function() {
+	var demo1 = $("#homeslider").slippry({
+		transition: 'fade',
+		useCSS: true,
+		captions: false,
+		speed: 1000,
+		pause: 3000,
+		auto: true,
+		preload: 'visible'
+	});
+});
+</script>
+{:hook('footer_end')}
+</body>
+</html>
