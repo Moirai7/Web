@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$category.name} {$category.seo_title} {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$category.seo_keywords},{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$category.seo_description},{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <hook name="before_head_end"/>
+</head>
+<body class="body-white">
+<include file="public@nav"/>
+<div class="container">
+    <php>$demo_time=2;</php>
+    <h2>{$category.name}</h2>
+    <div class="row">
+
+<div class="col-md-3">
+<php>$categoryId=7;</php>
+<portal:SubCategories categoryId="$categoryId" item="cate">
+<a class='myclass2' href="{:cmf_url('/portal/list/index',array('id'=>$cate.id))}">{$cate.name}</a><br>
+</portal:SubCategories>
+</div>
+<div class="col-md-9">
+<in name="$category.id" value="$categoryId">
+<p>北京师范大学全球公共管理与政策分析案例库是在北京师范大学研究生院的支持下建立的。学院老师精心研究自主开发完成了具有时效性、本土性和典型性的高品质教学案例。</p>
+<p>案例主要用于公共管理领域的教学、培训和研究，也可作为政府部门和机构的智库，服务于中国公共管理教育事业的发展。覆盖公共部门战略管理、公共政策、公共经济学、公共危机管理与决策、非营利与公共事业管理、国际事务和战略管理、廉政建设、领导行为与艺术、区域发展与城市治理、政府组织与管理等方向。根据北京市雾霾、西单拆迁、海底捞食品安全事件、罗尔事件等一系列深刻的现实时间而撰写的教学案例讲述着中国经济社会发展过程中面临的重大问题，同时选取新鲜生动的地方政府创新案例体现中国特色的发展道路，深入探索中国公共管理的最佳实践。</p>
+<p>该案例库数据库中的每一篇案例均由北京师范大学政府管理学院教师指导，硕士和博士研究生等专业的案例写作人员基于实地调研和各类参考文献开发写成，具有真实性、典型性和冲突性特点，经过北京师范大学政府管理学院教师长期实践证明，课堂教学效果非常显著，能够培养MPA学生在公共管理理论框架下分析、解决问题的能力，实现了理论与实践的有效结合。   </p>
+
+</in>
+
+<in name="$category.id" value="$categories">
+            <div class="">
+                <php>
+                    $where=[
+                    'post.create_time'=>['egt',0]
+                    ];
+                    $page=[
+                        'list_rows'=>10,
+                        'next'=>'下一页',
+                        'prev'=>'上一页'
+                    ];
+                </php>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="50">ID</th>
+                <th width="300">标题</th>
+                <th width="160">指导老师</th>
+                <th width="160">案例编号</th>
+                <th width="200">发布时间</th>
+		<th width="100">下载</th>
+		</tr>
+            </thead>
+                <portal:articles item="vo" where="$where" order="post.create_time DESC" page="$page"
+                                 relation="categories"
+                                 categoryIds="$category.id"
+                                 returnVarName="articles_data">
+			<td><b>{$vo.id}</b></td>
+			<td>
+                        <notempty name="category">
+                            <a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$vo['category_id']))}"
+                               target="_blank">{$vo.post_title}</a>
+                            <else/>
+                            <a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}"
+                               target="_blank">{$vo.post_title}</a>
+                        </notempty>
+                    </td>
+                    <td>
+                        <notempty name="vo.post_excerpt">
+                            {$vo.post_excerpt}
+                            <else/>
+                            <i class="fa fa-close fa-fw"></i>
+                        </notempty>
+                    </td>
+                    <td>
+                        <notempty name="vo.post_source">
+                                {$vo.post_source}
+                            <else/>
+                            <i class="fa fa-close fa-fw"></i>
+                        </notempty>
+
+                    </td>
+                    <td>
+                        <empty name="vo.published_time">
+                            未发布
+                            <else/>
+                            {:date('Y-m-d',$vo['published_time'])}
+                        </empty>
+
+                    </td>
+			<td>
+                            <a class="btn btn-warning btn-sm "
+                               href="{:cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$vo['category_id']))}">查看更多</a>
+                        </td>
+		</tr>
+                </portal:articles>
+</table>
+            </div>
+            <ul class="pagination">
+                <page/>
+            </ul>
+</in>
+</div>
+</div>
+	<div class='row'>
+        <div class="col-md-3">
+
+            <widget name="hottest_articles">
+                <div class="tc-box">
+                    <div class="headtitle">
+                        <h2>{$widget.title}</h2>
+                    </div>
+                    <div class="ranking">
+                        <php>
+                            $hot_articles=[];
+                        </php>
+                        <ul class="list-unstyled">
+                            <portal:articles limit="5" order="post.post_hits DESC"
+                                             categoryIds="$widget.vars.hottest_articles_category_id">
+                                <php>$top=$key<3?"top3":"";</php>
+                                <li class="{$top}">
+                                    <i>{$key+1}</i>
+                                    <a title="{$vo.post_title}"
+                                       href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">
+                                        {$vo.post_title}
+                                    </a>
+                                </li>
+                            </portal:articles>
+                        </ul>
+                    </div>
+                </div>
+            </widget>
+</div>
+<div class="col-md-3">
+<widget name="last_articles">
+                <div class="tc-box">
+                    <div class="headtitle">
+                        <h2>{$widget.title}</h2>
+                    </div>
+                    <div class="posts">
+                                <div class="ranking">
+                        <php>
+                            $hot_articles=[];
+                        </php>
+                        <ul class="list-unstyled">
+                            <portal:articles limit="5" order="post.post_hits DESC"
+                                             categoryIds="$widget.vars.last_articles_category_id">
+                                <php>$top=$key<3?"top3":"";</php>
+                                <li class="{$top}">
+                                    <i>{$key+1}</i>
+                                    <a title="{$vo.post_title}"
+                                       href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">
+                                        {$vo.post_title}
+                                    </a>
+                                </li>
+                            </portal:articles>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </widget>
+
+
+        </div>
+<div class='col-md-3'>
+<widget name="hotest_articles">
+                <div class="tc-box">
+		<div class="headtitle">
+		<h2>{$widget.title}</h2>
+                </div>
+                    <div class="posts">
+                                <div class="ranking">
+                        <php>
+                            $hot_articles=[];
+                        </php>
+                        <ul class="list-unstyled">
+                            <portal:articles limit="5" order="post.post_hits DESC"
+                                             categoryIds="$widget.vars.hotest_articles_category_id">
+                                <php>$top=$key<3?"top3":"";</php>
+                                <li class="{$top}">
+                                    <i>{$key+1}</i>
+                                    <a title="{$vo.post_title}"
+                                       href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">
+                                        {$vo.post_title}
+                                    </a>
+                                </li>
+                            </portal:articles>
+                        </ul>
+                    </div>
+		</div>
+</div>
+    </widget>
+    </div>
+</div>
+    <include file="public@footer"/>
+</div>
+
+<include file="public@scripts"/>
+<hook name="before_body_end"/>
+</body>
+</html>

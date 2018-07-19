@@ -1,0 +1,126 @@
+{
+    "name": "首页",
+    "action": "portal/Index/index",
+    "description": "首页模板文件",
+    "order": 5.0,
+    "more": {
+        "vars": {
+            "top_slide": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets": {
+            "last_news": {
+                "title": "最新资讯",
+                "display": "1",
+                "vars": {
+                    "last_news_category_id": {
+                        "title": "文章分类ID",
+                        "value": "10",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+	    "cate_articles": {
+                "title": "活动通知",
+                "display": "8",
+                "vars": {
+                    "cate_articles_category_id": {
+                        "title": "文章分类ID",
+                        "value": "9",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "dium_articles": {
+                "title": "动态信息",
+                "display": "8",
+                "vars": {
+                    "dium_articles_category_id": {
+                        "title": "文章分类ID",
+                        "value": "9",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "share_articles": {
+                "title": "资源共享",
+                "display": "8",
+                "vars": {
+                    "share_articles_category_id": {
+                        "title": "文章分类ID",
+                        "value": "9",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "hotest_articles": {
+                "title": "热门案例",
+                "display": "8",
+                "vars": {
+                    "hotest_articles_category_id": {
+                        "title": "文章分类ID",
+                        "value": "9",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            }
+	}
+    }
+}
